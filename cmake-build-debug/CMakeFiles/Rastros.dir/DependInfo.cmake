@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/camada_dados.c" "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/camada_dados.c.obj"
-  "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/rastros.c" "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/rastros.c.obj"
+  "C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.c" "C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/camada_dados.c.obj"
+  "C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/rastros.c" "C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/rastros.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
