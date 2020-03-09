@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.c
+camada_dados.h
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
+
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
+
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/main.c
+stdio.h
+-
+
