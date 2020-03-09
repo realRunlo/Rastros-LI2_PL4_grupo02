@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Rastros.dir/camada_dados.c.obj"
-  "CMakeFiles/Rastros.dir/main.c.obj"
-  "Rastros.exe"
-  "Rastros.exe.manifest"
+  "CMakeFiles/Rastros.dir/camada_dados.c.o"
+  "CMakeFiles/Rastros.dir/rastros.c.o"
+  "Rastros"
   "Rastros.pdb"
-  "libRastros.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
