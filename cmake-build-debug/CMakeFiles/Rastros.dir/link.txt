@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Rastros.dir/main.c.o CMakeFiles/Rastros.dir/Camadadedados.c.o  -o Rastros 
