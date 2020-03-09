@@ -82,6 +82,12 @@
 		<Unit filename="C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h">
 			<Option target="Rastros"/>
 		</Unit>
+		<Unit filename="C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/interpretador.c">
+			<Option target="Rastros"/>
+		</Unit>
+		<Unit filename="C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/interpretador.h">
+			<Option target="Rastros"/>
+		</Unit>
 		<Unit filename="C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/rastros.c">
 			<Option target="Rastros"/>
 		</Unit>

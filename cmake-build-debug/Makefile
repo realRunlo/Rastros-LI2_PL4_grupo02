@@ -149,6 +149,33 @@ camada_dados.c.s:
 	$(MAKE) -f CMakeFiles\Rastros.dir\build.make CMakeFiles/Rastros.dir/camada_dados.c.s
 .PHONY : camada_dados.c.s
 
+interpretador.obj: interpretador.c.obj
+
+.PHONY : interpretador.obj
+
+# target to build an object file
+interpretador.c.obj:
+	$(MAKE) -f CMakeFiles\Rastros.dir\build.make CMakeFiles/Rastros.dir/interpretador.c.obj
+.PHONY : interpretador.c.obj
+
+interpretador.i: interpretador.c.i
+
+.PHONY : interpretador.i
+
+# target to preprocess a source file
+interpretador.c.i:
+	$(MAKE) -f CMakeFiles\Rastros.dir\build.make CMakeFiles/Rastros.dir/interpretador.c.i
+.PHONY : interpretador.c.i
+
+interpretador.s: interpretador.c.s
+
+.PHONY : interpretador.s
+
+# target to generate assembly for a file
+interpretador.c.s:
+	$(MAKE) -f CMakeFiles\Rastros.dir\build.make CMakeFiles/Rastros.dir/interpretador.c.s
+.PHONY : interpretador.c.s
+
 rastros.obj: rastros.c.obj
 
 .PHONY : rastros.obj
@@ -188,6 +215,9 @@ help:
 	@echo ... camada_dados.obj
 	@echo ... camada_dados.i
 	@echo ... camada_dados.s
+	@echo ... interpretador.obj
+	@echo ... interpretador.i
+	@echo ... interpretador.s
 	@echo ... rastros.obj
 	@echo ... rastros.i
 	@echo ... rastros.s

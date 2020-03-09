@@ -2,22 +2,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include "camada_dados.h"
-
+#include "interpretador.h"
 
 
 int main() {
-    printf("o pedro n sabe nada!...\n");
-    ESTADO e;
-    for(int l = 0; l < 8; l++){
-        for(int c = 0; c < 8; c++){
-            e.tab[l][c] = VAZIO;
-        }
-    }
-    e.tab[3][4] = BRANCA;
-    e.jogadas->jogador1.coluna = 5;
-    e.jogadas->jogador1.linha  = 5;
-    e.num_jogadas = 0;
-    e.jogador_atual = 1;
+    printf("PRONTOS PARA COMECAR O JOGO?\n");
+    ESTADO *e = inicializar_estado();
     desenha_tabuleiro(e);
-    printf("o pedro n sabe nada!...\n");
+    interpretador(e);
+    printf("JOGO TERMINADO\n");
 }

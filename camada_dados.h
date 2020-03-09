@@ -27,6 +27,7 @@ typedef struct{
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void desenha_tabuleiro(ESTADO e); // funcao que desenha o tabuleiro com o estado atual do jogo
+void desenha_tabuleiro(ESTADO *e); // funcao que desenha o tabuleiro com o estado atual do jogo
 
+ESTADO *inicializar_estado(); // funcao que da o estado inicial do jogo
 #endif //___CAMADADEDADOS_H__

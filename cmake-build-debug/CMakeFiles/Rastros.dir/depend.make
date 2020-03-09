@@ -4,6 +4,9 @@
 CMakeFiles/Rastros.dir/camada_dados.c.obj: ../camada_dados.c
 CMakeFiles/Rastros.dir/camada_dados.c.obj: ../camada_dados.h
 
+CMakeFiles/Rastros.dir/interpretador.c.obj: ../camada_dados.h
+CMakeFiles/Rastros.dir/interpretador.c.obj: ../interpretador.c
+
 CMakeFiles/Rastros.dir/rastros.c.obj: ../camada_dados.h
 CMakeFiles/Rastros.dir/rastros.c.obj: ../rastros.c
 
