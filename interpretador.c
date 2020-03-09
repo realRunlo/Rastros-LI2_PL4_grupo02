@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define BUF_SIZE 1024
 #include "camada_dados.h"
+#include "lógica.h"
 
 // Funcao que desenha o tabuleiro
 void desenha_tabuleiro(ESTADO *e){
@@ -43,13 +45,6 @@ int interpretador(ESTADO *e) {
 // ////////////////////////////////////////////////////////////////////////////
 
 
-// Função que deve ser colocada no ficheiro main.c
-int main()
-{
-    ESTADO *e = inicializar_estado();
-    interpretador(e);
-    return 0;
-}
 
 
 
