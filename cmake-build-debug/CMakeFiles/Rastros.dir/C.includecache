@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/runlo/LI2/Rastros/camada_dados.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-camada_dados.h
-/home/runlo/LI2/Rastros/camada_dados.h
-
 /home/runlo/LI2/Rastros/camada_dados.h
 
 /home/runlo/LI2/Rastros/interpretador.c
@@ -30,27 +20,5 @@ camada_dados.h
 logica.h
 /home/runlo/LI2/Rastros/logica.h
 
-/home/runlo/LI2/Rastros/interpretador.h
-
-/home/runlo/LI2/Rastros/logica.c
-stdio.h
--
-camada_dados.h
-/home/runlo/LI2/Rastros/camada_dados.h
-
-/home/runlo/LI2/Rastros/logica.h
-
-/home/runlo/LI2/Rastros/rastros.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-camada_dados.h
-/home/runlo/LI2/Rastros/camada_dados.h
-interpretador.h
-/home/runlo/LI2/Rastros/interpretador.h
-logica.h
 /home/runlo/LI2/Rastros/logica.h
 
