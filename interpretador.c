@@ -31,7 +31,7 @@ void desenha_tabuleiro(ESTADO *e){
 
 
 // Função que deve ser completada e colocada na camada de interface
-int interpretador(ESTADO *e) {
+int interpretador(ESTADO *e){
     while(jogada_possivel(e) != 0) {
         char linha[BUF_SIZE];
         char col[2], lin[2];
