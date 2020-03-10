@@ -1,0 +1,3 @@
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/edit_cache.dir

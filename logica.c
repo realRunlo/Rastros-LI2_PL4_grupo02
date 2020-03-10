@@ -10,7 +10,7 @@ falta validar a jogada
 alterar a posição anterior para PRETA*/
 
 int jogar(ESTADO *e, COORDENADA c){
-    printf("jogar %d %d\n", c.coluna, c.linha);
+    printf("jogar %d %d\n", c.coluna + 1, c.linha + 1);
     e->tab[7 - c.linha][c.coluna]=BRANCA;  //altera para a nova posição
     e->ultima_jogada.coluna=c.coluna;
     e->ultima_jogada.linha=c.linha;
@@ -33,13 +33,19 @@ int jogada_possivel(ESTADO *e){
     if (e->jogador_atual == 1){
         int c = e->jogadas->jogador1.coluna;
         int l = e->jogadas->jogador1.linha;
-        if (e->tab[l + 1][c] == VAZIO || e->tab[l - 1][c] == VAZIO || e->tab[l][c + 1] == VAZIO || e->tab[l][c - 1] == VAZIO || e->tab[l + 1][c + 1] == VAZIO || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO) return 1;
+        if ((e->tab[l + 1][c] == VAZIO     || e->tab[l - 1][c] == VAZIO     || e->tab[l][c + 1] == VAZIO     || e->tab[l][c - 1] == VAZIO ||
+            e->tab[l + 1][c + 1] == VAZIO  || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO)
+            && (l != 0 && c != 0) && (l != 7 && c != 7))
+            return 1;
         else return 0;
     }
     else {
         int c = e->jogadas->jogador2.coluna;
         int l = e->jogadas->jogador2.linha;
-        if (e->tab[l + 1][c] == VAZIO || e->tab[l - 1][c] == VAZIO || e->tab[l][c + 1] == VAZIO || e->tab[l][c - 1] == VAZIO || e->tab[l + 1][c + 1] == VAZIO || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO) return 1;
+        if ((e->tab[l + 1][c] == VAZIO     || e->tab[l - 1][c] == VAZIO     || e->tab[l][c + 1] == VAZIO     || e->tab[l][c - 1] == VAZIO ||
+             e->tab[l + 1][c + 1] == VAZIO  || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO)
+             && (l != 0 && c != 0) && (l != 7 && c != 7))
+            return 1;
         else return 0;
     }
 }
