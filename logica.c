@@ -33,13 +33,15 @@ int jogada_possivel(ESTADO *e){
     if (e->jogador_atual == 1){
         int c = e->jogadas->jogador1.coluna;
         int l = e->jogadas->jogador1.linha;
-        if (e->tab[l + 1][c] == VAZIO || e->tab[l - 1][c] == VAZIO || e->tab[l][c + 1] == VAZIO || e->tab[l][c - 1] == VAZIO || e->tab[l + 1][c + 1] == VAZIO || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO) return 1;
+        if (e->tab[l + 1][c] == VAZIO || e->tab[l - 1][c] == VAZIO || e->tab[l][c + 1] == VAZIO || e->tab[l][c - 1] == VAZIO ||
+            e->tab[l + 1][c + 1] == VAZIO || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO) return 1;
         else return 0;
     }
     else {
         int c = e->jogadas->jogador2.coluna;
         int l = e->jogadas->jogador2.linha;
-        if (e->tab[l + 1][c] == VAZIO || e->tab[l - 1][c] == VAZIO || e->tab[l][c + 1] == VAZIO || e->tab[l][c - 1] == VAZIO || e->tab[l + 1][c + 1] == VAZIO || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO) return 1;
+        if (e->tab[l + 1][c] == VAZIO || e->tab[l - 1][c] == VAZIO || e->tab[l][c + 1] == VAZIO || e->tab[l][c - 1] == VAZIO ||
+            e->tab[l + 1][c + 1] == VAZIO || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO) return 1;
         else return 0;
     }
 }
