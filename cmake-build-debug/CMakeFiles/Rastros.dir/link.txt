@@ -1,3 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2019.3.3\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\Rastros.dir/objects.a
-D:\8.6.5\mingw\bin\ar.exe cr CMakeFiles\Rastros.dir/objects.a @CMakeFiles\Rastros.dir\objects1.rsp
-D:\8.6.5\mingw\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\Rastros.dir/objects.a -Wl,--no-whole-archive  -o Rastros.exe -Wl,--out-implib,libRastros.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Rastros.dir\linklibs.rsp
