@@ -6,7 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/runlo/LI2/Rastros/camada_dados.c
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
+
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/interpretador.c
 stdio.h
 -
 stdlib.h
@@ -14,7 +16,25 @@ stdlib.h
 string.h
 -
 camada_dados.h
-/home/runlo/LI2/Rastros/camada_dados.h
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
+logica.h
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/logica.h
 
-/home/runlo/LI2/Rastros/camada_dados.h
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/interpretador.h
+
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/logica.h
+
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/rastros.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+camada_dados.h
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
+interpretador.h
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/interpretador.h
+logica.h
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/logica.h
 

@@ -6,7 +6,7 @@
 #include <string.h>
 #define BUF_SIZE 1024
 #include "camada_dados.h"
-#include "lógica.h"
+#include "logica.h"
 
 // Funcao que desenha o tabuleiro
 void desenha_tabuleiro(ESTADO *e){

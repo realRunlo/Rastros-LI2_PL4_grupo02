@@ -3,7 +3,7 @@
 #include <string.h>
 #include "camada_dados.h"
 #include "interpretador.h"
-#include "lógica.h"
+#include "logica.h"
 
 
 int main() {
