@@ -15,14 +15,14 @@
 // Função que deve ser completada e colocada na camada de dados
 ESTADO *inicializar_estado() {
     ESTADO *e = (ESTADO *) malloc(sizeof(ESTADO));
-    for(int l = 0; l < 8; l++){
+    for(int l = 7; l >= 0; l--){
         for(int c = 0; c < 8; c++){
             e->tab[l][c] = VAZIO;
         }
     }
-    e->tab[3][4] = BRANCA;
-    e->jogadas->jogador1.coluna = 5;
-    e->jogadas->jogador1.linha  = 5;
+    e->tab[4][4] = BRANCA;
+    e->jogadas->jogador1.coluna = 4;
+    e->jogadas->jogador1.linha  = 4;
     e->jogador_atual = 1;
     e->num_jogadas = 0;
 // Falta a resto da inicialização.
