@@ -12,6 +12,7 @@
 void desenha_tabuleiro(ESTADO *e){
     printf ("A B C D E F G H");
     for(int l = 0; l < 8; l++){
+    for(int l = 0; l < 8; l++){
         for(int c = 0; c < 8; c++) {
             if (e->tab[l][c] == BRANCA) printf("*");
             else if (c == 0 && l == 7) printf("1");
