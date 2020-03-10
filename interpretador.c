@@ -13,7 +13,7 @@ void desenha_tabuleiro(ESTADO *e){
     printf ("   A B C D E F G H\n");
     printf ("   _ _ _ _ _ _ _ _\n");
     for(int l = 7; l >= 0; l--){
-        printf("%d| ", l + 1);
+        printf("%d| ", l+1 );  //depois por (l+1)
         for(int c = 0; c < 8; c++) {
             if (e->tab[l][c] == BRANCA) printf("* ");
             else if (c == 0 && l == 0) printf("1 ");
@@ -32,7 +32,7 @@ void desenha_tabuleiro(ESTADO *e){
 
 // Função que deve ser completada e colocada na camada de interface
 int interpretador(ESTADO *e) {
-    while(jogada_possivel(e) != 0) {
+
         char linha[BUF_SIZE];
         char col[2], lin[2];
         if (fgets(linha, BUF_SIZE, stdin) == NULL)
@@ -42,7 +42,7 @@ int interpretador(ESTADO *e) {
             jogar(e, coord);
             desenha_tabuleiro(e);
         }
-    }
+
     return 1;
 }
 
