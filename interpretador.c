@@ -10,14 +10,16 @@
 
 // Funcao que desenha o tabuleiro
 void desenha_tabuleiro(ESTADO *e){
-    printf ("A B C D E F G H");
+    printf ("   A B C D E F G H\n");
+    printf ("   _ _ _ _ _ _ _ _\n");
     for(int l = 0; l < 8; l++){
+        printf("%d| ", 8 - l);
         for(int c = 0; c < 8; c++) {
-            if (e->tab[l][c] == BRANCA) printf("*");
-            else if (c == 0 && l == 7) printf("1");
-            else if (c == 7 && l == 0) printf("2");
-            else if (e->tab[l][c] == PRETA) printf("#");
-            else printf(".");
+            if (e->tab[l][c] == BRANCA) printf("* ");
+            else if (c == 0 && l == 7) printf("1 ");
+            else if (c == 7 && l == 0) printf("2 ");
+            else if (e->tab[l][c] == PRETA) printf("# ");
+            else printf(". ");
         }
         printf("\n");
     }
