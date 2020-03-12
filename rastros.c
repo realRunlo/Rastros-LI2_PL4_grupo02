@@ -10,11 +10,9 @@ int main() {
     printf("PRONTOS PARA COMECAR O JOGO?\n");
 
     ESTADO *e = inicializar_estado();
-    int x=jogada_possivel(e);
     desenha_tabuleiro(e);
-    while(x == 1) {         //ciclo está a quebrar na segunda jogada
+    while(jogada_possivel(e) == 1) {
         interpretador(e);
-        x=jogada_possivel(e);
     }
 
     printf("JOGO TERMINADO\n");

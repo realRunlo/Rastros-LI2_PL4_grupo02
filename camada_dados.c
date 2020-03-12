@@ -21,6 +21,8 @@ ESTADO *inicializar_estado() {
         }
     }
     e->tab[4][4] = BRANCA;
+    e->ultima_jogada.coluna=4;
+    e->ultima_jogada.linha=4;
     e->jogadas->jogador1.coluna = 4;
     e->jogadas->jogador1.linha  = 4;
     e->jogador_atual = 1;
