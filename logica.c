@@ -2,6 +2,7 @@
 // Created by runlo on 09/03/20.
 //
 #include <stdio.h>
+#include <stdlib.h>
 #include "camada_dados.h"
 
 /*Função que deve ser completada
@@ -53,4 +54,17 @@ int jogada_possivel(ESTADO *e){
         else
             return 0;
     }
+}
+
+
+int jogada_valida(ESTADO *e,COORDENADA c){
+    int cAnt = e->ultima_jogada.coluna;
+    int lAnt = e->ultima_jogada.linha;
+    int cJog = c.coluna;
+    int lJog = c.linha;
+    if(abs(cJog-cAnt)>1 || abs(lJog-lAnt)>1 || (e->tab[lJog][cJog])==PRETA)
+        return 0;
+
+    return 1;
+
 }

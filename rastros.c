@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "camada_dados.h"
-#include "interpretador.h"
+#include "interface.h"
 #include "logica.h"
 
 
@@ -11,9 +11,8 @@ int main() {
 
     ESTADO *e = inicializar_estado();
     desenha_tabuleiro(e);
-    while(jogada_possivel(e) == 1) {
-        interpretador(e);
-    }
+    interpretador(e);
+
 
     printf("JOGO TERMINADO\n");
 }

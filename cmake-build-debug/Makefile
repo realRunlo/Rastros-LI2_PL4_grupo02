@@ -150,32 +150,32 @@ camada_dados.c.s:
 	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/camada_dados.c.s
 .PHONY : camada_dados.c.s
 
-interpretador.o: interpretador.c.o
+interface.o: interface.c.o
 
-.PHONY : interpretador.o
+.PHONY : interface.o
 
 # target to build an object file
-interpretador.c.o:
-	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/interpretador.c.o
-.PHONY : interpretador.c.o
+interface.c.o:
+	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/interface.c.o
+.PHONY : interface.c.o
 
-interpretador.i: interpretador.c.i
+interface.i: interface.c.i
 
-.PHONY : interpretador.i
+.PHONY : interface.i
 
 # target to preprocess a source file
-interpretador.c.i:
-	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/interpretador.c.i
-.PHONY : interpretador.c.i
+interface.c.i:
+	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/interface.c.i
+.PHONY : interface.c.i
 
-interpretador.s: interpretador.c.s
+interface.s: interface.c.s
 
-.PHONY : interpretador.s
+.PHONY : interface.s
 
 # target to generate assembly for a file
-interpretador.c.s:
-	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/interpretador.c.s
-.PHONY : interpretador.c.s
+interface.c.s:
+	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/interface.c.s
+.PHONY : interface.c.s
 
 logica.o: logica.c.o
 
@@ -243,9 +243,9 @@ help:
 	@echo "... camada_dados.o"
 	@echo "... camada_dados.i"
 	@echo "... camada_dados.s"
-	@echo "... interpretador.o"
-	@echo "... interpretador.i"
-	@echo "... interpretador.s"
+	@echo "... interface.o"
+	@echo "... interface.i"
+	@echo "... interface.s"
 	@echo "... logica.o"
 	@echo "... logica.i"
 	@echo "... logica.s"
