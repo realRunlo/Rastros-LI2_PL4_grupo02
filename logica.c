@@ -14,16 +14,16 @@ int jogar(ESTADO *e, COORDENADA c){
 
 
     if(e->jogador_atual==1){
-        e->jogadas[e->num_jogadas].jogador1.coluna=c.coluna;  //não sei se é suposto ser array, é preciso ver como se atualiza o o campo jogadas do estado
+        e->jogadas[e->num_jogadas].jogador1.coluna=c.coluna;
         e->jogadas[e->num_jogadas].jogador1.linha=c.linha;
         e->jogador_atual=2;
-        e->num_jogadas++;
+
     }else{
-        e->jogadas[e->num_jogadas].jogador2.coluna=c.coluna;  //não sei se é suposto ser array
+        e->jogadas[e->num_jogadas].jogador2.coluna=c.coluna;
         e->jogadas[e->num_jogadas].jogador2.linha=c.linha;
         e->jogador_atual=1;
-        e->num_jogadas++;
     }
+    e->num_jogadas++;
     e->ultima_jogada.coluna=c.coluna;
     e->ultima_jogada.linha=c.linha;
     return 1;
@@ -35,22 +35,11 @@ int espaco_vazio(ESTADO *e){    //verifica de há casas disponiveis para jogar
     if ((e->tab[l + 1][c] == VAZIO     || e->tab[l - 1][c] == VAZIO     || e->tab[l][c + 1] == VAZIO     || e->tab[l][c - 1] == VAZIO ||
          e->tab[l + 1][c + 1] == VAZIO  || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO))
          return 1;
-    return 0;
-}
+    else {
+        printf("Jogador %d bloqueado!Perdeu\n",e->jogador_atual);
+        return 0;
+    }
 
-int espaco_preto(ESTADO *e){   //verifica se está preso ou não
-    int c = e->ultima_jogada.coluna;
-    int l = e->ultima_jogada.linha;
-    if((e->tab[l + 1][c] == PRETA  && e->tab[l - 1][c] == PRETA  && e->tab[l][c + 1] == PRETA   && e->tab[l][c - 1] == PRETA &&
-         e->tab[l + 1][c + 1] == PRETA  && e->tab[l + 1][c - 1] == PRETA && e->tab[l - 1][c + 1] == PRETA && e->tab[l - 1][c - 1] == PRETA)){
-
-            printf("Jogador %d bloqueado!Perdeu\n",e->jogador_atual);
-            return 0; // se estiver rodeada por pretas retorna 0
-
-        }
-
-
-    return 1;
 }
 
 int espaco_vitoria(ESTADO *e){  //verifica se está numa casa de vitória e felicita o repetivo jogador pela vitória
@@ -71,7 +60,7 @@ int espaco_vitoria(ESTADO *e){  //verifica se está numa casa de vitória e feli
 
 int jogada_possivel(ESTADO *e){
 
-    if(espaco_preto(e) && espaco_vazio(e)  && espaco_vitoria(e))
+    if(espaco_vazio(e)  && espaco_vitoria(e))
         return 1;
     return 0;
 

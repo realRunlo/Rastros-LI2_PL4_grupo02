@@ -40,22 +40,20 @@ int interpretador(ESTADO *e) {
             return 0;
         if (strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
             COORDENADA coord = {*col - 'a', *lin - '1'};
-            while (jogada_valida(e, coord) == 0) {
-                printf("Faça uma jogada válida pf\n");       //enquanto a jogada não for válida pede por uma jogada válida
+            if(jogada_valida(e, coord) == 1) {
+                jogar(e, coord);
+                desenha_tabuleiro(e);
+            }else{
+                printf("Faça uma jogada válida pf\n");       //se a jogada não for válida pede por uma jogada válida
                 interpretador(e);
             }
-            jogar(e, coord);
 
-
-            desenha_tabuleiro(e);
         }
     }
     return 1;
 
 }
 // ////////////////////////////////////////////////////////////////////////////
-
-
 
 
 
@@ -74,12 +72,11 @@ char converte_numero(int x){
 }
 
 void lista_movimentos(ESTADO *e){
-    int j=0;
     printf("\n");
 
     for(int i=01;i<=e->num_jogadas;i++){
         printf("%d:",i);
-        for(j;j<2;j++){
+        for(int j=0;j<2;j++){
 
             printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
         }
