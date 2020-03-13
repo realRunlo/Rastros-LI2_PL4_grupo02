@@ -13,7 +13,7 @@
 * Gonçalo Braz Afonso (brazafonso),a93178
 
 
-* João Nuno Pereira Barbosa (NeNelsonofficial),
+* João Nuno Pereira Barbosa (NeNelsonofficial),a93270
 
 ## Objetivo do trabalho
 Como método de aprendizagem e de aprofundamento dos conhecimentos de programação mais em concreto C prentende-se a realização 
