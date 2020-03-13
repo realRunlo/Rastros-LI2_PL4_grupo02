@@ -59,3 +59,34 @@ int interpretador(ESTADO *e) {
 
 
 
+// ////////////////////////  WORK IN PROGRESS //////////////////////////////////////////////
+//Imprime jogadas efetuadas
+char converte_numero(int x){
+    if(x==0) return 'a';
+    if(x==1) return 'b';
+    if(x==2) return 'c';
+    if(x==3) return 'd';
+    if(x==4) return 'e';
+    if(x==5) return 'f';
+    if(x==6) return 'g';
+    if(x==7) return 'h';
+
+}
+
+void lista_movimentos(ESTADO *e){
+    int j=0;
+    printf("\n");
+
+    for(int i=01;i<=e->num_jogadas;i++){
+        printf("%d:",i);
+        for(j;j<2;j++){
+
+            printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+
+

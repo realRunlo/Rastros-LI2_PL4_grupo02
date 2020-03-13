@@ -8,19 +8,21 @@
 
 
 int jogar(ESTADO *e, COORDENADA c){
-    printf("jogar %d %d\n", c.coluna + 1, c.linha + 1);
+    printf("Jogada efetuda: %d %d\n", c.coluna + 1, c.linha + 1);
     e->tab[c.linha][c.coluna]=BRANCA;  //altera para a nova posição
     e->tab[e->ultima_jogada.linha][e->ultima_jogada.coluna] = PRETA;  //altera a ultima posição para preta
 
-    e->num_jogadas++;
+
     if(e->jogador_atual==1){
         e->jogadas[e->num_jogadas].jogador1.coluna=c.coluna;  //não sei se é suposto ser array, é preciso ver como se atualiza o o campo jogadas do estado
         e->jogadas[e->num_jogadas].jogador1.linha=c.linha;
         e->jogador_atual=2;
+        e->num_jogadas++;
     }else{
         e->jogadas[e->num_jogadas].jogador2.coluna=c.coluna;  //não sei se é suposto ser array
         e->jogadas[e->num_jogadas].jogador2.linha=c.linha;
         e->jogador_atual=1;
+        e->num_jogadas++;
     }
     e->ultima_jogada.coluna=c.coluna;
     e->ultima_jogada.linha=c.linha;
@@ -41,14 +43,12 @@ int espaco_preto(ESTADO *e){   //verifica se está preso ou não
     int l = e->ultima_jogada.linha;
     if((e->tab[l + 1][c] == PRETA  && e->tab[l - 1][c] == PRETA  && e->tab[l][c + 1] == PRETA   && e->tab[l][c - 1] == PRETA &&
          e->tab[l + 1][c + 1] == PRETA  && e->tab[l + 1][c - 1] == PRETA && e->tab[l - 1][c + 1] == PRETA && e->tab[l - 1][c - 1] == PRETA)){
-        if(e->jogador_atual==1){
-            printf("Jogador 1 bloqueado!Ganha jogador 2\n");
+
+            printf("Jogador %d bloqueado!Perdeu\n",e->jogador_atual);
             return 0; // se estiver rodeada por pretas retorna 0
-        } else{
-            printf("Jogador 2 bloqueado!Ganha jogador 1\n");
-            return 0; // se estiver rodeada por pretas retorna 0
+
         }
-    }
+
 
     return 1;
 }
@@ -71,7 +71,7 @@ int espaco_vitoria(ESTADO *e){  //verifica se está numa casa de vitória e feli
 
 int jogada_possivel(ESTADO *e){
 
-    if(espaco_vazio(e) && espaco_preto(e) && espaco_vitoria(e))
+    if(espaco_preto(e) && espaco_vazio(e)  && espaco_vitoria(e))
         return 1;
     return 0;
 

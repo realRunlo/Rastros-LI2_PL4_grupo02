@@ -11,5 +11,5 @@ void desenha_tabuleiro(ESTADO *e); // funcao que desenha o tabuleiro com o estad
 
 int interpretador(ESTADO *e); // funcao que interpretada o comando dado e atualiza o estado do jogo de acordo
 
-
+void lista_movimentos(ESTADO *e);
 #endif //___INTERPRETADOR_H__
