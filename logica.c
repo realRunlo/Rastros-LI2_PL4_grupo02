@@ -5,10 +5,7 @@
 #include <stdlib.h>
 #include "camada_dados.h"
 
-/*Função que deve ser completada
-modifica estado ao jogar na casa correta se a jogada for válida
-falta validar a jogada
-alterar a posição anterior para PRETA*/
+
 
 int jogar(ESTADO *e, COORDENADA c){
     printf("jogar %d %d\n", c.coluna + 1, c.linha + 1);
@@ -28,32 +25,56 @@ int jogar(ESTADO *e, COORDENADA c){
     e->ultima_jogada.coluna=c.coluna;
     e->ultima_jogada.linha=c.linha;
     return 1;
+}
+
+int espaco_vazio(ESTADO *e){    //verifica de há casas disponiveis para jogar
+    int c = e->ultima_jogada.coluna;
+    int l = e->ultima_jogada.linha;
+    if ((e->tab[l + 1][c] == VAZIO     || e->tab[l - 1][c] == VAZIO     || e->tab[l][c + 1] == VAZIO     || e->tab[l][c - 1] == VAZIO ||
+         e->tab[l + 1][c + 1] == VAZIO  || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO))
+         return 1;
+    return 0;
+}
+
+int espaco_preto(ESTADO *e){   //verifica se está preso ou não
+    int c = e->ultima_jogada.coluna;
+    int l = e->ultima_jogada.linha;
+    if((e->tab[l + 1][c] == PRETA  && e->tab[l - 1][c] == PRETA  && e->tab[l][c + 1] == PRETA   && e->tab[l][c - 1] == PRETA &&
+         e->tab[l + 1][c + 1] == PRETA  && e->tab[l + 1][c - 1] == PRETA && e->tab[l - 1][c + 1] == PRETA && e->tab[l - 1][c - 1] == PRETA)){
+        if(e->jogador_atual==1){
+            printf("Jogador 1 bloqueado!Ganha jogador 2\n");
+            return 0; // se estiver rodeada por pretas retorna 0
+        } else{
+            printf("Jogador 2 bloqueado!Ganha jogador 1\n");
+            return 0; // se estiver rodeada por pretas retorna 0
+        }
+    }
+
+    return 1;
+}
+
+int espaco_vitoria(ESTADO *e){  //verifica se está numa casa de vitória e felicita o repetivo jogador pela vitória
+    int c = e->ultima_jogada.coluna;
+    int l = e->ultima_jogada.linha;
+    if((l != 0 || c != 0) && (l != 7 || c != 7))
+        return 1;
+    if(l==0 ){
+        printf("Jogador 1 ganhou\n");
+        return 0;
+    }else{
+        printf("Jogador 2 ganhou\n");
+        return 0;
+    }
+
 
 }
 
-
-
 int jogada_possivel(ESTADO *e){
-    if (e->jogador_atual == 1){
-        int c = e->ultima_jogada.coluna;
-        int l = e->ultima_jogada.linha;
-        if ((e->tab[l + 1][c] == VAZIO     || e->tab[l - 1][c] == VAZIO     || e->tab[l][c + 1] == VAZIO     || e->tab[l][c - 1] == VAZIO ||
-            e->tab[l + 1][c + 1] == VAZIO  || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO)
-            && (l != 7 || c != 0) && (l != 0 || c != 7)) return 1;
 
-        else
-            return 0;
-    }
-    else {
-        int c = e->ultima_jogada.coluna;
-        int l = e->ultima_jogada.linha;
-        if ((e->tab[l + 1][c] == VAZIO     || e->tab[l - 1][c] == VAZIO     || e->tab[l][c + 1] == VAZIO     || e->tab[l][c - 1] == VAZIO ||
-             e->tab[l + 1][c + 1] == VAZIO  || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO)
-             && (l != 0 || c != 0) && (l != 7 || c != 7)) return 1;
+    if(espaco_vazio(e) && espaco_preto(e) && espaco_vitoria(e))
+        return 1;
+    return 0;
 
-        else
-            return 0;
-    }
 }
 
 

@@ -49,9 +49,8 @@ int interpretador(ESTADO *e) {
 
             desenha_tabuleiro(e);
         }
-
-        return 1;
     }
+    return 1;
 
 }
 // ////////////////////////////////////////////////////////////////////////////
