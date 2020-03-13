@@ -82,18 +82,18 @@ CMakeFiles/Rastros.dir/camada_dados.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Rastros.dir/camada_dados.c.s"
 	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\camada_dados.c -o CMakeFiles\Rastros.dir\camada_dados.c.s
 
-CMakeFiles/Rastros.dir/interpretador.c.obj: CMakeFiles/Rastros.dir/flags.make
-CMakeFiles/Rastros.dir/interpretador.c.obj: ../interpretador.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Rastros.dir/interpretador.c.obj"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\interpretador.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interpretador.c
+CMakeFiles/Rastros.dir/interface.c.obj: CMakeFiles/Rastros.dir/flags.make
+CMakeFiles/Rastros.dir/interface.c.obj: ../interface.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Rastros.dir/interface.c.obj"
+	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\interface.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interface.c
 
-CMakeFiles/Rastros.dir/interpretador.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Rastros.dir/interpretador.c.i"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interpretador.c > CMakeFiles\Rastros.dir\interpretador.c.i
+CMakeFiles/Rastros.dir/interface.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Rastros.dir/interface.c.i"
+	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interface.c > CMakeFiles\Rastros.dir\interface.c.i
 
-CMakeFiles/Rastros.dir/interpretador.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Rastros.dir/interpretador.c.s"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interpretador.c -o CMakeFiles\Rastros.dir\interpretador.c.s
+CMakeFiles/Rastros.dir/interface.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Rastros.dir/interface.c.s"
+	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interface.c -o CMakeFiles\Rastros.dir\interface.c.s
 
 CMakeFiles/Rastros.dir/logica.c.obj: CMakeFiles/Rastros.dir/flags.make
 CMakeFiles/Rastros.dir/logica.c.obj: ../logica.c
@@ -112,7 +112,7 @@ CMakeFiles/Rastros.dir/logica.c.s: cmake_force
 Rastros_OBJECTS = \
 "CMakeFiles/Rastros.dir/rastros.c.obj" \
 "CMakeFiles/Rastros.dir/camada_dados.c.obj" \
-"CMakeFiles/Rastros.dir/interpretador.c.obj" \
+"CMakeFiles/Rastros.dir/interface.c.obj" \
 "CMakeFiles/Rastros.dir/logica.c.obj"
 
 # External object files for target Rastros
@@ -120,7 +120,7 @@ Rastros_EXTERNAL_OBJECTS =
 
 Rastros.exe: CMakeFiles/Rastros.dir/rastros.c.obj
 Rastros.exe: CMakeFiles/Rastros.dir/camada_dados.c.obj
-Rastros.exe: CMakeFiles/Rastros.dir/interpretador.c.obj
+Rastros.exe: CMakeFiles/Rastros.dir/interface.c.obj
 Rastros.exe: CMakeFiles/Rastros.dir/logica.c.obj
 Rastros.exe: CMakeFiles/Rastros.dir/build.make
 Rastros.exe: CMakeFiles/Rastros.dir/linklibs.rsp

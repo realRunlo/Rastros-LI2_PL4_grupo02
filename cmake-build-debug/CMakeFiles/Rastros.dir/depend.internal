@@ -4,15 +4,12 @@
 CMakeFiles/Rastros.dir/camada_dados.c.obj
  C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.c
  C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
-CMakeFiles/Rastros.dir/interpretador.c.obj
+CMakeFiles/Rastros.dir/interface.c.obj
  C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
- C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/interpretador.c
+ C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/interface.c
  C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/logica.h
 CMakeFiles/Rastros.dir/logica.c.obj
  C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
  C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/logica.c
 CMakeFiles/Rastros.dir/rastros.c.obj
- C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
- C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/interpretador.h
- C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/logica.h
  C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/rastros.c
