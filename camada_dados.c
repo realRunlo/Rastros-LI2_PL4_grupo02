@@ -56,3 +56,23 @@ void set_branca(ESTADO *e, int l, int c){
 void set_preta(ESTADO *e, int l, int c){
     e->tab[l][c] = PRETA;
 }
+
+//Funcao que retorna o numero do jogador atual
+int get_jogador(ESTADO *e){
+    return e->jogador_atual;
+}
+
+
+//Funcao que adiciona na lista de jogadas a ultima jogada feita
+void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador){
+    if (jogador == 1) {
+        e->jogadas[e->num_jogadas].jogador1.coluna = c;
+        e->jogadas[e->num_jogadas].jogador1.linha = l;
+        e->jogador_atual = 2;
+    }
+    else {
+        e->jogadas[e->num_jogadas].jogador1.coluna = c;
+        e->jogadas[e->num_jogadas].jogador1.linha = l;
+        e->jogador_atual = 1;
+    }
+}

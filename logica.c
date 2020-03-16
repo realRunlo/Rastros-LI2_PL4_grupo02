@@ -10,23 +10,13 @@
 int jogar(ESTADO *e, COORDENADA c){
     printf("Jogada efetuda: %d %d\n", c.coluna + 1, c.linha + 1);
     int l = c.linha;
-    int cl = c.coluna;
+    int co = c.coluna;
     int l_anterior = e->ultima_jogada.coluna;
     int c_anterior = e->ultima_jogada.linha;
-    set_branca(e, l ,cl);  //altera para a nova posição
+    int j = get_jogador(e);
+    set_branca(e, l ,co);  //altera para a nova posição
     set_preta(e, l_anterior, c_anterior);  //altera a ultima posição para preta
-
-
-    if(e->jogador_atual==1){
-        e->jogadas[e->num_jogadas].jogador1.coluna=c.coluna;
-        e->jogadas[e->num_jogadas].jogador1.linha=c.linha;
-        e->jogador_atual=2;
-
-    }else{
-        e->jogadas[e->num_jogadas].jogador2.coluna=c.coluna;
-        e->jogadas[e->num_jogadas].jogador2.linha=c.linha;
-        e->jogador_atual=1;
-    }
+    adiciona_lista_jogadas(e, l, co, j);
     e->num_jogadas++;
     e->ultima_jogada.coluna=c.coluna;
     e->ultima_jogada.linha=c.linha;

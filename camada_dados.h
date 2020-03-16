@@ -42,4 +42,9 @@ int e_preta(ESTADO *e, int l, int c); // funcao que verifica se uma casa tem pec
 void set_branca(ESTADO *e, int l, int c); // funcao que torna uma casa numa peca branca
 
 void set_preta(ESTADO *e, int l, int c); // funcao que torna uma casa numa peca preta
+
+int get_jogador(ESTADO *e); //funcao que retorna o numero do jogador atual
+
+void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador); // funcao que adiciona na lista de jogadas a ultima jogada feita
+
 #endif //___CAMADADEDADOS_H__
