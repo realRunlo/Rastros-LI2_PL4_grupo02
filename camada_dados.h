@@ -33,4 +33,13 @@ typedef struct{
 
 ESTADO *inicializar_estado(); // funcao que da o estado inicial do jogo
 
+char converte_numero(int x); // funcao que torna um numero de uma coluna numa letra
+
+int e_branca(ESTADO *e, int l, int c); // funcao que verifica se uma casa tem peca branca
+
+int e_preta(ESTADO *e, int l, int c); // funcao que verifica se uma casa tem peca preta
+
+void set_branca(ESTADO *e, int l, int c); // funcao que torna uma casa numa peca branca
+
+void set_preta(ESTADO *e, int l, int c); // funcao que torna uma casa numa peca preta
 #endif //___CAMADADEDADOS_H__

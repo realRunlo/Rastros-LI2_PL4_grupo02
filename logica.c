@@ -9,8 +9,12 @@
 
 int jogar(ESTADO *e, COORDENADA c){
     printf("Jogada efetuda: %d %d\n", c.coluna + 1, c.linha + 1);
-    e->tab[c.linha][c.coluna]=BRANCA;  //altera para a nova posição
-    e->tab[e->ultima_jogada.linha][e->ultima_jogada.coluna] = PRETA;  //altera a ultima posição para preta
+    int l = c.linha;
+    int cl = c.coluna;
+    int l_anterior = e->ultima_jogada.coluna;
+    int c_anterior = e->ultima_jogada.linha;
+    set_branca(e, l ,cl);  //altera para a nova posição
+    set_preta(e, l_anterior, c_anterior);  //altera a ultima posição para preta
 
 
     if(e->jogador_atual==1){

@@ -30,3 +30,29 @@ ESTADO *inicializar_estado() {
 }
 
 
+//Converte um numero de uma coluna na sua letra correspondente
+char converte_numero(int x){
+    return 'a' + x;
+}
+
+//Verifica se a casa tem peca branca
+int e_branca(ESTADO *e, int l, int c){
+    if (e->tab[l][c] == BRANCA) return 1;
+    else return 0;
+}
+
+//Verifica se a casa tem peca preta
+int e_preta(ESTADO *e, int l, int c){
+    if (e->tab[l][c] == PRETA) return 1;
+    else return 0;
+}
+
+//Coloca a casa como sendo uma peca branca
+void set_branca(ESTADO *e, int l, int c){
+    e->tab[l][c] = BRANCA;
+}
+
+//Coloca a casa como sendo uma peca preta
+void set_preta(ESTADO *e, int l, int c){
+    e->tab[l][c] = PRETA;
+}
