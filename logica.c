@@ -6,7 +6,7 @@
 #include "camada_dados.h"
 
 
-
+//Funcao que realiza a jogada emitida e altera o estado do jogo de acordo
 int jogar(ESTADO *e, COORDENADA c){
     printf("Jogada efetuda: %d %d\n", c.coluna + 1, c.linha + 1);
     int l = c.linha;
@@ -23,7 +23,9 @@ int jogar(ESTADO *e, COORDENADA c){
     return 1;
 }
 
-int espaco_vazio(ESTADO *e){    //verifica de há casas disponiveis para jogar
+
+//Verifica de há casas disponiveis para jogar
+int espaco_vazio(ESTADO *e){
     int c = e->ultima_jogada.coluna;
     int l = e->ultima_jogada.linha;
     if ((e->tab[l + 1][c] == VAZIO     || e->tab[l - 1][c] == VAZIO     || e->tab[l][c + 1] == VAZIO     || e->tab[l][c - 1] == VAZIO ||
@@ -36,7 +38,9 @@ int espaco_vazio(ESTADO *e){    //verifica de há casas disponiveis para jogar
 
 }
 
-int espaco_vitoria(ESTADO *e){  //verifica se está numa casa de vitória e felicita o repetivo jogador pela vitória
+//Verifica se está numa casa de vitória e felicita o repetivo jogador pela vitória
+int espaco_vitoria(ESTADO *e){
+
     int c = e->ultima_jogada.coluna;
     int l = e->ultima_jogada.linha;
     if((l != 0 || c != 0) && (l != 7 || c != 7))
@@ -52,6 +56,7 @@ int espaco_vitoria(ESTADO *e){  //verifica se está numa casa de vitória e feli
 
 }
 
+//Funcao que verifica se e possivel continuar a jogar
 int jogada_possivel(ESTADO *e){
 
     if(espaco_vazio(e)  && espaco_vitoria(e))
@@ -60,7 +65,7 @@ int jogada_possivel(ESTADO *e){
 
 }
 
-
+//Funcao que verifica se a jogada e valida
 int jogada_valida(ESTADO *e,COORDENADA c){
     int cAnt = e->ultima_jogada.coluna;
     int lAnt = e->ultima_jogada.linha;
