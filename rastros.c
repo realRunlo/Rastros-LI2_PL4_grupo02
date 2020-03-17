@@ -8,7 +8,6 @@
 
 int main() {
     printf("PRONTOS PARA COMECAR O JOGO?\n");
-
     ESTADO *e = inicializar_estado();
     desenha_tabuleiro(e);
     interpretador(e);

@@ -34,6 +34,15 @@ void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
 
 }
 
+void gravar(const char *filename, const char *mode){
+    FILE *fp;
+
+    fp = fopen(filename,mode);
+    fprintf(fp,"%c",);
+
+
+    fclose(fp);
+}
 
 // Função que deve ser completada e colocada na camada de interface
 int interpretador(ESTADO *e) {
