@@ -62,6 +62,17 @@ int get_jogador(ESTADO *e){
     return e->jogador_atual;
 }
 
+int get_Njogadas(ESTADO *e){ //retorna o número de jogadas
+    return e->num_jogadas;
+}
+
+int get_coluna(COORDENADA c){
+    return c.coluna;
+}
+
+int get_linha (COORDENADA c){
+return c.linha;
+}
 
 //Funcao que adiciona na lista de jogadas a ultima jogada feita
 void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador){

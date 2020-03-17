@@ -45,6 +45,14 @@ void set_preta(ESTADO *e, int l, int c); // funcao que torna uma casa numa peca 
 
 int get_jogador(ESTADO *e); //funcao que retorna o numero do jogador atual
 
+int get_Njogadas(ESTADO *e);//retorna o número de jogadas
+
+int get_coluna(COORDENADA c); // retorna o número da coluna de uma coordenada
+
+int get_linha(COORDENADA c); // retorna o número da linha de uma coordenada
+
+
+
 void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador); // funcao que adiciona na lista de jogadas a ultima jogada feita
 
 #endif //___CAMADADEDADOS_H__

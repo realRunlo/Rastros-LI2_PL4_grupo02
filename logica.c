@@ -8,7 +8,6 @@
 
 //Funcao que realiza a jogada emitida e altera o estado do jogo de acordo
 int jogar(ESTADO *e, COORDENADA c){
-    printf("Jogada efetuda: %d %d\n", c.coluna + 1, c.linha + 1);
     int l = c.linha;
     int co = c.coluna;
     int l_anterior = e->ultima_jogada.coluna;

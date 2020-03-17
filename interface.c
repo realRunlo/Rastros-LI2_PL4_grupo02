@@ -29,6 +29,10 @@ void desenha_tabuleiro(ESTADO *e){
 
 
 // ////////////////////////////////////////////////////////////////////////////
+void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
+    printf("#  %d Jog:%d N:%d >>%c%d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e),converte_numero(get_coluna(c)),get_linha(c)+1);
+
+}
 
 
 // Função que deve ser completada e colocada na camada de interface
@@ -42,6 +46,7 @@ int interpretador(ESTADO *e) {
         if (strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
             COORDENADA coord = {*col - 'a', *lin - '1'};
             if(jogada_valida(e, coord) == 1) {
+                imprime_estado(e,coord);
                 jogar(e, coord);
                 desenha_tabuleiro(e);
             }else{
@@ -74,6 +79,8 @@ void lista_movimentos(ESTADO *e){
     }
     printf("\n");
 }
+
+
 
 
 

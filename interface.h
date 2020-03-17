@@ -8,7 +8,7 @@
 void desenha_tabuleiro(ESTADO *e); // funcao que desenha o tabuleiro com o estado atual do jogo
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////
-
+void imprime_estado(ESTADO *e,COORDENADA c);
 int interpretador(ESTADO *e); // funcao que interpretada o comando dado e atualiza o estado do jogo de acordo
 
 void lista_movimentos(ESTADO *e);
