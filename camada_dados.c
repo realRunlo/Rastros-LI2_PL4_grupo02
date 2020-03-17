@@ -35,11 +35,15 @@ char converte_numero(int x){
     return 'a' + x;
 }
 
+
+
 //Verifica se a casa tem peca branca
 int e_branca(ESTADO *e, int l, int c){
     if (e->tab[l][c] == BRANCA) return 1;
     else return 0;
 }
+
+
 
 //Verifica se a casa tem peca preta
 int e_preta(ESTADO *e, int l, int c){
@@ -47,15 +51,29 @@ int e_preta(ESTADO *e, int l, int c){
     else return 0;
 }
 
+
+
+//Verifica se a casa tem peca vazia
+int e_vazio(ESTADO *e, int l, int c){
+    if (e->tab[l][c] == VAZIO) return 1;
+    else return 0;
+}
+
+
+
 //Coloca a casa como sendo uma peca branca
 void set_branca(ESTADO *e, int l, int c){
     e->tab[l][c] = BRANCA;
 }
 
+
+
 //Coloca a casa como sendo uma peca preta
 void set_preta(ESTADO *e, int l, int c){
     e->tab[l][c] = PRETA;
 }
+
+
 
 //Funcao que retorna o numero do jogador atual
 int get_jogador(ESTADO *e){
@@ -73,6 +91,22 @@ int get_coluna(COORDENADA c){
 int get_linha (COORDENADA c){
 return c.linha;
 }
+
+
+//Funcao que modifica a ultima jogada
+void set_ultima_jogada(ESTADO *e, int l, int c){
+    e->ultima_jogada.coluna=c;
+    e->ultima_jogada.linha=l;
+}
+
+
+
+//Funcao que adiciona 1 ao numero de jogadas
+void add_numjogadas(ESTADO *e){
+    e->num_jogadas++;
+}
+
+
 
 //Funcao que adiciona na lista de jogadas a ultima jogada feita
 void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador){

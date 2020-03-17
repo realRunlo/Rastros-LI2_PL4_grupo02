@@ -39,6 +39,8 @@ int e_branca(ESTADO *e, int l, int c); // funcao que verifica se uma casa tem pe
 
 int e_preta(ESTADO *e, int l, int c); // funcao que verifica se uma casa tem peca preta
 
+int e_vazio(ESTADO *e, int l, int c); // funcao que verifica se uma casa tem peca vazio
+
 void set_branca(ESTADO *e, int l, int c); // funcao que torna uma casa numa peca branca
 
 void set_preta(ESTADO *e, int l, int c); // funcao que torna uma casa numa peca preta
@@ -54,5 +56,9 @@ int get_linha(COORDENADA c); // retorna o número da linha de uma coordenada
 
 
 void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador); // funcao que adiciona na lista de jogadas a ultima jogada feita
+
+void set_ultima_jogada(ESTADO *e, int l, int c); //Funcao que modifica as coordenadas da ultima jogada
+
+void add_numjogadas(ESTADO *e); //Adiciona 1 ao numero de jogadas
 
 #endif //___CAMADADEDADOS_H__
