@@ -11,15 +11,14 @@ int jogar(ESTADO *e, COORDENADA c){
     printf("Jogada efetuda: %d %d\n", c.coluna + 1, c.linha + 1);
     int l = c.linha;
     int co = c.coluna;
-    int l_anterior = e->ultima_jogada.coluna;
-    int c_anterior = e->ultima_jogada.linha;
+    int l_anterior = e->ultima_jogada.linha;
+    int c_anterior = e->ultima_jogada.coluna;
     int j = get_jogador(e);
     set_branca(e, l ,co);  //altera para a nova posição
     set_preta(e, l_anterior, c_anterior);  //altera a ultima posição para preta
-    adiciona_lista_jogadas(e, l, co, j);
-    e->num_jogadas++;
-    e->ultima_jogada.coluna=c.coluna;
-    e->ultima_jogada.linha=c.linha;
+    adiciona_lista_jogadas(e, l, co, j);  //adiciona a jogada atual a lista de jogadas
+    add_numjogadas(e);
+    set_ultima_jogada(e, l, co);
     return 1;
 }
 
@@ -28,11 +27,12 @@ int jogar(ESTADO *e, COORDENADA c){
 int espaco_vazio(ESTADO *e){
     int c = e->ultima_jogada.coluna;
     int l = e->ultima_jogada.linha;
-    if ((e->tab[l + 1][c] == VAZIO     || e->tab[l - 1][c] == VAZIO     || e->tab[l][c + 1] == VAZIO     || e->tab[l][c - 1] == VAZIO ||
-         e->tab[l + 1][c + 1] == VAZIO  || e->tab[l + 1][c - 1] == VAZIO || e->tab[l - 1][c + 1] == VAZIO || e->tab[l - 1][c - 1] == VAZIO))
+    int j = get_jogador(e);
+    if ((e_vazio(e, l + 1, c)     || e_vazio(e, l - 1, c)     || e_vazio(e, l, c + 1)     || e_vazio(e, l, c - 1) ||
+        e_vazio(e, l + 1, c + 1)  || e_vazio(e, l + 1, c - 1) || e_vazio(e, l - 1, c + 1) || e_vazio(e, l - 1, c - 1)))
          return 1;
     else {
-        printf("Jogador %d bloqueado!Perdeu\n",e->jogador_atual);
+        printf("Jogador %d bloqueado!Perdeu\n",j);
         return 0;
     }
 
@@ -58,7 +58,6 @@ int espaco_vitoria(ESTADO *e){
 
 //Funcao que verifica se e possivel continuar a jogar
 int jogada_possivel(ESTADO *e){
-
     if(espaco_vazio(e)  && espaco_vitoria(e))
         return 1;
     return 0;
@@ -71,7 +70,7 @@ int jogada_valida(ESTADO *e,COORDENADA c){
     int lAnt = e->ultima_jogada.linha;
     int cJog = c.coluna;
     int lJog = c.linha;
-    if(abs(cJog-cAnt)>1 || abs(lJog-lAnt)>1 || (e->tab[lJog][cJog])==PRETA)
+    if(abs(cJog-cAnt)>1 || abs(lJog-lAnt)>1 || e_preta(e, lJog, cJog))
         return 0;
 
     return 1;
