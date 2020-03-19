@@ -9,12 +9,12 @@
 #include "camada_dados.h"
 #include "logica.h"
 
-char db[]="C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/db.txt";  //directoria do ficheiro externo
+char db[]="/home/runlo/LI2/Rastros/db.txt";  //directoria do ficheiro externo
 
 // Funcao que desenha o tabuleiro
 void desenha_tabuleiro(ESTADO *e){
-    printf ("   A B C D E F G H\n");
-    printf ("   _ _ _ _ _ _ _ _\n");
+    printf ("   A B C D E F G H \n");
+    printf ("   _ _ _ _ _ _ _ _ \n");
     for(int l = 7; l >= 0; l--){
         printf("%d| ", l+1 );  //depois por (l+1)
         for(int c = 0; c < 8; c++) {
@@ -29,15 +29,19 @@ void desenha_tabuleiro(ESTADO *e){
 }
 
 // ////////////////////////////////////////////////////////////////////////////
-void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
+void imprime_estado(ESTADO *e,COORDENADA c){ //prompt pricipal
     printf("#  %d Jog:%d N:%d >>%c%d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e),converte_numero(get_coluna(c)),get_linha(c)+1);
+
+}
+void imprime_estadoL(ESTADO *e){ //prompt do ler
+    printf("#  %d Jog:%d N:%d \n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e));
 
 }
 // FUNÇÔES DE MANUSEAMENTO DE FICHEIRO EXTERNO ///////////////////////////////////////////////////////////////
 
 void grava_tabuleiro(ESTADO *e,FILE *filename){ // Função que grava o tabuleiro num dado ficheiro
-    fprintf (filename,"   A B C D E F G H\n");
-    fprintf (filename,"   _ _ _ _ _ _ _ _\n");
+    fprintf (filename,"   A B C D E F G H \n");
+    fprintf (filename,"   _ _ _ _ _ _ _ _ \n");
     for(int l = 7; l >= 0; l--){
         fprintf(filename,"%d| ", l+1 );  //depois por (l+1)
         for(int c = 0; c < 8; c++) {
@@ -51,7 +55,7 @@ void grava_tabuleiro(ESTADO *e,FILE *filename){ // Função que grava o tabuleir
     }
 }
 void grava_estado(ESTADO *e,FILE *filename) {  // Função que grava o estado num dado ficheiro
-    fprintf(filename,"#  %d Jog: %d N: %d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e));
+    fprintf(filename,"#  %d Jog:%d N:%d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e));
 }
 
 void gravar(ESTADO *e,const char *filename, const char *mode){
@@ -66,9 +70,10 @@ void gravar(ESTADO *e,const char *filename, const char *mode){
 
 
 /*OBJETIVOS DA FUNÇÂO LER:
- * dar scan linha a linha do ficheiro (inclui o tabuleiro e o prompt do estado) (done, falta o estado)
- * imprimir o mesmo simultânemanete                                   (done ,falta o estado)
- * atualizar o estado para o estado do tabuleiro carregado */
+ * dar scan linha a linha do ficheiro (inclui o tabuleiro e o prompt do estado) (done)
+ * imprimir o mesmo simultânemanete                                   (done)
+ * atualizar o estado para o estado do tabuleiro carregado        (done)
+*/
 
 void ler(ESTADO *e, const char *filename, const char *mode){
     FILE *fp;
@@ -76,22 +81,23 @@ void ler(ESTADO *e, const char *filename, const char *mode){
     fp = fopen(filename,mode);
 
     char c;
-    int l = 7, co = 0;
-    for(int lTab=10;lTab>0;lTab--){//lê e imprime cada linha do tabuleiro
+    int l = 7, co = 0; //posição do canto superior esquerdo do tabuleiro
+    for(int lTab=10;lTab>0;lTab--){ //lê cada linha do tabuleiro , acontagem das linhas vai de cima para baixo por uma questão de correspondência à imagem
         co = 0;
-        for(int cTab=0;cTab<18;cTab++){
+        for(int cTab=0;cTab<=19;cTab++){
             fscanf(fp,"%c",&c);
-            if (c == '*' || c == '#' || c == '.') {
-                novo_tabuleiro(e, l, co, c); // atualiza o tabuleiro de acordo com o gravado no ficheiro
+            if((c=='*' || c=='#' || c=='.' || c=='2' || c=='1') && cTab>3){
+                novo_tabuleiro(e, l, co, c); // atualiza o estado do tabuleiro de acordo com o gravado no ficheiro
                 co++;
             }
         }
-        if (lTab < 7) l--;
+        if (lTab <=8) l--;
     }
-    desenha_tabuleiro(e);
+
     int nComandos, jogador, nJogadas;
-    fscanf(fp,"#  %d Jog: %d N: %d",&nComandos, &jogador, &nJogadas);
-    novo_prompt(e, jogador, nJogadas); // atualiza o prompt deste jogo
+    fscanf(fp,"#  %d Jog:%d N:%d",&nComandos, &jogador, &nJogadas); //lê as informações do prompt
+    novo_prompt(e, jogador, nJogadas); // atualiza o estado com a info do novo prompt
+
     fclose(fp);
 }
 // //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -121,7 +127,9 @@ int interpretador(ESTADO *e) {
             printf("Digite um comando->");
         }
         else if (strlen(linha) == 4 && sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='l' && c2=='e' && c3=='r'){
-            ler(e, db, "r");
+            ler(e, db, "r");  //lê o novo tabuleiro atualizando o respetivo estado
+            desenha_tabuleiro(e);   //desenha um novo tabuleiro
+            imprime_estadoL(e);
             printf("Digite um comando->");
         }
 

@@ -10,6 +10,7 @@ void grava_tabuleiro(ESTADO *e,FILE *filename);
 
 //COMANDOS
 void imprime_estado(ESTADO *e,COORDENADA c);
+void imprime_estadoL(ESTADO *e);
 void lista_movimentos(ESTADO *e);
 void gravar(ESTADO *e,const char *filename, const char *mode);
 void ler(ESTADO *e, const char *filename, const char *mode);

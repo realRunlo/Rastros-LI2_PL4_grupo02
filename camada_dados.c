@@ -140,7 +140,10 @@ void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador){
 void novo_tabuleiro(ESTADO *e, int l, int c, char x){
     if (x == '.') set_vazio(e, l, c);
     else if(x == '#') set_preta(e, l, c);
-    else set_branca(e, l, c);
+    else if (x== '*') {
+        set_branca(e, l, c);
+        set_ultima_jogada(e,l,c); //sou deus
+    }
 }
 
 void novo_prompt(ESTADO *e, int jogador, int nJogadas){
