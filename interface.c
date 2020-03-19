@@ -8,8 +8,9 @@
 #define BUF_SIZE 1024
 #include "camada_dados.h"
 #include "logica.h"
-
-char db[]="/home/runlo/LI2/Rastros/db.txt";  //directoria do ficheiro externo
+//directoria do ficheiro externo
+char db[]="C:\\Users\\braza\\OneDrive\\Documentos\\GitHub\\Rastros\\db.txt";  // /home/runlo/LI2/Rastros/db.txt
+                                             // C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\db.txt
 
 // Funcao que desenha o tabuleiro
 void desenha_tabuleiro(ESTADO *e){
