@@ -45,9 +45,15 @@ void set_branca(ESTADO *e, int l, int c); // funcao que torna uma casa numa peca
 
 void set_preta(ESTADO *e, int l, int c); // funcao que torna uma casa numa peca preta
 
+void set_vazio(ESTADO *e, int l, int c); // funcao que torna uma casa numa peca vazio
+
 int get_jogador(ESTADO *e); //funcao que retorna o numero do jogador atual
 
+int set_jogador(ESTADO *e, int j); //funcao que atualiza o numero do jogador atual
+
 int get_Njogadas(ESTADO *e);//retorna o número de jogadas
+
+int set_nJogadas(ESTADO *e, int nJ);//atualiza o número de jogadas
 
 int get_coluna(COORDENADA c); // retorna o número da coluna de uma coordenada
 
@@ -61,4 +67,7 @@ void set_ultima_jogada(ESTADO *e, int l, int c); //Funcao que modifica as coorde
 
 void add_numjogadas(ESTADO *e); //Adiciona 1 ao numero de jogadas
 
+void novo_tabuleiro(ESTADO *e, int l, int c, char x); // atualiza o tabuleiro no estado de acordo com o que esta gravado no ficheiro de texto
+
+void novo_prompt(ESTADO *e, int jogador, int nJogadas); // atualiza o estado a partir do prompt do que esta gravado no ficheiro
 #endif //___CAMADADEDADOS_H__

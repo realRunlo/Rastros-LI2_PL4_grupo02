@@ -9,7 +9,7 @@
 #include "camada_dados.h"
 #include "logica.h"
 
-char db[]="/home/runlo/LI2/Rastros/db.txt";  //directoria do ficheiro externo
+char db[]="C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/db.txt";  //directoria do ficheiro externo
 
 // Funcao que desenha o tabuleiro
 void desenha_tabuleiro(ESTADO *e){
@@ -51,7 +51,7 @@ void grava_tabuleiro(ESTADO *e,FILE *filename){ // Função que grava o tabuleir
     }
 }
 void grava_estado(ESTADO *e,FILE *filename) {  // Função que grava o estado num dado ficheiro
-    fprintf(filename,"#  %d Jog:%d N:%d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e));
+    fprintf(filename,"#  %d Jog: %d N: %d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e));
 }
 
 void gravar(ESTADO *e,const char *filename, const char *mode){
@@ -70,19 +70,28 @@ void gravar(ESTADO *e,const char *filename, const char *mode){
  * imprimir o mesmo simultânemanete                                   (done ,falta o estado)
  * atualizar o estado para o estado do tabuleiro carregado */
 
-void ler(const char *filename, const char *mode){
+void ler(ESTADO *e, const char *filename, const char *mode){
     FILE *fp;
 
     fp = fopen(filename,mode);
 
     char c;
-    for(int lTab=10;lTab>=0;lTab--){               //lê e imprime cada linha do tabuleiro
-        for(int cTab=18;cTab>0;cTab--){
+    int l = 7, co = 0;
+    for(int lTab=10;lTab>0;lTab--){//lê e imprime cada linha do tabuleiro
+        co = 0;
+        for(int cTab=0;cTab<18;cTab++){
             fscanf(fp,"%c",&c);
-            printf("%c",c);
+            if (c == '*' || c == '#' || c == '.') {
+                novo_tabuleiro(e, l, co, c); // atualiza o tabuleiro de acordo com o gravado no ficheiro
+                co++;
+            }
         }
+        if (lTab < 7) l--;
     }
-
+    desenha_tabuleiro(e);
+    int nComandos, jogador, nJogadas;
+    fscanf(fp,"#  %d Jog: %d N: %d",&nComandos, &jogador, &nJogadas);
+    novo_prompt(e, jogador, nJogadas); // atualiza o prompt deste jogo
     fclose(fp);
 }
 // //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -112,7 +121,7 @@ int interpretador(ESTADO *e) {
             printf("Digite um comando->");
         }
         else if (strlen(linha) == 4 && sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='l' && c2=='e' && c3=='r'){
-            ler(db,"r");
+            ler(e, db, "r");
             printf("Digite um comando->");
         }
 

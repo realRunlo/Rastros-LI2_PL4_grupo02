@@ -73,6 +73,11 @@ void set_preta(ESTADO *e, int l, int c){
     e->tab[l][c] = PRETA;
 }
 
+//Coloca a casa como sendo uma peca vazio
+void set_vazio(ESTADO *e, int l, int c){
+    e->tab[l][c] = VAZIO;
+}
+
 
 
 //Funcao que retorna o numero do jogador atual
@@ -80,8 +85,18 @@ int get_jogador(ESTADO *e){
     return e->jogador_atual;
 }
 
+//Funcao que atualiza o numero do jogador atual
+int set_jogador(ESTADO *e, int j){
+    e->jogador_atual = j;
+}
+
+
 int get_Njogadas(ESTADO *e){ //retorna o número de jogadas
     return e->num_jogadas;
+}
+
+int set_nJogadas(ESTADO *e, int nJ){ //atualiza o número de jogadas
+    e->num_jogadas = nJ;
 }
 
 int get_coluna(COORDENADA c){
@@ -120,4 +135,15 @@ void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador){
         e->jogadas[e->num_jogadas].jogador1.linha = l;
         e->jogador_atual = 1;
     }
+}
+
+void novo_tabuleiro(ESTADO *e, int l, int c, char x){
+    if (x == '.') set_vazio(e, l, c);
+    else if(x == '#') set_preta(e, l, c);
+    else set_branca(e, l, c);
+}
+
+void novo_prompt(ESTADO *e, int jogador, int nJogadas){
+    set_jogador(e, jogador);
+    set_nJogadas(e, nJogadas);
 }
