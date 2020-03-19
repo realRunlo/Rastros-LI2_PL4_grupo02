@@ -10,6 +10,7 @@ int main() {
     printf("PRONTOS PARA COMECAR O JOGO?\n");
     ESTADO *e = inicializar_estado();
     desenha_tabuleiro(e);
+    printf("Digite um comando->");
     interpretador(e);
     //lista_movimentos(e); //errada precisa de ser trabalhada
 

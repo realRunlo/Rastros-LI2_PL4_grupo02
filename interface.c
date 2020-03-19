@@ -9,6 +9,8 @@
 #include "camada_dados.h"
 #include "logica.h"
 
+char db[]="/home/runlo/LI2/Rastros/db.txt";  //directoria do ficheiro externo
+
 // Funcao que desenha o tabuleiro
 void desenha_tabuleiro(ESTADO *e){
     printf ("   A B C D E F G H\n");
@@ -26,44 +28,99 @@ void desenha_tabuleiro(ESTADO *e){
     }
 }
 
-
-
 // ////////////////////////////////////////////////////////////////////////////
 void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
     printf("#  %d Jog:%d N:%d >>%c%d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e),converte_numero(get_coluna(c)),get_linha(c)+1);
 
 }
+// FUNÇÔES DE MANUSEAMENTO DE FICHEIRO EXTERNO ///////////////////////////////////////////////////////////////
 
-void gravar(const char *filename, const char *mode){
+void grava_tabuleiro(ESTADO *e,FILE *filename){ // Função que grava o tabuleiro num dado ficheiro
+    fprintf (filename,"   A B C D E F G H\n");
+    fprintf (filename,"   _ _ _ _ _ _ _ _\n");
+    for(int l = 7; l >= 0; l--){
+        fprintf(filename,"%d| ", l+1 );  //depois por (l+1)
+        for(int c = 0; c < 8; c++) {
+            if (e_branca(e , l ,c)) fprintf(filename,"* ");
+            else if (c == 0 && l == 0) fprintf(filename,"1 ");
+            else if (c == 7 && l == 7) fprintf(filename,"2 ");
+            else if (e_preta(e , l ,c)) fprintf(filename,"# ");
+            else fprintf(filename,". ");
+        }
+        fprintf(filename,"\n");
+    }
+}
+void grava_estado(ESTADO *e,FILE *filename) {  // Função que grava o estado num dado ficheiro
+    fprintf(filename,"#  %d Jog:%d N:%d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e));
+}
+
+void gravar(ESTADO *e,const char *filename, const char *mode){
     FILE *fp;
 
     fp = fopen(filename,mode);
-    fprintf(fp,"%c",);
-
+    grava_tabuleiro(e,fp);
+    grava_estado(e,fp);
 
     fclose(fp);
 }
 
+
+/*OBJETIVOS DA FUNÇÂO LER:
+ * dar scan linha a linha do ficheiro (inclui o tabuleiro e o prompt do estado) (done, falta o estado)
+ * imprimir o mesmo simultânemanete                                   (done ,falta o estado)
+ * atualizar o estado para o estado do tabuleiro carregado */
+
+void ler(const char *filename, const char *mode){
+    FILE *fp;
+
+    fp = fopen(filename,mode);
+
+    char c;
+    for(int lTab=10;lTab>=0;lTab--){               //lê e imprime cada linha do tabuleiro
+        for(int cTab=18;cTab>0;cTab--){
+            fscanf(fp,"%c",&c);
+            printf("%c",c);
+        }
+    }
+
+    fclose(fp);
+}
+// //////////////////////////////////////////////////////////////////////////////////////////////////
 // Função que deve ser completada e colocada na camada de interface
 int interpretador(ESTADO *e) {
 
     char linha[BUF_SIZE];
-    char col[2], lin[2];
+    char col[2], lin[2],q,c1,c2,c3;
     while (jogada_possivel(e) == 1) {
         if (fgets(linha, BUF_SIZE, stdin) == NULL)
             return 0;
         if (strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
             COORDENADA coord = {*col - 'a', *lin - '1'};
             if(jogada_valida(e, coord) == 1) {
-                imprime_estado(e,coord);
                 jogar(e, coord);
                 desenha_tabuleiro(e);
+                imprime_estado(e,coord);
+                printf("Digite um comando->");
             }else{
                 printf("Faça uma jogada válida pf\n");       //se a jogada não for válida pede por uma jogada válida
                 interpretador(e);
             }
 
         }
+        else if(strlen(linha) == 3 && sscanf(linha,"%c%c",&c1,&c2) == 2 && c1=='g' && c2=='r'){
+            gravar(e,db, "w");
+            printf("Digite um comando->");
+        }
+        else if (strlen(linha) == 4 && sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='l' && c2=='e' && c3=='r'){
+            ler(db,"r");
+            printf("Digite um comando->");
+        }
+
+        else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída
+            return 1;
+        else
+            printf("Digite um comando válido por favor!\n");
+
     }
     return 1;
 
