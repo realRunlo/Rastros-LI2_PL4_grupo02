@@ -6,6 +6,7 @@
 #include "logica.h"
 
 
+
 int main() {
     printf("PRONTOS PARA COMECAR O JOGO?\n");
     ESTADO *e = inicializar_estado();
