@@ -2,18 +2,32 @@
 // Created by runlo on 09/03/20.
 //
 
+/**
+@file dados.h
+Definição do estado e das funções que o manipulam
+*/
+
 #ifndef ___CAMADADEDADOS_H___
 #define ___CAMADADEDADOS_H___
 
 // conjunto de tipos utilizados para armazenamento e edicao dos dados do estado do jogo
 
+/**
+\brief Tipo de dados para a casa
+*/
 typedef enum {VAZIO, BRANCA, PRETA} CASA;
 
+/**
+\brief Tipo de dados para as coordenadas
+*/
 typedef struct {
     int coluna;
     int linha;
 } COORDENADA;
 
+/**
+\brief Tipo de dados para jogada
+*/
 typedef struct {
     COORDENADA jogador1;
     COORDENADA jogador2;
@@ -21,10 +35,17 @@ typedef struct {
 
 typedef JOGADA JOGADAS[32];
 
+/**
+\brief Tipo de dados para o estado
+*/
 typedef struct{
+    /** O tabuleiro */
     CASA tab[8][8];
+    /** Coordenada da ultima jogada*/
     COORDENADA ultima_jogada;
+    /** Jogadas efetuadas */
     JOGADAS jogadas;
+    /** Número de jogadas*/
     int num_jogadas;
     int jogador_atual;
     int num_comandos;
