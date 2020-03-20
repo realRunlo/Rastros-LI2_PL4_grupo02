@@ -3,8 +3,9 @@
 //
 
 /**
-@file dados.h
-Definição do estado e das funções que o manipulam*/
+@file camada_dados.h
+Definição do estado e das funções que o manipulam
+ */
 
 #ifndef ___CAMADADEDADOS_H___
 #define ___CAMADADEDADOS_H___

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['coordenada',['COORDENADA',['../structCOORDENADA.html',1,'']]]
+  ['add_5fnumcomandos_0',['add_numcomandos',['../camada__dados_8h.html#adf3cfd9c8b45237def757d2b1f02faf3',1,'camada_dados.c']]],
+  ['add_5fnumjogadas_1',['add_numjogadas',['../camada__dados_8h.html#a07206043a685215be150bba486536e67',1,'camada_dados.c']]],
+  ['adiciona_5flista_5fjogadas_2',['adiciona_lista_jogadas',['../camada__dados_8h.html#acb8ef9d9778848981ace34b51f248d9f',1,'camada_dados.c']]]
 ];
