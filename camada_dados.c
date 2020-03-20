@@ -23,6 +23,7 @@ ESTADO *inicializar_estado() {
     e->ultima_jogada.linha=4;
     e->jogador_atual = 1;
     e->num_jogadas = 0;
+    e->num_comandos = 0;
 // Falta a resto da inicialização.
     return e;
 }
@@ -93,8 +94,16 @@ int get_Njogadas(ESTADO *e){ //retorna o número de jogadas
     return e->num_jogadas;
 }
 
+int get_Ncomandos(ESTADO *e){ //retorna o número de comandos
+    return e->num_comandos;
+}
+
 int set_nJogadas(ESTADO *e, int nJ){ //atualiza o número de jogadas
     e->num_jogadas = nJ;
+}
+
+int set_nComandos(ESTADO *e, int nC){ //atualiza o número de comandos
+    e->num_comandos = nC;
 }
 
 int get_coluna(COORDENADA c){
@@ -119,6 +128,10 @@ void add_numjogadas(ESTADO *e){
     e->num_jogadas++;
 }
 
+//Funcao que adiciona 1 ao numero de jogadas
+void add_numcomandos(ESTADO *e){
+    e->num_comandos++;
+}
 
 
 //Funcao que adiciona na lista de jogadas a ultima jogada feita
@@ -142,7 +155,8 @@ void novo_tabuleiro(ESTADO *e, int l, int c, char x){
     }
 }
 
-void novo_prompt(ESTADO *e, int jogador, int nJogadas){
+void novo_prompt(ESTADO *e, int jogador, int nJogadas, int nComandos){
     set_jogador(e, jogador);
     set_nJogadas(e, nJogadas);
+    set_nComandos(e, nComandos);
 }

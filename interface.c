@@ -8,7 +8,7 @@
 #include "logica.h"
 
 //directoria do ficheiro externo
-char db[]="/home/runlo/LI2/Rastros/db.txt";  // /home/runlo/LI2/Rastros/db.txt
+char db[]="C:\\Users\\braza\\OneDrive\\Documentos\\GitHub\\Rastros\\db.txt";  // /home/runlo/LI2/Rastros/db.txt
                                              // C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\db.txt
 
 // Funcao que desenha o tabuleiro
@@ -30,11 +30,11 @@ void desenha_tabuleiro(ESTADO *e){
 
 // ////////////////////////////////////////////////////////////////////////////
 void imprime_estado(ESTADO *e,COORDENADA c){ //prompt pricipal
-    printf("#  %d Jog:%d N:%d >>%c%d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e),converte_numero(get_coluna(c)),get_linha(c)+1);
+    printf("#  %d Jog:%d N:%d >>%c%d\n",get_Ncomandos(e) ,get_jogador(e),get_Njogadas(e),converte_numero(get_coluna(c)),get_linha(c)+1);
 
 }
 void imprime_estadoL(ESTADO *e){ //prompt do ler
-    printf("#  %d Jog:%d N:%d \n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e));
+    printf("#  %d Jog:%d N:%d \n",get_Ncomandos(e) ,get_jogador(e),get_Njogadas(e));
 
 }
 
@@ -99,7 +99,7 @@ void ler(ESTADO *e, const char *filename, const char *mode){
 
     int nComandos, jogador, nJogadas;
     fscanf(fp,"#  %d Jog:%d N:%d",&nComandos, &jogador, &nJogadas); //lê as informações do prompt
-    novo_prompt(e, jogador, nJogadas); // atualiza o estado com a info do novo prompt
+    novo_prompt(e, jogador, nJogadas, nComandos); // atualiza o estado com a info do novo prompt
 
     fclose(fp);
 }
@@ -145,7 +145,7 @@ int interpretador(ESTADO *e) {
 
         if(jogada_possivel(e) == 1) printf("Digite um comando->");
         else return 1;  //este return é de forma a não haver a repetição do jogada_possivel na quebra do ciclo
-
+        add_numcomandos(e);
     }
 
 }

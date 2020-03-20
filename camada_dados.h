@@ -27,6 +27,7 @@ typedef struct{
     JOGADAS jogadas;
     int num_jogadas;
     int jogador_atual;
+    int num_comandos;
 } ESTADO;
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -53,7 +54,11 @@ int set_jogador(ESTADO *e, int j); //funcao que atualiza o numero do jogador atu
 
 int get_Njogadas(ESTADO *e);//retorna o número de jogadas
 
+int get_Ncomandos(ESTADO *e);//retorna o número de comandos
+
 int set_nJogadas(ESTADO *e, int nJ);//atualiza o número de jogadas
+
+int set_nComandos(ESTADO *e, int nJ);//atualiza o número de comandos
 
 int get_coluna(COORDENADA c); // retorna o número da coluna de uma coordenada
 
@@ -67,7 +72,9 @@ void set_ultima_jogada(ESTADO *e, int l, int c); //Funcao que modifica as coorde
 
 void add_numjogadas(ESTADO *e); //Adiciona 1 ao numero de jogadas
 
+void add_numcomandos(ESTADO *e); //Adiciona 1 ao numero de comandos
+
 void novo_tabuleiro(ESTADO *e, int l, int c, char x); // atualiza o tabuleiro no estado de acordo com o que esta gravado no ficheiro de texto
 
-void novo_prompt(ESTADO *e, int jogador, int nJogadas); // atualiza o estado a partir do prompt do que esta gravado no ficheiro
+void novo_prompt(ESTADO *e, int jogador, int nJogadas, int nComandos); // atualiza o estado a partir do prompt do que esta gravado no ficheiro
 #endif //___CAMADADEDADOS_H__
