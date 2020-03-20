@@ -1,9 +1,7 @@
 //
 // Created by runlo on 09/03/20.
 //
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "camada_dados.h"
 
 
@@ -128,12 +126,10 @@ void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador){
     if (jogador == 1) {
         e->jogadas[e->num_jogadas].jogador1.coluna = c;
         e->jogadas[e->num_jogadas].jogador1.linha = l;
-        e->jogador_atual = 2;
     }
     else {
-        e->jogadas[e->num_jogadas].jogador1.coluna = c;
-        e->jogadas[e->num_jogadas].jogador1.linha = l;
-        e->jogador_atual = 1;
+        e->jogadas[e->num_jogadas].jogador2.coluna = c;
+        e->jogadas[e->num_jogadas].jogador2.linha = l;
     }
 }
 

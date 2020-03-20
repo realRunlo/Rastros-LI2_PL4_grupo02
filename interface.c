@@ -2,14 +2,13 @@
 // Created by runlo on 09/03/20.
 //
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-
 #define BUF_SIZE 1024
 #include "camada_dados.h"
 #include "logica.h"
+
 //directoria do ficheiro externo
-char db[]="C:\\Users\\braza\\OneDrive\\Documentos\\GitHub\\Rastros\\db.txt";  // /home/runlo/LI2/Rastros/db.txt
+char db[]="/home/runlo/LI2/Rastros/db.txt";  // /home/runlo/LI2/Rastros/db.txt
                                              // C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\db.txt
 
 // Funcao que desenha o tabuleiro
@@ -38,6 +37,7 @@ void imprime_estadoL(ESTADO *e){ //prompt do ler
     printf("#  %d Jog:%d N:%d \n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e));
 
 }
+
 // FUNÇÔES DE MANUSEAMENTO DE FICHEIRO EXTERNO ///////////////////////////////////////////////////////////////
 
 void grava_tabuleiro(ESTADO *e,FILE *filename){ // Função que grava o tabuleiro num dado ficheiro
@@ -55,10 +55,13 @@ void grava_tabuleiro(ESTADO *e,FILE *filename){ // Função que grava o tabuleir
         fprintf(filename,"\n");
     }
 }
-void grava_estado(ESTADO *e,FILE *filename) {  // Função que grava o estado num dado ficheiro
+
+// Função que grava o estado num dado ficheiro
+void grava_estado(ESTADO *e,FILE *filename) {
     fprintf(filename,"#  %d Jog:%d N:%d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e));
 }
 
+//culminar da grava_tabuleiro e grava_estado
 void gravar(ESTADO *e,const char *filename, const char *mode){
     FILE *fp;
 
@@ -75,7 +78,6 @@ void gravar(ESTADO *e,const char *filename, const char *mode){
  * imprimir o mesmo simultânemanete                                   (done)
  * atualizar o estado para o estado do tabuleiro carregado        (done)
 */
-
 void ler(ESTADO *e, const char *filename, const char *mode){
     FILE *fp;
 
@@ -102,7 +104,8 @@ void ler(ESTADO *e, const char *filename, const char *mode){
     fclose(fp);
 }
 // //////////////////////////////////////////////////////////////////////////////////////////////////
-// Função que deve ser completada e colocada na camada de interface
+
+// Função de interface,que permite a intereção com os jogadores
 int interpretador(ESTADO *e) {
 
     char linha[BUF_SIZE];
@@ -116,22 +119,23 @@ int interpretador(ESTADO *e) {
                 jogar(e, coord);
                 desenha_tabuleiro(e);
                 imprime_estado(e,coord);
-                printf("Digite um comando->");
+
             }else{
                 printf("Faça uma jogada válida pf\n");       //se a jogada não for válida pede por uma jogada válida
                 interpretador(e);
+                return 1;
             }
 
         }
         else if(strlen(linha) == 3 && sscanf(linha,"%c%c",&c1,&c2) == 2 && c1=='g' && c2=='r'){
             gravar(e,db, "w");
-            printf("Digite um comando->");
+
         }
         else if (strlen(linha) == 4 && sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='l' && c2=='e' && c3=='r'){
             ler(e, db, "r");  //lê o novo tabuleiro atualizando o respetivo estado
             desenha_tabuleiro(e);   //desenha um novo tabuleiro
             imprime_estadoL(e);
-            printf("Digite um comando->");
+
         }
 
         else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída
@@ -139,26 +143,32 @@ int interpretador(ESTADO *e) {
         else
             printf("Digite um comando válido por favor!\n");
 
+        if(jogada_possivel(e) == 1) printf("Digite um comando->");
+        else return 1;  //este return é de forma a não haver a repetição do jogada_possivel na quebra do ciclo
+
     }
-    return 1;
 
 }
 
 
 
+
+
 // ////////////////////////  WORK IN PROGRESS //////////////////////////////////////////////
-
-
 //Imprime jogadas efetuadas
 void lista_movimentos(ESTADO *e){
     printf("\n");
-
-    for(int i=01;i<=e->num_jogadas;i++){
+    int j1,j2,jc1=2,jc2=2;
+    for(int i=0;i<=(e->num_jogadas);i++){
         printf("%d:",i);
-        for(int j=0;j<2;j++){
-
-            printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
+        for(j1=0;j1<jc1;j1++){
+            printf(" %c%d",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
         }
+            jc1=j1+2;
+        for(j2=0;j2<jc2;j2++){
+            printf(" %c%d",converte_numero(e->jogadas[i].jogador2.coluna),e->jogadas[i].jogador2.linha);
+        }
+            jc1=j1+2;
         printf("\n");
     }
     printf("\n");
