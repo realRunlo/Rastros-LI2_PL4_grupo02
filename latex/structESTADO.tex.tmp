@@ -24,11 +24,9 @@ J\+O\+G\+A\+D\+AS \hyperlink{structESTADO_afae43b87a488fad0f2b56a18bad31d18}{jog
 \item 
 int \hyperlink{structESTADO_a261495728744647e618b4e623f5a4b7a}{num\+\_\+jogadas}
 \item 
-\mbox{\Hypertarget{structESTADO_a5dd28e2e68b7aef2b6b7ea88e02eff58}\label{structESTADO_a5dd28e2e68b7aef2b6b7ea88e02eff58}} 
-int {\bfseries jogador\+\_\+atual}
+int \hyperlink{structESTADO_a5dd28e2e68b7aef2b6b7ea88e02eff58}{jogador\+\_\+atual}
 \item 
-\mbox{\Hypertarget{structESTADO_abe6faacdd6111160bf9a354f44b95b38}\label{structESTADO_abe6faacdd6111160bf9a354f44b95b38}} 
-int {\bfseries num\+\_\+comandos}
+int \hyperlink{structESTADO_abe6faacdd6111160bf9a354f44b95b38}{num\+\_\+comandos}
 \end{DoxyCompactItemize}
 
 
@@ -42,7 +40,19 @@ Tipo de dados para o estado.
 \subsubsection{\texorpdfstring{jogadas}{jogadas}}
 {\footnotesize\ttfamily J\+O\+G\+A\+D\+AS E\+S\+T\+A\+D\+O\+::jogadas}
 
-Jogadas efetuadas \mbox{\Hypertarget{structESTADO_a261495728744647e618b4e623f5a4b7a}\label{structESTADO_a261495728744647e618b4e623f5a4b7a}} 
+Jogadas efetuadas \mbox{\Hypertarget{structESTADO_a5dd28e2e68b7aef2b6b7ea88e02eff58}\label{structESTADO_a5dd28e2e68b7aef2b6b7ea88e02eff58}} 
+\index{E\+S\+T\+A\+DO@{E\+S\+T\+A\+DO}!jogador\+\_\+atual@{jogador\+\_\+atual}}
+\index{jogador\+\_\+atual@{jogador\+\_\+atual}!E\+S\+T\+A\+DO@{E\+S\+T\+A\+DO}}
+\subsubsection{\texorpdfstring{jogador\+\_\+atual}{jogador\_atual}}
+{\footnotesize\ttfamily int E\+S\+T\+A\+D\+O\+::jogador\+\_\+atual}
+
+Jogador atual \mbox{\Hypertarget{structESTADO_abe6faacdd6111160bf9a354f44b95b38}\label{structESTADO_abe6faacdd6111160bf9a354f44b95b38}} 
+\index{E\+S\+T\+A\+DO@{E\+S\+T\+A\+DO}!num\+\_\+comandos@{num\+\_\+comandos}}
+\index{num\+\_\+comandos@{num\+\_\+comandos}!E\+S\+T\+A\+DO@{E\+S\+T\+A\+DO}}
+\subsubsection{\texorpdfstring{num\+\_\+comandos}{num\_comandos}}
+{\footnotesize\ttfamily int E\+S\+T\+A\+D\+O\+::num\+\_\+comandos}
+
+Número de comandos excutados \mbox{\Hypertarget{structESTADO_a261495728744647e618b4e623f5a4b7a}\label{structESTADO_a261495728744647e618b4e623f5a4b7a}} 
 \index{E\+S\+T\+A\+DO@{E\+S\+T\+A\+DO}!num\+\_\+jogadas@{num\+\_\+jogadas}}
 \index{num\+\_\+jogadas@{num\+\_\+jogadas}!E\+S\+T\+A\+DO@{E\+S\+T\+A\+DO}}
 \subsubsection{\texorpdfstring{num\+\_\+jogadas}{num\_jogadas}}
