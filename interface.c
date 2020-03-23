@@ -109,7 +109,8 @@ void ler(ESTADO *e, const char *filename, const char *mode){
 int interpretador(ESTADO *e) {
 
     char linha[BUF_SIZE];
-    char col[2], lin[2],q,c1,c2,c3;
+    char col[2], lin[2],q,c1,c2,c3,c4;
+    char filename[50];
     while (jogada_possivel(e) == 1) {
         if (fgets(linha, BUF_SIZE, stdin) == NULL)
             return 0;
@@ -127,12 +128,12 @@ int interpretador(ESTADO *e) {
             }
 
         }
-        else if(strlen(linha) == 3 && sscanf(linha,"%c%c",&c1,&c2) == 2 && c1=='g' && c2=='r'){
-            gravar(e,db, "w");
-
+        else if(sscanf(linha,"%c%c%c%s", &c1, &c2, &c3, filename) == 4 && c1=='g' && c2=='r' && c3 == ' '){
+            gravar(e,filename,"w");
+            printf("O seu jogo foi salvo!\n");
         }
-        else if (strlen(linha) == 4 && sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='l' && c2=='e' && c3=='r'){
-            ler(e, db, "r");  //lê o novo tabuleiro atualizando o respetivo estado
+        else if (strlen(linha) == 4 && sscanf(linha,"%c%c%c%c%s",&c1,&c2,&c3,&c4,filename) == 5 && c1=='l' && c2=='e' && c3=='r' && c4 == ' '){
+            ler(e, filename, "r");  //lê o novo tabuleiro atualizando o respetivo estado
             desenha_tabuleiro(e);   //desenha um novo tabuleiro
             imprime_estadoL(e);
 
