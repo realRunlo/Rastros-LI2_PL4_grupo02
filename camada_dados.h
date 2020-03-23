@@ -163,10 +163,5 @@ void add_numcomandos(ESTADO *e); //Adiciona 1 ao numero de comandos
  * @param x Caracter nessa casa*/
 void novo_tabuleiro(ESTADO *e, int l, int c, char x); // atualiza o tabuleiro no estado de acordo com o que esta gravado no ficheiro de texto
 
-/** \brief Atualiza o estado a partir do prompt do que esta gravado no ficheiro externo
- * @param e Apontador para o estado
- * @param jogador Jogador atual do prompt
- * @param nJogadas Número de jogadas
- * @param nComandos Número de jogadas*/
-void novo_prompt(ESTADO *e, int jogador, int nJogadas, int nComandos); // atualiza o estado a partir do prompt do que esta gravado no ficheiro
+
 #endif //___CAMADADEDADOS_H__
