@@ -11,7 +11,7 @@ int main() {
     desenha_tabuleiro(e);
     printf("Digite um comando->");
     interpretador(e);
-    //lista_movimentos(e); //errada precisa de ser trabalhada
+    lista_movimentos(e); //listas os movimentos,mas ainda não é tudo o que se pretende
 
     printf("JOGO TERMINADO\n");
 }

@@ -18,6 +18,8 @@ int jogar(ESTADO *e, COORDENADA c){
     adiciona_lista_jogadas(e, l, co, j);  //adiciona a jogada atual a lista de jogadas
     add_numjogadas(e);
     set_ultima_jogada(e, l, co);
+    if(j==1) set_jogador(e,2);
+    else set_jogador(e,1);
     return 1;
 }
 

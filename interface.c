@@ -8,7 +8,7 @@
 #include "logica.h"
 
 //directoria do ficheiro externo
-char db[]="C:\\Users\\braza\\OneDrive\\Documentos\\GitHub\\Rastros\\db.txt";  // /home/runlo/LI2/Rastros/db.txt
+char db[]="/home/runlo/LI2/Rastros/db.txt";  // /home/runlo/LI2/Rastros/db.txt
                                              // C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\db.txt
 
 // Funcao que desenha o tabuleiro
@@ -151,27 +151,28 @@ int interpretador(ESTADO *e) {
 }
 
 
-
-
-
 // ////////////////////////  WORK IN PROGRESS //////////////////////////////////////////////
+
+void lista_ronda(ESTADO *e,int i){
+    if(i==get_Njogadas(e)-1)
+        printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
+    else{
+        printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
+        printf("%c%d",converte_numero(e->jogadas[i+1].jogador2.coluna),e->jogadas[i+1].jogador2.linha);
+    }
+
+}
+
 //Imprime jogadas efetuadas
 void lista_movimentos(ESTADO *e){
+    int j=1;
     printf("\n");
-    int j1,j2,jc1=2,jc2=2;
-    for(int i=0;i<=(e->num_jogadas);i++){
-        printf("%d:",i);
-        for(j1=0;j1<jc1;j1++){
-            printf(" %c%d",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
-        }
-            jc1=j1+2;
-        for(j2=0;j2<jc2;j2++){
-            printf(" %c%d",converte_numero(e->jogadas[i].jogador2.coluna),e->jogadas[i].jogador2.linha);
-        }
-            jc1=j1+2;
+    for(int i=0;i<(get_Njogadas(e));i++){
+        printf("%d%d:",0,j);
+        lista_ronda(e,i);
+        i++;j++;
         printf("\n");
     }
-    printf("\n");
 }
 
 
