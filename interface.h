@@ -81,4 +81,6 @@ int interpretador(ESTADO *e); // funcao que interpretada o comando dado e atuali
  * @param e Apontador para o estado.
  */
 void lista_movimentos(ESTADO *e);
+
+void lista_ronda(ESTADO *e,int i);
 #endif //___INTERPRETADOR_H__

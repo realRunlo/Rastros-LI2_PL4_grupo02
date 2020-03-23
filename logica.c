@@ -13,11 +13,13 @@ int jogar(ESTADO *e, COORDENADA c){
     int l_anterior = e->ultima_jogada.linha;
     int c_anterior = e->ultima_jogada.coluna;
     int j = get_jogador(e);
-    set_branca(e, l ,co);  //altera para a nova posição
-    set_preta(e, l_anterior, c_anterior);  //altera a ultima posição para preta
+    set_branca(e, l ,co);  //altera a peça para a nova posição
+    set_preta(e, l_anterior, c_anterior);  //altera a ultima posição da peça para preta
     adiciona_lista_jogadas(e, l, co, j);  //adiciona a jogada atual a lista de jogadas
     add_numjogadas(e);
     set_ultima_jogada(e, l, co);
+    if(j==1) set_jogador(e,2);
+    else set_jogador(e,1);
     return 1;
 }
 
