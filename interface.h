@@ -32,12 +32,9 @@ void grava_tabuleiro(ESTADO *e,FILE *filename);
  */
 void imprime_estado(ESTADO *e,COORDENADA c);
 
+void imprime_estadoI(ESTADO *e);
 
-/**
- * \brief Funçao que desenha o prompt do jogo gravado no ficheiro especificado.
- * @param e Apontador para o estado.
- */
-void imprime_estadoL(ESTADO *e);
+
 
 
 /**
@@ -80,7 +77,7 @@ int interpretador(ESTADO *e); // funcao que interpretada o comando dado e atuali
  * \brief Funçao nao terminada que ira imprimir os movimentos ja realizados no jogo.
  * @param e Apontador para o estado.
  */
-void lista_movimentos(ESTADO *e);
+void lista_movimentos(ESTADO *e,FILE *filename);
 
-void lista_ronda(ESTADO *e,int i);
+void lista_ronda(ESTADO *e,int i,FILE *filename);
 #endif //___INTERPRETADOR_H__

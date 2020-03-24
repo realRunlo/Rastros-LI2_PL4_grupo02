@@ -8,7 +8,7 @@
 #include "logica.h"
 
 //directoria do ficheiro externo
-char db[]="/home/runlo/LI2/Rastros/db.txt";  // /home/runlo/LI2/Rastros/db.txt
+//char db[]="/home/runlo/LI2/Rastros/db.txt";  // /home/runlo/LI2/Rastros/db.txt
                                              // C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\db.txt
 
 // Funcao que desenha o tabuleiro
@@ -29,14 +29,39 @@ void desenha_tabuleiro(ESTADO *e){
 }
 
 // ////////////////////////////////////////////////////////////////////////////
-void imprime_estado(ESTADO *e,COORDENADA c){ //prompt pricipal
-    printf("#  %d Jog:%d N:%d >>%c%d\n",get_Ncomandos(e) ,get_jogador(e),get_Njogadas(e),converte_numero(get_coluna(c)),get_linha(c)+1);
-
-}
-void imprime_estadoL(ESTADO *e){ //prompt do ler
+void imprime_estadoI(ESTADO *e){ //prompt só para o estado inicial
     printf("#  %d Jog:%d N:%d \n",get_Ncomandos(e) ,get_jogador(e),get_Njogadas(e));
 
 }
+void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
+    printf("#  %d Jog:%d N:%d >>%c%d\n",get_Ncomandos(e) ,get_jogador(e),get_Njogadas(e),converte_numero(get_coluna(c)),get_linha(c)+1);
+
+}
+
+// //////////////////////// Listar movimentos //////////////////////////////////////////////
+
+void lista_ronda(ESTADO *e,int i,FILE *filename){
+    if(i==get_Njogadas(e)-1)
+        fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
+    else{
+        fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
+        fprintf(filename,"%c%d",converte_numero(e->jogadas[i+1].jogador2.coluna),e->jogadas[i+1].jogador2.linha);
+    }
+
+}
+
+//Imprime jogadas efetuadas
+void lista_movimentos(ESTADO *e,FILE *filename){
+    int j=1;
+    fprintf(filename,"\n");
+    for(int i=0;i<(get_Njogadas(e));i++){
+        fprintf(filename,"%d%d:",0,j);
+        lista_ronda(e,i,filename);
+        i++;j++;
+        fprintf(filename,"\n");
+    }
+}
+
 
 // FUNÇÔES DE MANUSEAMENTO DE FICHEIRO EXTERNO ///////////////////////////////////////////////////////////////
 
@@ -53,10 +78,7 @@ void grava_tabuleiro(ESTADO *e,FILE *filename){ // Função que grava o tabuleir
     }
 }
 
-// Função que grava o estado num dado ficheiro
-void grava_estado(ESTADO *e,FILE *filename) {
-    fprintf(filename,"#  %d Jog:%d N:%d\n",get_Njogadas(e)+1 ,get_jogador(e),get_Njogadas(e));
-}
+
 
 //culminar da grava_tabuleiro e grava_estado
 void gravar(ESTADO *e,const char *filename, const char *mode){
@@ -64,16 +86,12 @@ void gravar(ESTADO *e,const char *filename, const char *mode){
 
     fp = fopen(filename,mode);
     grava_tabuleiro(e,fp);
+    lista_movimentos(e,fp);
 
     fclose(fp);
 }
 
 
-/*OBJETIVOS DA FUNÇÂO LER:
- * dar scan linha a linha do ficheiro (inclui o tabuleiro e o prompt do estado) (done)
- * imprimir o mesmo simultânemanete                                   (done)
- * atualizar o estado para o estado do tabuleiro carregado        (done)
-*/
 void ler(ESTADO *e, const char *filename, const char *mode){
     FILE *fp;
 
@@ -119,10 +137,10 @@ int interpretador(ESTADO *e) {
             gravar(e,filename,"w");
             printf("O seu jogo foi salvo!\n");
         }
-        else if (strlen(linha) == 4 && sscanf(linha,"%c%c%c%c%s",&c1,&c2,&c3,&c4,filename) == 5 && c1=='l' && c2=='e' && c3=='r' && c4 == ' '){
-            ler(e, filename, "r");  //lê o novo tabuleiro atualizando o respetivo estado
+        else if (sscanf(linha,"%c%c%c%c%s",&c1,&c2,&c3,&c4,filename) == 5 && c1=='l' && c2=='e' && c3=='r' && c4 == ' '){
+            ler(e,filename, "r");  //lê o novo tabuleiro atualizando o respetivo estado
             desenha_tabuleiro(e);   //desenha um novo tabuleiro
-            //imprime_estadoL(e);
+            imprime_estadoI(e);
 
         }
 
@@ -138,30 +156,6 @@ int interpretador(ESTADO *e) {
 
 }
 
-
-// //////////////////////// Listar movimentos //////////////////////////////////////////////
-
-void lista_ronda(ESTADO *e,int i){
-    if(i==get_Njogadas(e)-1)
-        printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
-    else{
-        printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
-        printf("%c%d",converte_numero(e->jogadas[i+1].jogador2.coluna),e->jogadas[i+1].jogador2.linha);
-    }
-
-}
-
-//Imprime jogadas efetuadas
-void lista_movimentos(ESTADO *e){
-    int j=1;
-    printf("\n");
-    for(int i=0;i<(get_Njogadas(e));i++){
-        printf("%d%d:",0,j);
-        lista_ronda(e,i);
-        i++;j++;
-        printf("\n");
-    }
-}
 
 
 
