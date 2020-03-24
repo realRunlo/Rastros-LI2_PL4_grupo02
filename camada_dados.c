@@ -34,6 +34,10 @@ char converte_numero(int x){
     return 'a' + x;
 }
 
+//Converte uma letra no seu numero correspondente
+char converte_letra(char x){
+    return 0 + x;
+}
 
 
 //Verifica se a casa tem peca branca
@@ -146,6 +150,8 @@ void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador){
     }
 }
 
+
+//Funcao que modifica o estado do tabuleiro quando o le
 void novo_tabuleiro(ESTADO *e, int l, int c, char x){
     if (x == '.') set_vazio(e, l, c);
     else if(x == '#') set_preta(e, l, c);
@@ -155,8 +161,27 @@ void novo_tabuleiro(ESTADO *e, int l, int c, char x){
     }
 }
 
+
+
+//funcao nao utilizada de momento
 void novo_prompt(ESTADO *e, int jogador, int nJogadas, int nComandos){
     set_jogador(e, jogador);
     set_nJogadas(e, nJogadas);
     set_nComandos(e, nComandos);
+}
+
+
+
+
+//funcao que atualiza o estado das jogadas efetuadas
+void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha){
+    int c = converte_letra(coluna);
+    if (j == 1) {
+        e->jogadas[jogada].jogador1.linha = linha;
+        e->jogadas[jogada].jogador1.linha = c;
+    }
+    else {
+        e->jogadas[jogada].jogador2.linha = linha;
+        e->jogadas[jogada].jogador2.linha = c;
+    }
 }

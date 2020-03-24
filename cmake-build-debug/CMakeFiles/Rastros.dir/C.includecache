@@ -6,5 +6,17 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
 
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/interface.c
+stdio.h
+-
+string.h
+-
+camada_dados.h
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/camada_dados.h
+logica.h
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/logica.h
+
+C:/Users/braza/OneDrive/Documentos/GitHub/Rastros/logica.h
 

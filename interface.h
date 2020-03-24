@@ -77,7 +77,17 @@ int interpretador(ESTADO *e); // funcao que interpretada o comando dado e atuali
  * \brief Funçao nao terminada que ira imprimir os movimentos ja realizados no jogo.
  * @param e Apontador para o estado.
  */
-void lista_movimentos(ESTADO *e,FILE *filename);
+void flista_movimentos(ESTADO *e,FILE *filename);
 
-void lista_ronda(ESTADO *e,int i,FILE *filename);
+
+
+void flista_ronda(ESTADO *e,int i,FILE *filename);//funcao que imprime a jogada efetuada numero i no ficheiro
+
+
+
+void lista_movimentos(ESTADO *e);//funcao que imprime a lista de movimentos efetuados
+
+
+
+void lista_ronda(ESTADO *e,int i);//funcao que imprime a jogada efetuada numero i
 #endif //___INTERPRETADOR_H__

@@ -61,6 +61,11 @@ ESTADO *inicializar_estado(); // funcao que da o estado inicial do jogo
  * @param x Número a converter*/
 char converte_numero(int x); // funcao que torna um numero de uma coluna numa letra
 
+
+/** \brief Converte uma letra no seu numero correspondente
+ * @param x Letra a converter*/
+char converte_letra(char x); // funcao que torna uma letra num numero
+
 /** \brief Verifica se uma casa tem peca branca
  * @param e Apontador para o estado
  * @param l Linha da casa
@@ -163,5 +168,8 @@ void add_numcomandos(ESTADO *e); //Adiciona 1 ao numero de comandos
  * @param x Caracter nessa casa*/
 void novo_tabuleiro(ESTADO *e, int l, int c, char x); // atualiza o tabuleiro no estado de acordo com o que esta gravado no ficheiro de texto
 
+
+//funcao que modifica o estado da jogada efetuada numero j
+void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha);
 
 #endif //___CAMADADEDADOS_H__

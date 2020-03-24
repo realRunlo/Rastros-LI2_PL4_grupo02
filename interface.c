@@ -40,7 +40,8 @@ void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
 
 // //////////////////////// Listar movimentos //////////////////////////////////////////////
 
-void lista_ronda(ESTADO *e,int i,FILE *filename){
+//Imprime a jogada efetuada numero i no ficheiro
+void flista_ronda(ESTADO *e,int i,FILE *filename){
     if(i==get_Njogadas(e)-1)
         fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
     else{
@@ -50,17 +51,44 @@ void lista_ronda(ESTADO *e,int i,FILE *filename){
 
 }
 
-//Imprime jogadas efetuadas
-void lista_movimentos(ESTADO *e,FILE *filename){
+//Imprime jogadas efetuadas no ficheiro
+void flista_movimentos(ESTADO *e,FILE *filename){
     int j=1;
     fprintf(filename,"\n");
     for(int i=0;i<(get_Njogadas(e));i++){
         fprintf(filename,"%d%d:",0,j);
-        lista_ronda(e,i,filename);
+        flista_ronda(e,i,filename);
         i++;j++;
         fprintf(filename,"\n");
     }
 }
+
+//Imprime a jogada efetuada numero i
+void lista_ronda(ESTADO *e,int i){
+    if(i==get_Njogadas(e)-1)
+        printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
+    else{
+        printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
+        printf("%c%d",converte_numero(e->jogadas[i+1].jogador2.coluna),e->jogadas[i+1].jogador2.linha);
+    }
+
+}
+
+
+//Imprime jogadas efetuadas
+void lista_movimentos(ESTADO *e){
+    int j=1;
+    printf("\n");
+    for(int i=0;i<(get_Njogadas(e));i++){
+        printf("%d%d:",0,j);
+        lista_ronda(e,i);
+        i++;j++;
+        printf("\n");
+    }
+}
+
+
+
 
 
 // FUNÇÔES DE MANUSEAMENTO DE FICHEIRO EXTERNO ///////////////////////////////////////////////////////////////
@@ -86,7 +114,7 @@ void gravar(ESTADO *e,const char *filename, const char *mode){
 
     fp = fopen(filename,mode);
     grava_tabuleiro(e,fp);
-    lista_movimentos(e,fp);
+    flista_movimentos(e,fp);
 
     fclose(fp);
 }
@@ -106,6 +134,39 @@ void ler(ESTADO *e, const char *filename, const char *mode){
         }
     }
 
+    int jogada = 0;
+    int cl;
+    char cc;
+    int num_jogadas1 = 0 , num_jogadas2 = 0;
+    fscanf(fp,"01:");
+    for(int i = 0; i != 1;){
+        if (fscanf(fp,"%c%d\n",&cc,&cl)){
+            set_jogada_efetuada(e,1,jogada,cc,cl);
+            i = 1;
+        }
+        else {
+            fscanf(fp,"%c%d ",&cc,&cl);
+            set_jogada_efetuada(e,1,jogada,cc,cl);
+            jogada++;
+            num_jogadas1++;
+        }
+    }
+    jogada = 0;
+    fscanf(fp,"02:");
+    for(int i = 0; i != 1;){
+        if (fscanf(fp,"%c%d\n",&cc,&cl)){
+            set_jogada_efetuada(e,2,jogada,cc,cl);
+            i = 1;
+        }
+        else {
+            fscanf(fp,"%c%d",&cc,&cl);
+            set_jogada_efetuada(e,2,jogada,cc,cl);
+            jogada++;
+            num_jogadas2++;
+        }
+    }
+    if (num_jogadas1 > num_jogadas2) set_jogador(e,2);
+    else set_jogador(e,1);
     fclose(fp);
 }
 // //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -128,6 +189,8 @@ int interpretador(ESTADO *e) {
 
             }else{
                 printf("Faça uma jogada válida pf\n");       //se a jogada não for válida pede por uma jogada válida
+                add_numcomandos(e);
+                imprime_estado(e,coord);
                 interpretador(e);
                 return 1;
             }
@@ -142,6 +205,9 @@ int interpretador(ESTADO *e) {
             desenha_tabuleiro(e);   //desenha um novo tabuleiro
             imprime_estadoI(e);
 
+        }
+        else if (sscanf(linha,"%c%c%c%c",&c1,&c2,&c3,&c4) == 4 && c1=='m' && c2=='o' && c3=='v' && c4 == 's'){
+            lista_movimentos(e);
         }
 
         else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída
