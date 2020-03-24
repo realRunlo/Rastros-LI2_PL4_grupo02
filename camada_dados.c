@@ -1,6 +1,7 @@
 //
 // Created by runlo on 09/03/20.
 //
+#include <stdio.h>
 #include <stdlib.h>
 #include "camada_dados.h"
 
@@ -35,8 +36,8 @@ char converte_numero(int x){
 }
 
 //Converte uma letra no seu numero correspondente
-char converte_letra(char x){
-    return 0 + x;
+int converte_letra(char x){
+    return x - 'a';
 }
 
 
@@ -175,13 +176,15 @@ void novo_prompt(ESTADO *e, int jogador, int nJogadas, int nComandos){
 
 //funcao que atualiza o estado das jogadas efetuadas
 void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha){
+    printf("%c%d\n",coluna,linha);
     int c = converte_letra(coluna);
+    printf("%d%d\n",c,linha);
     if (j == 1) {
         e->jogadas[jogada].jogador1.linha = linha;
-        e->jogadas[jogada].jogador1.linha = c;
+        e->jogadas[jogada].jogador1.coluna = c;
     }
     else {
         e->jogadas[jogada].jogador2.linha = linha;
-        e->jogadas[jogada].jogador2.linha = c;
+        e->jogadas[jogada].jogador2.coluna = c;
     }
 }

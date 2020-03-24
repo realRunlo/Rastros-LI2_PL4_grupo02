@@ -63,6 +63,8 @@ void flista_movimentos(ESTADO *e,FILE *filename){
     }
 }
 
+
+
 //Imprime a jogada efetuada numero i
 void lista_ronda(ESTADO *e,int i){
     if(i==get_Njogadas(e)-1)
@@ -80,7 +82,7 @@ void lista_movimentos(ESTADO *e){
     int j=1;
     printf("\n");
     for(int i=0;i<(get_Njogadas(e));i++){
-        printf("%d%d:",0,j);
+        printf("0%d:",j);
         lista_ronda(e,i);
         i++;j++;
         printf("\n");
@@ -126,43 +128,53 @@ void ler(ESTADO *e, const char *filename, const char *mode){
     fp = fopen(filename,mode);
 
     char crt;
-    int l,c ; //posição do canto superior esquerdo do tabuleiro
-    for(l=7;l>0;l--){ //lê cada linha do tabuleiro , a contagem das linhas vai de cima para baixo por uma questão de correspondência à imagem
+    int l,c,feitas = 0 ; //posição do canto superior esquerdo do tabuleiro
+    for(l=7;l>=0;l--){ //lê cada linha do tabuleiro , a contagem das linhas vai de cima para baixo por uma questão de correspondência à imagem
         for(c=0;c<=8;c++){
             fscanf(fp,"%c",&crt);
+            if (crt == '#') feitas++;
             novo_tabuleiro(e,l,c,crt);
         }
     }
+    set_nJogadas(e, feitas);
+    int jogadas_1,jogadas_2;
+    if (feitas % 2 == 1) jogadas_1 = (feitas + 1) / 2;
+    else jogadas_1 = feitas / 2;
+    jogadas_2 = feitas - jogadas_1;
 
+    fscanf(fp,"\n");
     int jogada = 0;
     int cl;
     char cc;
-    int num_jogadas1 = 0 , num_jogadas2 = 0;
+    int num_jogadas1 = 1 , num_jogadas2 = 1;
     fscanf(fp,"01:");
     for(int i = 0; i != 1;){
-        if (fscanf(fp,"%c%d\n",&cc,&cl)){
-            set_jogada_efetuada(e,1,jogada,cc,cl);
-            i = 1;
-        }
-        else {
+        if (num_jogadas1 < jogadas_1){
             fscanf(fp,"%c%d ",&cc,&cl);
             set_jogada_efetuada(e,1,jogada,cc,cl);
             jogada++;
             num_jogadas1++;
         }
+        else {
+            fscanf(fp,"%c%d\n",&cc,&cl);
+            set_jogada_efetuada(e,1,jogada,cc,cl);
+            i = 1;
+        }
     }
+    printf("\n\n");
     jogada = 0;
     fscanf(fp,"02:");
     for(int i = 0; i != 1;){
-        if (fscanf(fp,"%c%d\n",&cc,&cl)){
-            set_jogada_efetuada(e,2,jogada,cc,cl);
-            i = 1;
-        }
-        else {
-            fscanf(fp,"%c%d",&cc,&cl);
+        if (num_jogadas2 < jogadas_2){
+            fscanf(fp,"%c%d ",&cc,&cl);
             set_jogada_efetuada(e,2,jogada,cc,cl);
             jogada++;
             num_jogadas2++;
+        }
+        else {
+            fscanf(fp,"%c%d\n",&cc,&cl);
+            set_jogada_efetuada(e,2,jogada,cc,cl);
+            i = 1;
         }
     }
     if (num_jogadas1 > num_jogadas2) set_jogador(e,2);

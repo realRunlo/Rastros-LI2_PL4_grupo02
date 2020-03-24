@@ -64,7 +64,7 @@ char converte_numero(int x); // funcao que torna um numero de uma coluna numa le
 
 /** \brief Converte uma letra no seu numero correspondente
  * @param x Letra a converter*/
-char converte_letra(char x); // funcao que torna uma letra num numero
+int converte_letra(char x); // funcao que torna uma letra num numero
 
 /** \brief Verifica se uma casa tem peca branca
  * @param e Apontador para o estado
