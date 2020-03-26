@@ -90,4 +90,9 @@ void lista_movimentos(ESTADO *e);//funcao que imprime a lista de movimentos efet
 
 
 void lista_ronda(ESTADO *e,int i);//funcao que imprime a jogada efetuada numero i
+
+int pos (ESTADO *e, int nrJ);
+
+
+
 #endif //___INTERPRETADOR_H__

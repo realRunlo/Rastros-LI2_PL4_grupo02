@@ -35,6 +35,8 @@ typedef struct {
 
 typedef JOGADA JOGADAS[32];
 
+typedef JOGADA *POINTER;
+
 /**
 \brief Tipo de dados para o estado
 */
@@ -51,6 +53,8 @@ typedef struct{
     int jogador_atual;
     /** Número de comandos excutados*/
     int num_comandos;
+
+    POINTER pt;
 } ESTADO;
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -110,6 +114,8 @@ int get_jogador(ESTADO *e); //funcao que retorna o numero do jogador atual
 /** \brief Retorna o número de jogadas
  * @param e Apontador para o estado*/
 int get_Njogadas(ESTADO *e);//retorna o número de jogadas
+
+
 
 /** \brief Retorna o número de comandos
  * @param e Apontador para o estado*/

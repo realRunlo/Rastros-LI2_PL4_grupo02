@@ -165,10 +165,34 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
 }
 // //////////////////////////////////////////////////////////////////////////////////////////////////
 
+void pos (ESTADO *e,int nrJ) {
+    JOGADAS r;
+    int i;
+    for(i=0; i < nrJ ; i++)
+        r[i] = e->pt[i];
+    for(i;i < e->num_jogadas; i++) {
+        if (e->num_jogadas%2 != 0 && i== e->num_jogadas - 1 ){
+            set_vazio(e, e->pt[i].jogador1.linha, e->pt[i].jogador1.coluna);
+        }
+        else {
+            set_vazio(e, e->pt[i].jogador1.linha, e->pt[i].jogador1.coluna);
+            i++;
+            set_vazio(e, e->pt[i].jogador2.linha, e->pt[i].jogador2.coluna);
+        }
+
+    }
+        e->pt = r;
+    set_nJogadas(e, nrJ);
+    set_nComandos(e, nrJ);
+    set_ultima_jogada(e, e->pt[2*nrJ -1].jogador1.linha, e->pt[2*nrJ -1].jogador1.coluna);
+}
+
+
 // Função de interface,que permite a intereção com os jogadores
 int interpretador(ESTADO *e) {
 
     char linha[BUF_SIZE];
+    int nrJ;
     char col[2], lin[2],q,c1,c2,c3,c4;
     char filename[50];
     while (jogada_possivel(e) == 1) {
@@ -204,7 +228,11 @@ int interpretador(ESTADO *e) {
         else if (sscanf(linha,"%c%c%c%c",&c1,&c2,&c3,&c4) == 4 && c1=='m' && c2=='o' && c3=='v' && c4 == 's'){
             lista_movimentos(e);
         }
-
+        else if (sscanf(linha,"%c%c%c %d",&c1,&c2,&c3,&nrJ) == 4 && c1=='p' && c2=='o' && c3=='s' && nrJ >= 0 && nrJ<= e->num_jogadas) {
+            pos (e,nrJ);
+            desenha_tabuleiro(e);
+            imprime_estadoI(e);
+        }
         else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída
             return 1;
         else
@@ -215,43 +243,3 @@ int interpretador(ESTADO *e) {
     }
 
 }
-
-
-
-/*  set_nJogadas(e, feitas);
-    int jogadas_1,jogadas_2;
-    if (feitas % 2 == 1) jogadas_1 = (feitas + 1) / 2;
-    else jogadas_1 = feitas / 2;
-    jogadas_2 = feitas - jogadas_1;
-
-    fscanf(fp,"\n");
-    int ronda;
-    int jogada = 0;
-    int cl;
-    char cc;
-    int num_jogadas1 = 1 , num_jogadas2 = 1;
-    for(int i = 1; i <= jogadas_1; i++){
-        fscanf(fp,"0%d:",&ronda);
-        if (jogadas_1 > jogadas_2 && i == jogadas_1){
-            fscanf(fp,"%c%d ",&cc,&cl);
-            set_jogada_efetuada(e,1,jogada,cc,cl);
-        }
-        else {
-            fscanf(fp,"%c%d ",&cc,&cl);
-            set_jogada_efetuada(e,1,jogada,cc,cl);
-            jogada++;
-            fscanf(fp,"%c%d",&cc,&cl);
-            set_jogada_efetuada(e,2,jogada,cc,cl);
-            jogada++;
-        }
-        fscanf(fp,"\n");
-
-    }
-    if (num_jogadas1 > num_jogadas2) set_jogador(e,2);
-    else set_jogador(e,1);*/
-
-
-
-
-
-
