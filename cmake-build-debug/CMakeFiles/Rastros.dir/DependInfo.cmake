@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/camada_dados.c" "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/camada_dados.c.obj"
-  "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/interface.c" "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/interface.c.obj"
-  "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/logica.c" "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/logica.c.obj"
-  "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/rastros.c" "C:/Users/joaon/OneDrive/Documentos/GitHub/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/rastros.c.obj"
+  "/home/runlo/LI2/Rastros/camada_dados.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/camada_dados.c.o"
+  "/home/runlo/LI2/Rastros/interface.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/interface.c.o"
+  "/home/runlo/LI2/Rastros/logica.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/logica.c.o"
+  "/home/runlo/LI2/Rastros/rastros.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/rastros.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

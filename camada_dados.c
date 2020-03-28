@@ -14,11 +14,7 @@
 // Função que deve ser completada e colocada na camada de dados
 ESTADO *inicializar_estado() {
     ESTADO *e = (ESTADO *) malloc(sizeof(ESTADO));
-    for(int l = 7; l >= 0; l--){
-        for(int c = 0; c < 8; c++){
-            e->tab[l][c] = VAZIO;
-        }
-    }
+    limpaTab(e);
     e->tab[4][4] = BRANCA;
     e->ultima_jogada.coluna=4;
     e->ultima_jogada.linha=4;
@@ -30,7 +26,13 @@ ESTADO *inicializar_estado() {
     return e;
 }
 
-
+void limpaTab (ESTADO *e){
+    for(int l = 7; l >= 0; l--){
+        for(int c = 0; c < 8; c++){
+            set_vazio(e,l, c);
+        }
+    }
+}
 //Converte um numero de uma coluna na sua letra correspondente
 char converte_numero(int x){
     return 'a' + x;

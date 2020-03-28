@@ -165,26 +165,44 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
 }
 // //////////////////////////////////////////////////////////////////////////////////////////////////
 
-void pos (ESTADO *e,int nrJ) {
+void atualizaArr (ESTADO *e,int nRonda){
     JOGADAS r;
     int i;
-    for(i=0; i < nrJ ; i++)
+    for(i=0; i <=nRonda*2-1 ; i++)
         r[i] = e->pt[i];
-    for(i;i < e->num_jogadas; i++) {
-        if (e->num_jogadas%2 != 0 && i== e->num_jogadas - 1 ){
-            set_vazio(e, e->pt[i].jogador1.linha, e->pt[i].jogador1.coluna);
-        }
-        else {
-            set_vazio(e, e->pt[i].jogador1.linha, e->pt[i].jogador1.coluna);
-            i++;
-            set_vazio(e, e->pt[i].jogador2.linha, e->pt[i].jogador2.coluna);
-        }
 
+    e->pt = r;   //fica a apontar para o novo array sem as rondas desejadas
+}
+
+
+
+void pos (ESTADO *e,int nRonda) {
+    int numJ = get_Njogadas(e);
+    atualizaArr(e,nRonda);
+    limpaTab(e);
+    if(nRonda==0)
+         set_branca(e,4,4);
+    else{
+        for(int i=0;i<nRonda*2-1;i++){
+            if(i==nRonda*2-1 && numJ%2!=0 ){
+                set_preta(e,e->pt[i].jogador1.linha,e->pt[i].jogador1.coluna);
+                i++;
+                set_branca(e,e->pt[i].jogador2.linha,e->pt[i].jogador2.coluna);
+                set_ultima_jogada(e, e->pt[i].jogador1.linha, e->pt[i].jogador1.coluna);
+            }
+            else{
+                set_preta(e,e->pt[i].jogador1.linha,e->pt[i].jogador1.coluna);
+                i++;
+                set_preta(e,e->pt[i].jogador2.linha,e->pt[i].jogador2.coluna);
+            }
+
+        }
     }
-        e->pt = r;
-    set_nJogadas(e, nrJ);
-    set_nComandos(e, nrJ);
-    set_ultima_jogada(e, e->pt[2*nrJ -1].jogador1.linha, e->pt[2*nrJ -1].jogador1.coluna);
+set_jogador(e,2);
+//set_vazio(e,e->ultima_jogada.linha,e->ultima_jogada.coluna);
+set_nJogadas(e, nRonda*2);
+set_nComandos(e, nRonda);
+
 }
 
 
@@ -192,7 +210,7 @@ void pos (ESTADO *e,int nrJ) {
 int interpretador(ESTADO *e) {
 
     char linha[BUF_SIZE];
-    int nrJ;
+    int nRonda;
     char col[2], lin[2],q,c1,c2,c3,c4;
     char filename[50];
     while (jogada_possivel(e) == 1) {
@@ -228,8 +246,8 @@ int interpretador(ESTADO *e) {
         else if (sscanf(linha,"%c%c%c%c",&c1,&c2,&c3,&c4) == 4 && c1=='m' && c2=='o' && c3=='v' && c4 == 's'){
             lista_movimentos(e);
         }
-        else if (sscanf(linha,"%c%c%c %d",&c1,&c2,&c3,&nrJ) == 4 && c1=='p' && c2=='o' && c3=='s' && nrJ >= 0 && nrJ<= e->num_jogadas) {
-            pos (e,nrJ);
+        else if (sscanf(linha,"%c%c%c %d",&c1,&c2,&c3,&nRonda) == 4 && c1=='p' && c2=='o' && c3=='s' && nRonda >= 0 && nRonda<= get_Njogadas(e)/2) {
+            pos (e,nRonda);
             desenha_tabuleiro(e);
             imprime_estadoI(e);
         }

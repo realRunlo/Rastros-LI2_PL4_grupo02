@@ -58,6 +58,9 @@ typedef struct{
 } ESTADO;
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void limpaTab (ESTADO *e);
+
 /** \brief Inicializa o estado*/
 ESTADO *inicializar_estado(); // funcao que da o estado inicial do jogo
 
