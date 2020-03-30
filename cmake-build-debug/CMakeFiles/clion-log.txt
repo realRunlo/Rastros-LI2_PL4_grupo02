@@ -1,4 +1,4 @@
-/home/runlo/CLion-2019.3.3/clion-2019.3.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/runlo/LI2/Rastros
+/home/runlo/CLion-2019.3.3/clion-2019.3.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/runlo/Desktop/Rastros
 -- The C compiler identification is GNU 7.5.0
 -- Check for working C compiler: /usr/bin/cc
 -- Check for working C compiler: /usr/bin/cc -- works
@@ -8,4 +8,4 @@
 -- Detecting C compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/runlo/LI2/Rastros/cmake-build-debug
+-- Build files have been written to: /home/runlo/Desktop/Rastros/cmake-build-debug

@@ -8,28 +8,28 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/runlo/LI2/Rastros/cmake-build-debug"/>
+				<Option working_dir="/home/runlo/Desktop/Rastros/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/runlo/LI2/Rastros/cmake-build-debug"/>
+				<Option working_dir="/home/runlo/Desktop/Rastros/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Rastros">
-				<Option output="/home/runlo/LI2/Rastros/cmake-build-debug/Rastros" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/runlo/LI2/Rastros/cmake-build-debug"/>
+				<Option output="/home/runlo/Desktop/Rastros/cmake-build-debug/Rastros" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/runlo/Desktop/Rastros/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -41,15 +41,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 Rastros"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 Rastros"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Rastros/fast">
-				<Option output="/home/runlo/LI2/Rastros/cmake-build-debug/Rastros" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/runlo/LI2/Rastros/cmake-build-debug"/>
+				<Option output="/home/runlo/Desktop/Rastros/cmake-build-debug/Rastros" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/runlo/Desktop/Rastros/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -61,45 +61,45 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 Rastros/fast"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 Rastros/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/runlo/LI2/Rastros/cmake-build-debug"/>
+				<Option working_dir="/home/runlo/Desktop/Rastros/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j4 -f &quot;/home/runlo/LI2/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/runlo/Desktop/Rastros/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/runlo/LI2/Rastros/camada_dados.c">
+		<Unit filename="/home/runlo/Desktop/Rastros/camada_dados.c">
 			<Option target="Rastros"/>
 		</Unit>
-		<Unit filename="/home/runlo/LI2/Rastros/camada_dados.h">
+		<Unit filename="/home/runlo/Desktop/Rastros/camada_dados.h">
 			<Option target="Rastros"/>
 		</Unit>
-		<Unit filename="/home/runlo/LI2/Rastros/interface.c">
+		<Unit filename="/home/runlo/Desktop/Rastros/interface.c">
 			<Option target="Rastros"/>
 		</Unit>
-		<Unit filename="/home/runlo/LI2/Rastros/interface.h">
+		<Unit filename="/home/runlo/Desktop/Rastros/interface.h">
 			<Option target="Rastros"/>
 		</Unit>
-		<Unit filename="/home/runlo/LI2/Rastros/logica.c">
+		<Unit filename="/home/runlo/Desktop/Rastros/logica.c">
 			<Option target="Rastros"/>
 		</Unit>
-		<Unit filename="/home/runlo/LI2/Rastros/logica.h">
+		<Unit filename="/home/runlo/Desktop/Rastros/logica.h">
 			<Option target="Rastros"/>
 		</Unit>
-		<Unit filename="/home/runlo/LI2/Rastros/rastros.c">
+		<Unit filename="/home/runlo/Desktop/Rastros/rastros.c">
 			<Option target="Rastros"/>
 		</Unit>
-		<Unit filename="/home/runlo/LI2/Rastros/CMakeLists.txt">
+		<Unit filename="/home/runlo/Desktop/Rastros/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
