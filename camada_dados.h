@@ -35,8 +35,6 @@ typedef struct {
 
 typedef JOGADA JOGADAS[32];
 
-typedef JOGADA *POINTER;
-
 /**
 \brief Tipo de dados para o estado
 */
@@ -54,7 +52,6 @@ typedef struct{
     /** Número de comandos excutados*/
     int num_comandos;
 
-    POINTER pt;
 } ESTADO;
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////

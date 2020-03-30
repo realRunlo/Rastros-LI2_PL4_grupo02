@@ -21,7 +21,6 @@ ESTADO *inicializar_estado() {
     e->jogador_atual = 1;
     e->num_jogadas = 0;
     e->num_comandos = 0;
-    e->pt = e->jogadas;
 // Falta a resto da inicialização.
     return e;
 }
