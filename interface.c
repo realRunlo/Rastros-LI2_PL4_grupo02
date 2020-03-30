@@ -56,7 +56,7 @@ void flista_movimentos(ESTADO *e,FILE *filename){
     int j=1;
     fprintf(filename,"\n");
     for(int i=0;i<(get_Njogadas(e));i++){
-        fprintf(filename,"0%d:",j);
+        fprintf(filename,"%d%d:",0,j);
         flista_ronda(e,i,filename);
         i++;j++;
         fprintf(filename,"\n");
@@ -122,99 +122,74 @@ void gravar(ESTADO *e,const char *filename, const char *mode){
 }
 
 
-void ler(ESTADO *e, const char *filename, const char *mode) {
+void ler(ESTADO *e, const char *filename, const char *mode){
     FILE *fp;
 
-    fp = fopen(filename, mode);
+    fp = fopen(filename,mode);
 
     char crt;
-    int l, c, feitas = 0; //posição do canto superior esquerdo do tabuleiro
-    for (l = 7; l >=
-                0; l--) { //lê cada linha do tabuleiro , a contagem das linhas vai de cima para baixo por uma questão de correspondência à imagem
-        for (c = 0; c <= 8; c++) {
-            fscanf(fp, "%c", &crt);
+    int l,c,feitas = 0 ; //posição do canto superior esquerdo do tabuleiro
+    for(l=7;l>=0;l--){ //lê cada linha do tabuleiro , a contagem das linhas vai de cima para baixo por uma questão de correspondência à imagem
+        for(c=0;c<=8;c++){
+            fscanf(fp,"%c",&crt);
             if (crt == '#') feitas++;
-            novo_tabuleiro(e, l, c, crt);
+            novo_tabuleiro(e,l,c,crt);
         }
     }
     set_nJogadas(e, feitas);
+    int jogadas_1,jogadas_2;
+    if (feitas % 2 == 1) jogadas_1 = (feitas + 1) / 2;
+    else jogadas_1 = feitas / 2;
+    jogadas_2 = feitas - jogadas_1;
 
-    fscanf(fp, "\n");
-    int ronda;
-    int l1, l2,jogada=0;
-    char c1, c2;
-    if (feitas % 2 != 0) feitas = (feitas + 1) / 2;
-    else feitas = feitas/2;
-
-    for (int i = 1; i <=feitas; i++) {
-        fscanf(fp, "0%d:", &ronda);
-        if ((feitas % 2 != 0) && i == feitas) {
-            fscanf(fp, "%c%d", &c1, &l1);
-            set_jogada_efetuada(e, 1, jogada , c1, l1);
-        } else {
-            fscanf(fp, "%c%d ", &c1, &l1);
-            set_jogada_efetuada(e, 1, jogada, c1, l1); jogada++;
-            fscanf(fp, "%c%d", &c2, &l2);
-            set_jogada_efetuada(e, 2, jogada , c2, l2);jogada++;
+    fscanf(fp,"\n");
+    int jogada = 0;
+    int cl;
+    char cc;
+    int num_jogadas1 = 1 , num_jogadas2 = 1;
+    fscanf(fp,"01:");
+    for(int i = 0; i != 1;){
+        if (num_jogadas1 < jogadas_1){
+            fscanf(fp,"%c%d ",&cc,&cl);
+            set_jogada_efetuada(e,1,jogada,cc,cl);
+            jogada++;
+            num_jogadas1++;
         }
-        fscanf(fp, "\n");
+        else {
+            fscanf(fp,"%c%d\n",&cc,&cl);
+            set_jogada_efetuada(e,1,jogada,cc,cl);
+            i = 1;
+        }
     }
-    if ((feitas % 2 != 0)) set_jogador(e, 2);
-    else set_jogador(e, 1);
+    printf("\n\n");
+    jogada = 0;
+    fscanf(fp,"02:");
+    for(int i = 0; i != 1;){
+        if (num_jogadas2 < jogadas_2){
+            fscanf(fp,"%c%d ",&cc,&cl);
+            set_jogada_efetuada(e,2,jogada,cc,cl);
+            jogada++;
+            num_jogadas2++;
+        }
+        else {
+            fscanf(fp,"%c%d\n",&cc,&cl);
+            set_jogada_efetuada(e,2,jogada,cc,cl);
+            i = 1;
+        }
+    }
+    if (num_jogadas1 > num_jogadas2) set_jogador(e,2);
+    else set_jogador(e,1);
     fclose(fp);
 }
 // //////////////////////////////////////////////////////////////////////////////////////////////////
-
-void atualizaArr (ESTADO *e,int nRonda){
-    JOGADAS r;
-    int i;
-    for(i=0; i <=nRonda*2-1 ; i++)
-        r[i] = e->pt[i];
-
-    e->pt = r;   //fica a apontar para o novo array sem as rondas desejadas
-}
-
-
-
-void pos (ESTADO *e,int nRonda) {
-    int numJ = get_Njogadas(e);
-    atualizaArr(e,nRonda);
-    limpaTab(e);
-    if(nRonda==0)
-         set_branca(e,4,4);
-    else{
-        for(int i=0;i<nRonda*2-1;i++){
-            if(i==nRonda*2-1 && numJ%2!=0 ){
-                set_preta(e,e->pt[i].jogador1.linha,e->pt[i].jogador1.coluna);
-                i++;
-                set_branca(e,e->pt[i].jogador2.linha,e->pt[i].jogador2.coluna);
-                set_ultima_jogada(e, e->pt[i].jogador1.linha, e->pt[i].jogador1.coluna);
-            }
-            else{
-                set_preta(e,e->pt[i].jogador1.linha,e->pt[i].jogador1.coluna);
-                i++;
-                set_preta(e,e->pt[i].jogador2.linha,e->pt[i].jogador2.coluna);
-            }
-
-        }
-    }
-set_jogador(e,2);
-//set_vazio(e,e->ultima_jogada.linha,e->ultima_jogada.coluna);
-set_nJogadas(e, nRonda*2);
-set_nComandos(e, nRonda);
-
-}
-
 
 // Função de interface,que permite a intereção com os jogadores
 int interpretador(ESTADO *e) {
 
     char linha[BUF_SIZE];
-    int nRonda;
     char col[2], lin[2],q,c1,c2,c3,c4;
     char filename[50];
     while (jogada_possivel(e) == 1) {
-        printf("Digite um comando->");
         if (fgets(linha, BUF_SIZE, stdin) == NULL)
             return 0;
         if (strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
@@ -246,18 +221,21 @@ int interpretador(ESTADO *e) {
         else if (sscanf(linha,"%c%c%c%c",&c1,&c2,&c3,&c4) == 4 && c1=='m' && c2=='o' && c3=='v' && c4 == 's'){
             lista_movimentos(e);
         }
-        else if (sscanf(linha,"%c%c%c %d",&c1,&c2,&c3,&nRonda) == 4 && c1=='p' && c2=='o' && c3=='s' && nRonda >= 0 && nRonda<= get_Njogadas(e)/2) {
-            pos (e,nRonda);
-            desenha_tabuleiro(e);
-            imprime_estadoI(e);
-        }
+
         else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída
             return 1;
         else
             printf("Digite um comando válido por favor!\n");
 
-        if(jogada_possivel(e) !=1) return 1;  //este return é de forma a não haver a repetição do jogada_possivel na quebra do ciclo
+        if(jogada_possivel(e) == 1) printf("Digite um comando->");
+        else return 1;  //este return é de forma a não haver a repetição do jogada_possivel na quebra do ciclo
         add_numcomandos(e);
     }
 
 }
+
+
+
+
+
+
