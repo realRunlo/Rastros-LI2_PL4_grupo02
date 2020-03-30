@@ -143,10 +143,15 @@ void ler(ESTADO *e, const char *filename, const char *mode){
     jogadas_2 = feitas - jogadas_1;
 
     fscanf(fp,"\n");
+<<<<<<< HEAD
+=======
+    int ronda;
+>>>>>>> parent of 679cb0b... Mudança função ler,mudança interface.
     int jogada = 0;
     int cl;
     char cc;
     int num_jogadas1 = 1 , num_jogadas2 = 1;
+<<<<<<< HEAD
     fscanf(fp,"01:");
     for(int i = 0; i != 1;){
         if (num_jogadas1 < jogadas_1){
@@ -177,6 +182,25 @@ void ler(ESTADO *e, const char *filename, const char *mode){
             i = 1;
         }
     }
+=======
+    for(int i = 1; i <= jogadas_1; i++){
+        fscanf(fp,"0%d:",&ronda);
+        if (jogadas_1 > jogadas_2 && i == jogadas_1){
+            fscanf(fp,"%c%d ",&cc,&cl);
+            set_jogada_efetuada(e,1,jogada,cc,cl);
+        }
+        else {
+            fscanf(fp,"%c%d ",&cc,&cl);
+            set_jogada_efetuada(e,1,jogada,cc,cl);
+            jogada++;
+            fscanf(fp,"%c%d",&cc,&cl);
+            set_jogada_efetuada(e,2,jogada,cc,cl);
+            jogada++;
+        }
+        fscanf(fp,"\n");
+
+    }
+>>>>>>> parent of 679cb0b... Mudança função ler,mudança interface.
     if (num_jogadas1 > num_jogadas2) set_jogador(e,2);
     else set_jogador(e,1);
     fclose(fp);
