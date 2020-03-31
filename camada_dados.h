@@ -51,6 +51,8 @@ typedef struct{
     int jogador_atual;
     /** Número de comandos excutados*/
     int num_comandos;
+    /** Número de rondas*/
+    int num_rondas;
 } ESTADO;
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,6 +61,9 @@ void limpaTab (ESTADO *e);
 
 /** \brief Inicializa o estado*/
 ESTADO *inicializar_estado(); // funcao que da o estado inicial do jogo
+
+/** \brief Inicializa o estado*/
+void reset_estado(); // funcao que da reset ao jogo
 
 /** \brief Converte um número para a letra correspondente
  * @param x Número a converter*/
@@ -114,6 +119,10 @@ int get_jogador(ESTADO *e); //funcao que retorna o numero do jogador atual
  * @param e Apontador para o estado*/
 int get_Njogadas(ESTADO *e);//retorna o número de jogadas
 
+/** \brief Retorna o número de rondas
+ * @param e Apontador para o estado*/
+int get_Nrondas(ESTADO *e);//retorna o número de rondas
+
 /** \brief Retorna o número de comandos
  * @param e Apontador para o estado*/
 int get_Ncomandos(ESTADO *e);//retorna o número de comandos
@@ -128,13 +137,18 @@ int get_linha(COORDENADA c); // retorna o número da linha de uma coordenada
 
 /** \brief Altera o numero do jogador atual
  * @param e Apontador para o estado
- * @param j Jogador anterior*/
+ * @param j Jogador a atualizar*/
 int set_jogador(ESTADO *e, int j); //funcao que atualiza o numero do jogador atual
 
 /** \brief Altera o número de jogadas
  * @param e Apontador para o estado
- * @param j Número de jogadas anterior*/
+ * @param nJ Número de jogadas a atualizar*/
 int set_nJogadas(ESTADO *e, int nJ);//atualiza o número de jogadas
+
+/** \brief Altera o número de rondas
+ * @param e Apontador para o estado
+ * @param nJ Número de rondas a atualizar*/
+int set_nRondas(ESTADO *e, int nC);//atualiza o número de rondas
 
 /** \brief Altera o número de comandos
  * @param e Apontador para o estado
@@ -160,6 +174,10 @@ void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador); // funcao que
  * @param e Apontador para o estado*/
 void add_numjogadas(ESTADO *e); //Adiciona 1 ao numero de jogadas
 
+/** \brief Adiciona 1 ao numero de rondas
+ * @param e Apontador para o estado*/
+void add_numrondas(ESTADO *e); //Adiciona 1 ao numero de rondas
+
 /** \brief Adiciona 1 ao numero de comandos
  * @param e Apontador para o estado*/
 void add_numcomandos(ESTADO *e); //Adiciona 1 ao numero de comandos
@@ -175,4 +193,6 @@ void novo_tabuleiro(ESTADO *e, int l, int c, char x); // atualiza o tabuleiro no
 //funcao que modifica o estado da jogada efetuada numero j
 void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha);
 
+//funcao que retorna uma jogada efetuada
+int get_jogada_efetuada(ESTADO *e, int j, int jogada, int mode);
 #endif //___CAMADADEDADOS_H__

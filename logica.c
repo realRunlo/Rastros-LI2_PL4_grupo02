@@ -19,7 +19,11 @@ int jogar(ESTADO *e, COORDENADA c){
     add_numjogadas(e);
     set_ultima_jogada(e, l, co);
     if(j==1) set_jogador(e,2);
-    else set_jogador(e,1);
+    else
+        {
+        set_jogador(e,1);
+        add_numrondas(e);
+        }
     return 1;
 }
 

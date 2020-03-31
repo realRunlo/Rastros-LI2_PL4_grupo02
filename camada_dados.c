@@ -20,9 +20,23 @@ ESTADO *inicializar_estado() {
     e->ultima_jogada.linha=4;
     e->jogador_atual = 1;
     e->num_jogadas = 0;
+    e->num_rondas = 0;
     e->num_comandos = 0;
 // Falta a resto da inicialização.
     return e;
+}
+
+
+// Função que da reset ao jogo
+void reset_estado(ESTADO *e) {
+    limpaTab(e);
+    e->tab[4][4] = BRANCA;
+    e->ultima_jogada.coluna=4;
+    e->ultima_jogada.linha=4;
+    e->jogador_atual = 1;
+    e->num_jogadas = 0;
+    e->num_rondas = 0;
+    e->num_comandos = 0;
 }
 
 void limpaTab (ESTADO *e){
@@ -101,12 +115,20 @@ int get_Njogadas(ESTADO *e){ //retorna o número de jogadas
     return e->num_jogadas;
 }
 
+int get_Nrondas(ESTADO *e){ //retorna o número de rondas
+    return e->num_rondas;
+}
+
 int get_Ncomandos(ESTADO *e){ //retorna o número de comandos
     return e->num_comandos;
 }
 
 int set_nJogadas(ESTADO *e, int nJ){ //atualiza o número de jogadas
     e->num_jogadas = nJ;
+}
+
+int set_nRondas(ESTADO *e, int nR){ //atualiza o número de rondas
+    e->num_rondas = nR;
 }
 
 int set_nComandos(ESTADO *e, int nC){ //atualiza o número de comandos
@@ -135,6 +157,12 @@ void add_numjogadas(ESTADO *e){
     e->num_jogadas++;
 }
 
+//Funcao que adiciona 1 ao numero de rondas
+void add_numrondas(ESTADO *e){
+    e->num_rondas++;
+}
+
+
 //Funcao que adiciona 1 ao numero de jogadas
 void add_numcomandos(ESTADO *e){
     e->num_comandos++;
@@ -144,12 +172,12 @@ void add_numcomandos(ESTADO *e){
 //Funcao que adiciona na lista de jogadas a ultima jogada feita
 void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador){
     if (jogador == 1) {
-        e->jogadas[e->num_jogadas].jogador1.linha = l+1; //só assim é lista com o nº certo ainda não percebi bem,estudar a situação
-        e->jogadas[e->num_jogadas].jogador1.coluna = c;
+        e->jogadas[e->num_rondas].jogador1.linha  = l+1; //só assim é lista com o nº certo ainda não percebi bem,estudar a situação
+        e->jogadas[e->num_rondas].jogador1.coluna = c;
     }
     else {
-        e->jogadas[e->num_jogadas].jogador2.linha = l+1; //só assim é lista com o nº certo ainda não percebi bem,estudar a situação
-        e->jogadas[e->num_jogadas].jogador2.coluna = c;
+        e->jogadas[e->num_rondas].jogador2.linha  = l+1; //só assim é lista com o nº certo ainda não percebi bem,estudar a situação
+        e->jogadas[e->num_rondas].jogador2.coluna = c;
     }
 }
 
@@ -174,8 +202,6 @@ void novo_prompt(ESTADO *e, int jogador, int nJogadas, int nComandos){
 }
 
 
-
-
 //funcao que atualiza o estado das jogadas efetuadas
 void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha){
     int c = converte_letra(coluna);
@@ -188,3 +214,44 @@ void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha){
         e->jogadas[jogada].jogador2.coluna = c;
     }
 }
+
+
+
+
+//funcao que retorna o estado das jogadas efetuadas
+int get_jogada_efetuada(ESTADO *e, int j, int jogada, int mode){
+    int c,l;
+    switch(mode) {
+        case (0):
+            if (j == 1) {
+                l = e->jogadas[jogada].jogador1.linha;
+
+            } else {
+                l = e->jogadas[jogada].jogador2.linha;
+
+            }
+            return l;
+        case (1):
+            if (j == 1) {
+                c = e->jogadas[jogada].jogador1.coluna;
+            } else {
+
+                c = e->jogadas[jogada].jogador2.coluna;
+            }
+            return c;
+    }
+}
+
+/*//funcao que retorna o estado das jogadas efetuadas
+COORDENADA get_jogada_efetuada(ESTADO *e, int j, int jogada){
+    COORDENADA c;
+    if (j == 1) {
+        c.linha  = e->jogadas[jogada].jogador1.linha;
+        c.coluna = e->jogadas[jogada].jogador1.coluna;
+    }
+    else {
+        c.linha  = e->jogadas[jogada].jogador2.linha;
+        c.coluna = e->jogadas[jogada].jogador2.coluna;
+    }
+    return c;
+}*/

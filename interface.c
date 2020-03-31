@@ -28,11 +28,11 @@ void desenha_tabuleiro(ESTADO *e){
 
 // ////////////////////////////////////////////////////////////////////////////
 void imprime_estadoI(ESTADO *e){ //prompt só para o estado inicial
-    printf("#  %d Jog:%d N:%d \n",get_Ncomandos(e) ,get_jogador(e),get_Njogadas(e));
+    printf("#  %d Jog:%d N:%d \n",get_Ncomandos(e) ,get_jogador(e),get_Nrondas(e));
 
 }
 void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
-    printf("#  %d Jog:%d N:%d >>%c%d\n",get_Ncomandos(e) ,get_jogador(e),get_Njogadas(e),converte_numero(get_coluna(c)),get_linha(c)+1);
+    printf("#  %d Jog:%d N:%d >>%c%d\n",get_Ncomandos(e) ,get_jogador(e),get_Nrondas(e),converte_numero(get_coluna(c)),get_linha(c)+1);
 
 }
 
@@ -40,7 +40,7 @@ void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
 
 //Imprime a jogada efetuada numero i no ficheiro
 void flista_ronda(ESTADO *e,int i,FILE *filename){
-    if(i==get_Njogadas(e)-1)
+    if(i==get_Nrondas(e)-1)
         fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
     else{
         fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
@@ -53,7 +53,7 @@ void flista_ronda(ESTADO *e,int i,FILE *filename){
 void flista_movimentos(ESTADO *e,FILE *filename){
     int j=1;
     fprintf(filename,"\n");
-    for(int i=0;i<(get_Njogadas(e));i++){
+    for(int i=0;i<(get_Nrondas(e));i++){
         fprintf(filename,"0%d:",j);
         flista_ronda(e,i,filename);
         i++;j++;
@@ -65,7 +65,7 @@ void flista_movimentos(ESTADO *e,FILE *filename){
 
 //Imprime a jogada efetuada numero i
 void lista_ronda(ESTADO *e,int i){
-    if(i==get_Njogadas(e)-1)
+    if(i==get_Nrondas(e)-1)
         printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
     else{
         printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
@@ -79,7 +79,7 @@ void lista_ronda(ESTADO *e,int i){
 void lista_movimentos(ESTADO *e){
     int j=1;
     printf("\n");
-    for(int i=0;i<(get_Njogadas(e));i++){
+    for(int i=0;i<(get_Nrondas(e));i++){
         printf("0%d:",j);
         lista_ronda(e,i);
         i++;j++;
@@ -139,34 +139,91 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
 
     fscanf(fp, "\n");
     char ronda;
-    int l1, l2, Njogadas, jogada=0;
+    int l1, l2, Nrondas, rondas=0;
     char c1, c2;
-    if (feitas % 2 != 0) Njogadas = (feitas + 1) / 2;
-    else Njogadas = feitas/2;
+    if (feitas % 2 != 0) Nrondas = (feitas + 1) / 2;
+    else Nrondas = feitas/2;
 
-    for (int i = 1; i <= Njogadas; i++) {
+    for (int i = 1; i <= Nrondas; i++) {
         fscanf(fp, "0%c: ", &ronda);
-        if ((feitas % 2 != 0) && i == Njogadas) {
+        if ((feitas % 2 != 0) && i == Nrondas) {
             fscanf(fp, "%c%d", &c1, &l1);
-            set_jogada_efetuada(e, 1, jogada , c1, l1);
+            set_jogada_efetuada(e, 1, rondas , c1, l1);
         } else {
             fscanf(fp, "%c%d ", &c1, &l1);
-            set_jogada_efetuada(e, 1, jogada, c1, l1); jogada++;
+            set_jogada_efetuada(e, 1, rondas, c1, l1);
             fscanf(fp, "%c%d", &c2, &l2);
-            set_jogada_efetuada(e, 2, jogada , c2, l2);jogada++;
+            set_jogada_efetuada(e, 2, rondas , c2, l2);rondas++;
         }
         fscanf(fp, "\n");
     }
-    if ((feitas % 2 != 0)) set_jogador(e, 1);
-    else set_jogador(e, 2);
+    set_nRondas(e, Nrondas);
+    if ((feitas % 2 != 0)) set_jogador(e, 2);
+    else set_jogador(e, 1);
     fclose(fp);
 }
+
+
+//funcao que retorna o tabuleiro para uma ronda especificada
+void volta_tabuleiro(ESTADO *e, int n_ronda){
+    printf("teste\n");
+    int n_rondas= get_Nrondas(e);
+    int n_jogadas= get_Njogadas(e);
+    int impar;
+    printf("%d\n",n_rondas);
+    printf("%d\n",n_jogadas);
+    if (n_jogadas % 2 != 0) impar =1;
+    for(int i = n_rondas; i > n_ronda;i--) {
+        if (impar == 1) {    // apaga a jogada caso o ultimo a jogar tenha sido o jogador 1
+            printf("teste1\n");
+            printf("teste\n");
+            int linha  = get_jogada_efetuada(e,1,i,0);
+            int coluna = get_jogada_efetuada(e,1,i,1);
+            printf("%d %d\n",linha,coluna);
+            set_vazio(e, linha, coluna);
+            impar = 0;
+        }
+        else {               // apaga a jogadas normalmente
+            printf("teste2\n");
+            printf("teste\n");
+            int linha1  = get_jogada_efetuada(e,1,i,0);
+            int coluna1 = get_jogada_efetuada(e,1,i,1);
+            int linha2  = get_jogada_efetuada(e,2,i,0);
+            int coluna2 = get_jogada_efetuada(e,2,i,1);
+            printf("%d %d\n",linha1,coluna1);
+            set_vazio(e, linha1, coluna1);
+            set_vazio(e, linha2, coluna2);
+            printf("teste\n");
+        }
+    }
+    // torna a ultima casa da ronda n como branca
+    printf("teste3\n");
+    int linha  = get_jogada_efetuada(e,2,n_ronda,0);
+    int coluna = get_jogada_efetuada(e,2,n_ronda,1);
+    set_branca(e, linha, coluna);
+}
+
+
+
+
+// funcao principal que reverte o estado do jogo
+void pos(ESTADO *e, int n_ronda){
+     volta_tabuleiro(e, n_ronda); // funcao que apaga do tabuleiro as jogadas menos as pretendidas
+     set_nJogadas(e, n_ronda*2);
+     set_nRondas(e, n_ronda);
+     set_jogador(e,1);
+}
+
+
+
+
 // //////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Função de interface,que permite a intereção com os jogadores
 int interpretador(ESTADO *e) {
 
     char linha[BUF_SIZE];
+    int n_ronda;
     char col[2], lin[2],q,c1,c2,c3,c4;
     char filename[50];
     while (jogada_possivel(e) == 1) {
@@ -193,7 +250,7 @@ int interpretador(ESTADO *e) {
             gravar(e,filename,"w");
             printf("O seu jogo foi salvo!\n");
         }
-        else if (sscanf(linha,"%c%c%c%c%s",&c1,&c2,&c3,&c4,filename) == 5 && c1=='l' && c2=='e' && c3=='r' && c4 == ' '){
+        else if (sscanf(linha,"%c%c%c %s",&c1,&c2,&c3,filename) == 4 && c1=='l' && c2=='e' && c3=='r' ){
             ler(e,filename, "r");  //lê o novo tabuleiro atualizando o respetivo estado
             desenha_tabuleiro(e);   //desenha um novo tabuleiro
             imprime_estadoI(e);
@@ -201,6 +258,20 @@ int interpretador(ESTADO *e) {
         }
         else if (sscanf(linha,"%c%c%c%c",&c1,&c2,&c3,&c4) == 4 && c1=='m' && c2=='o' && c3=='v' && c4 == 's'){
             lista_movimentos(e);
+        }
+        else if (sscanf(linha,"%c%c%c%c%d",&c1,&c2,&c3,&c4,&n_ronda) == 5 && c1=='p' && c2=='o' && c3=='s' && c4 == ' ' && n_ronda >= 0 && n_ronda <= get_Nrondas(e)){
+            if (n_ronda == 0)
+            {
+                reset_estado(e);
+                desenha_tabuleiro(e);
+                imprime_estadoI(e);
+            }
+            else
+            {
+                pos(e, n_ronda);  //lê o novo tabuleiro atualizando o respetivo estado
+                desenha_tabuleiro(e);   //desenha um novo tabuleiro
+                imprime_estadoI(e);
+            }
         }
 
         else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída
