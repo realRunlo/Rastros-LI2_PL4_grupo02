@@ -178,9 +178,7 @@ void novo_prompt(ESTADO *e, int jogador, int nJogadas, int nComandos){
 
 //funcao que atualiza o estado das jogadas efetuadas
 void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha){
-    printf("%c%d\n",coluna,linha);
     int c = converte_letra(coluna);
-    printf("%d%d\n",c,linha);
     if (j == 1) {
         e->jogadas[jogada].jogador1.linha = linha;
         e->jogadas[jogada].jogador1.coluna = c;

@@ -7,9 +7,6 @@
 #include "camada_dados.h"
 #include "logica.h"
 
-//directoria do ficheiro externo
-//char db[]="/home/runlo/LI2/Rastros/db.txt";  // /home/runlo/LI2/Rastros/db.txt
-                                             // C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\db.txt
 
 // Funcao que desenha o tabuleiro
 void desenha_tabuleiro(ESTADO *e){
@@ -218,37 +215,7 @@ int interpretador(ESTADO *e) {
 
 
 
-/*  set_nJogadas(e, feitas);
-    int jogadas_1,jogadas_2;
-    if (feitas % 2 == 1) jogadas_1 = (feitas + 1) / 2;
-    else jogadas_1 = feitas / 2;
-    jogadas_2 = feitas - jogadas_1;
 
-    fscanf(fp,"\n");
-    int ronda;
-    int jogada = 0;
-    int cl;
-    char cc;
-    int num_jogadas1 = 1 , num_jogadas2 = 1;
-    for(int i = 1; i <= jogadas_1; i++){
-        fscanf(fp,"0%d:",&ronda);
-        if (jogadas_1 > jogadas_2 && i == jogadas_1){
-            fscanf(fp,"%c%d ",&cc,&cl);
-            set_jogada_efetuada(e,1,jogada,cc,cl);
-        }
-        else {
-            fscanf(fp,"%c%d ",&cc,&cl);
-            set_jogada_efetuada(e,1,jogada,cc,cl);
-            jogada++;
-            fscanf(fp,"%c%d",&cc,&cl);
-            set_jogada_efetuada(e,2,jogada,cc,cl);
-            jogada++;
-        }
-        fscanf(fp,"\n");
-
-    }
-    if (num_jogadas1 > num_jogadas2) set_jogador(e,2);
-    else set_jogador(e,1);*/
 
 
 
