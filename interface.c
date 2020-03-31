@@ -3,6 +3,7 @@
 //
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #define BUF_SIZE 1024
 #include "camada_dados.h"
 #include "logica.h"
@@ -137,15 +138,15 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
     set_nJogadas(e, feitas);
 
     fscanf(fp, "\n");
-    int ronda;
-    int l1, l2,jogada=0;
+    char ronda;
+    int l1, l2, jogadas, jogada=0;
     char c1, c2;
-    if (feitas % 2 != 0) feitas = (feitas + 1) / 2;
-    else feitas = feitas/2;
+    if (feitas % 2 != 0) jogadas = (feitas + 1) / 2;
+    else jogadas = feitas/2;
 
     for (int i = 1; i <=feitas; i++) {
-        fscanf(fp, "0%d:", &ronda);
-        if ((feitas % 2 != 0) && i == feitas) {
+        fscanf(fp, "0%c: ", &ronda);
+        if ((feitas % 2 != 0) && i == jogadas) {
             fscanf(fp, "%c%d", &c1, &l1);
             set_jogada_efetuada(e, 1, jogada , c1, l1);
         } else {
@@ -156,8 +157,8 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
         }
         fscanf(fp, "\n");
     }
-    if ((feitas % 2 != 0)) set_jogador(e, 2);
-    else set_jogador(e, 1);
+    if ((feitas % 2 != 0)) set_jogador(e, 1);
+    else set_jogador(e, 2);
     fclose(fp);
 }
 // //////////////////////////////////////////////////////////////////////////////////////////////////
