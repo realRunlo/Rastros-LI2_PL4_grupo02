@@ -7,9 +7,6 @@
 #include "camada_dados.h"
 #include "logica.h"
 
-//directoria do ficheiro externo
-//char db[]="/home/runlo/LI2/Rastros/db.txt";  // /home/runlo/LI2/Rastros/db.txt
-                                             // C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\db.txt
 
 // Funcao que desenha o tabuleiro
 void desenha_tabuleiro(ESTADO *e){
@@ -56,7 +53,7 @@ void flista_movimentos(ESTADO *e,FILE *filename){
     int j=1;
     fprintf(filename,"\n");
     for(int i=0;i<(get_Njogadas(e));i++){
-        fprintf(filename,"%d%d:",0,j);
+        fprintf(filename,"0%d:",j);
         flista_ronda(e,i,filename);
         i++;j++;
         fprintf(filename,"\n");
@@ -122,7 +119,47 @@ void gravar(ESTADO *e,const char *filename, const char *mode){
 }
 
 
+void ler(ESTADO *e, const char *filename, const char *mode) {
+    FILE *fp;
 
+    fp = fopen(filename, mode);
+
+    char crt;
+    int l, c, feitas = 0; //posição do canto superior esquerdo do tabuleiro
+    for (l = 7; l >=
+                0; l--) { //lê cada linha do tabuleiro , a contagem das linhas vai de cima para baixo por uma questão de correspondência à imagem
+        for (c = 0; c <= 8; c++) {
+            fscanf(fp, "%c", &crt);
+            if (crt == '#') feitas++;
+            novo_tabuleiro(e, l, c, crt);
+        }
+    }
+    set_nJogadas(e, feitas);
+
+    fscanf(fp, "\n");
+    int ronda;
+    int l1, l2,jogada=0;
+    char c1, c2;
+    if (feitas % 2 != 0) feitas = (feitas + 1) / 2;
+    else feitas = feitas/2;
+
+    for (int i = 1; i <=feitas; i++) {
+        fscanf(fp, "0%d:", &ronda);
+        if ((feitas % 2 != 0) && i == feitas) {
+            fscanf(fp, "%c%d", &c1, &l1);
+            set_jogada_efetuada(e, 1, jogada , c1, l1);
+        } else {
+            fscanf(fp, "%c%d ", &c1, &l1);
+            set_jogada_efetuada(e, 1, jogada, c1, l1); jogada++;
+            fscanf(fp, "%c%d", &c2, &l2);
+            set_jogada_efetuada(e, 2, jogada , c2, l2);jogada++;
+        }
+        fscanf(fp, "\n");
+    }
+    if ((feitas % 2 != 0)) set_jogador(e, 2);
+    else set_jogador(e, 1);
+    fclose(fp);
+}
 // //////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Função de interface,que permite a intereção com os jogadores
@@ -132,6 +169,7 @@ int interpretador(ESTADO *e) {
     char col[2], lin[2],q,c1,c2,c3,c4;
     char filename[50];
     while (jogada_possivel(e) == 1) {
+        printf("Digite um comando->");
         if (fgets(linha, BUF_SIZE, stdin) == NULL)
             return 0;
         if (strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
@@ -169,12 +207,15 @@ int interpretador(ESTADO *e) {
         else
             printf("Digite um comando válido por favor!\n");
 
-        if(jogada_possivel(e) == 1) printf("Digite um comando->");
-        else return 1;  //este return é de forma a não haver a repetição do jogada_possivel na quebra do ciclo
+        if(jogada_possivel(e) !=1) return 1;  //este return é de forma a não haver a repetição do jogada_possivel na quebra do ciclo
         add_numcomandos(e);
     }
 
 }
+
+
+
+
 
 
 
