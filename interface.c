@@ -139,14 +139,14 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
 
     fscanf(fp, "\n");
     char ronda;
-    int l1, l2, jogadas, jogada=0;
+    int l1, l2, Njogadas, jogada=0;
     char c1, c2;
-    if (feitas % 2 != 0) jogadas = (feitas + 1) / 2;
-    else jogadas = feitas/2;
+    if (feitas % 2 != 0) Njogadas = (feitas + 1) / 2;
+    else Njogadas = feitas/2;
 
-    for (int i = 1; i <=feitas; i++) {
+    for (int i = 1; i <= Njogadas; i++) {
         fscanf(fp, "0%c: ", &ronda);
-        if ((feitas % 2 != 0) && i == jogadas) {
+        if ((feitas % 2 != 0) && i == Njogadas) {
             fscanf(fp, "%c%d", &c1, &l1);
             set_jogada_efetuada(e, 1, jogada , c1, l1);
         } else {
