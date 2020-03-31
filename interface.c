@@ -56,7 +56,7 @@ void flista_movimentos(ESTADO *e,FILE *filename){
     int j=1;
     fprintf(filename,"\n");
     for(int i=0;i<(get_Njogadas(e));i++){
-        fprintf(filename,"%d%d:",0,j);
+        fprintf(filename,"0%d:",j);
         flista_ronda(e,i,filename);
         i++;j++;
         fprintf(filename,"\n");
@@ -141,6 +141,7 @@ void ler(ESTADO *e, const char *filename, const char *mode){
     if (feitas % 2 == 1) jogadas_1 = (feitas + 1) / 2;
     else jogadas_1 = feitas / 2;
     jogadas_2 = feitas - jogadas_1;
+
     fscanf(fp,"\n");
     int ronda;
     int jogada = 0;
