@@ -13,5 +13,6 @@ int main() {
     interpretador(e);
 
 
+
     printf("JOGO TERMINADO\n");
 }

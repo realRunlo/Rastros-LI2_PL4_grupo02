@@ -41,10 +41,10 @@ void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
 //Imprime a jogada efetuada numero i no ficheiro
 void flista_ronda(ESTADO *e,int i,FILE *filename){
     if(i==get_Nrondas(e)-1)
-        fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
+        fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
     else{
-        fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
-        fprintf(filename,"%c%d",converte_numero(e->jogadas[i+1].jogador2.coluna),e->jogadas[i+1].jogador2.linha);
+        fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
+        fprintf(filename,"%c%d",converte_numero(e->jogadas[i].jogador2.coluna),e->jogadas[i].jogador2.linha + 1);
     }
 
 }
@@ -53,10 +53,10 @@ void flista_ronda(ESTADO *e,int i,FILE *filename){
 void flista_movimentos(ESTADO *e,FILE *filename){
     int j=1;
     fprintf(filename,"\n");
-    for(int i=0;i<(get_Nrondas(e));i++){
+    for(int i=0;i<(get_Nrondas(e)-1);i++){
         fprintf(filename,"0%d:",j);
         flista_ronda(e,i,filename);
-        i++;j++;
+        j++;
         fprintf(filename,"\n");
     }
 }
@@ -65,11 +65,11 @@ void flista_movimentos(ESTADO *e,FILE *filename){
 
 //Imprime a jogada efetuada numero i
 void lista_ronda(ESTADO *e,int i){
-    if(i==get_Nrondas(e)-1)
-        printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
+    if(i==get_Nrondas(e) && get_Njogadas(e)%2!=0)
+        printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
     else{
-        printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha);
-        printf("%c%d",converte_numero(e->jogadas[i+1].jogador2.coluna),e->jogadas[i+1].jogador2.linha);
+        printf("%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
+        printf("%c%d",converte_numero(e->jogadas[i].jogador2.coluna),e->jogadas[i].jogador2.linha + 1);
     }
 
 }
@@ -79,10 +79,10 @@ void lista_ronda(ESTADO *e,int i){
 void lista_movimentos(ESTADO *e){
     int j=1;
     printf("\n");
-    for(int i=0;i<(get_Nrondas(e));i++){
+    for(int i=0;i<=(get_Nrondas(e)-1);i++){
         printf("0%d:",j);
         lista_ronda(e,i);
-        i++;j++;
+        j++;
         printf("\n");
     }
 }
@@ -172,13 +172,13 @@ void volta_tabuleiro(ESTADO *e, int n_ronda){
     int impar;
     printf("%d\n",n_rondas);
     printf("%d\n",n_jogadas);
-    if (n_jogadas % 2 != 0) impar =1;
-    for(int i = n_rondas; i > n_ronda;i--) {
+    if (n_jogadas % 2 != 0) impar = 1;
+    for(int i = n_rondas+1; i > n_ronda;i--) {
         if (impar == 1) {    // apaga a jogada caso o ultimo a jogar tenha sido o jogador 1
             printf("teste1\n");
             printf("teste\n");
-            int linha  = get_jogada_efetuada(e,1,i,0);
-            int coluna = get_jogada_efetuada(e,1,i,1);
+            int linha  = get_jogada_efetuada(e,1,i-1,0);
+            int coluna = get_jogada_efetuada(e,1,i-1,1);
             printf("%d %d\n",linha,coluna);
             set_vazio(e, linha, coluna);
             impar = 0;
@@ -186,11 +186,12 @@ void volta_tabuleiro(ESTADO *e, int n_ronda){
         else {               // apaga a jogadas normalmente
             printf("teste2\n");
             printf("teste\n");
-            int linha1  = get_jogada_efetuada(e,1,i,0);
-            int coluna1 = get_jogada_efetuada(e,1,i,1);
-            int linha2  = get_jogada_efetuada(e,2,i,0);
-            int coluna2 = get_jogada_efetuada(e,2,i,1);
+            int linha1  = get_jogada_efetuada(e,1,i-1,0);
+            int coluna1 = get_jogada_efetuada(e,1,i-1,1);
+            int linha2  = get_jogada_efetuada(e,2,i-1,0);
+            int coluna2 = get_jogada_efetuada(e,2,i-1,1);
             printf("%d %d\n",linha1,coluna1);
+            printf("%d %d\n",linha2,coluna2);
             set_vazio(e, linha1, coluna1);
             set_vazio(e, linha2, coluna2);
             printf("teste\n");
@@ -198,9 +199,10 @@ void volta_tabuleiro(ESTADO *e, int n_ronda){
     }
     // torna a ultima casa da ronda n como branca
     printf("teste3\n");
-    int linha  = get_jogada_efetuada(e,2,n_ronda,0);
-    int coluna = get_jogada_efetuada(e,2,n_ronda,1);
+    int linha  = get_jogada_efetuada(e,2,n_ronda-1,0);
+    int coluna = get_jogada_efetuada(e,2,n_ronda-1,1);
     set_branca(e, linha, coluna);
+    set_ultima_jogada(e,linha,coluna);
 }
 
 
@@ -208,10 +210,17 @@ void volta_tabuleiro(ESTADO *e, int n_ronda){
 
 // funcao principal que reverte o estado do jogo
 void pos(ESTADO *e, int n_ronda){
-     volta_tabuleiro(e, n_ronda); // funcao que apaga do tabuleiro as jogadas menos as pretendidas
-     set_nJogadas(e, n_ronda*2);
-     set_nRondas(e, n_ronda);
-     set_jogador(e,1);
+    if (n_ronda == 0)
+    {
+        reset_estado(e);
+
+    }
+    else {
+        volta_tabuleiro(e, n_ronda); // funcao que apaga do tabuleiro as jogadas menos as pretendidas
+        set_nJogadas(e, n_ronda * 2);
+        set_nRondas(e, n_ronda);
+        set_jogador(e, 1);
+    }
 }
 
 
@@ -260,18 +269,9 @@ int interpretador(ESTADO *e) {
             lista_movimentos(e);
         }
         else if (sscanf(linha,"%c%c%c%c%d",&c1,&c2,&c3,&c4,&n_ronda) == 5 && c1=='p' && c2=='o' && c3=='s' && c4 == ' ' && n_ronda >= 0 && n_ronda <= get_Nrondas(e)){
-            if (n_ronda == 0)
-            {
-                reset_estado(e);
-                desenha_tabuleiro(e);
-                imprime_estadoI(e);
-            }
-            else
-            {
                 pos(e, n_ronda);  //lê o novo tabuleiro atualizando o respetivo estado
                 desenha_tabuleiro(e);   //desenha um novo tabuleiro
                 imprime_estadoI(e);
-            }
         }
 
         else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída
@@ -284,13 +284,6 @@ int interpretador(ESTADO *e) {
     }
 
 }
-
-
-
-
-
-
-
 
 
 

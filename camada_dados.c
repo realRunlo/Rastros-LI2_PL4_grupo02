@@ -172,11 +172,11 @@ void add_numcomandos(ESTADO *e){
 //Funcao que adiciona na lista de jogadas a ultima jogada feita
 void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador){
     if (jogador == 1) {
-        e->jogadas[e->num_rondas].jogador1.linha  = l+1; //só assim é lista com o nº certo ainda não percebi bem,estudar a situação
+        e->jogadas[e->num_rondas].jogador1.linha  = l;
         e->jogadas[e->num_rondas].jogador1.coluna = c;
     }
     else {
-        e->jogadas[e->num_rondas].jogador2.linha  = l+1; //só assim é lista com o nº certo ainda não percebi bem,estudar a situação
+        e->jogadas[e->num_rondas].jogador2.linha  = l;
         e->jogadas[e->num_rondas].jogador2.coluna = c;
     }
 }
@@ -205,12 +205,13 @@ void novo_prompt(ESTADO *e, int jogador, int nJogadas, int nComandos){
 //funcao que atualiza o estado das jogadas efetuadas
 void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha){
     int c = converte_letra(coluna);
+    int l = linha - 1;
     if (j == 1) {
-        e->jogadas[jogada].jogador1.linha = linha;
+        e->jogadas[jogada].jogador1.linha = l;
         e->jogadas[jogada].jogador1.coluna = c;
     }
     else {
-        e->jogadas[jogada].jogador2.linha = linha;
+        e->jogadas[jogada].jogador2.linha = l;
         e->jogadas[jogada].jogador2.coluna = c;
     }
 }
@@ -241,17 +242,3 @@ int get_jogada_efetuada(ESTADO *e, int j, int jogada, int mode){
             return c;
     }
 }
-
-/*//funcao que retorna o estado das jogadas efetuadas
-COORDENADA get_jogada_efetuada(ESTADO *e, int j, int jogada){
-    COORDENADA c;
-    if (j == 1) {
-        c.linha  = e->jogadas[jogada].jogador1.linha;
-        c.coluna = e->jogadas[jogada].jogador1.coluna;
-    }
-    else {
-        c.linha  = e->jogadas[jogada].jogador2.linha;
-        c.coluna = e->jogadas[jogada].jogador2.coluna;
-    }
-    return c;
-}*/

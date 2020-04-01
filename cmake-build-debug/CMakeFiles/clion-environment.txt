@@ -1,4 +1,3 @@
-ToolSet: w64 5.0 (local)@D:\8.6.5\mingw
-Options: 
+ToolSet: 1.0 (local)Options: 
 
 Options:
