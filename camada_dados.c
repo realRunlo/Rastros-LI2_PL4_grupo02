@@ -242,3 +242,17 @@ int get_jogada_efetuada(ESTADO *e, int j, int jogada, int mode){
             return c;
     }
 }
+
+/*//funcao que retorna o estado das jogadas efetuadas
+COORDENADA get_jogada_efetuada(ESTADO *e, int j, int jogada){
+    COORDENADA c;
+    if (j == 1) {
+        c.linha  = e->jogadas[jogada].jogador1.linha;
+        c.coluna = e->jogadas[jogada].jogador1.coluna;
+    }
+    else {
+        c.linha  = e->jogadas[jogada].jogador2.linha;
+        c.coluna = e->jogadas[jogada].jogador2.coluna;
+    }
+    return c;
+}*/

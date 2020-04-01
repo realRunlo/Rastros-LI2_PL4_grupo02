@@ -89,5 +89,5 @@ void lista_movimentos(ESTADO *e);//funcao que imprime a lista de movimentos efet
 
 
 
-void lista_ronda(ESTADO *e,int i);//funcao que imprime a jogada efetuada numero i
+void lista_ronda(ESTADO *e,int j, int i);//funcao que imprime a jogada efetuada numero i
 #endif //___INTERPRETADOR_H__

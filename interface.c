@@ -40,7 +40,7 @@ void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
 
 //Imprime a jogada efetuada numero i no ficheiro
 void flista_ronda(ESTADO *e,int i,FILE *filename){
-    if(i==get_Nrondas(e)-1)
+    if(i==get_Nrondas(e)-1 && get_Njogadas(e)%2!=0)
         fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
     else{
         fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
@@ -79,7 +79,7 @@ void lista_ronda(ESTADO *e,int i){
 void lista_movimentos(ESTADO *e){
     int j=1;
     printf("\n");
-    for(int i=0;i<=(get_Nrondas(e)-1);i++){
+    for(int i=0;i<=get_Nrondas(e) && get_Njogadas(e) != 0;i++){
         printf("0%d:",j);
         lista_ronda(e,i);
         j++;
@@ -158,8 +158,19 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
         fscanf(fp, "\n");
     }
     set_nRondas(e, Nrondas);
-    if ((feitas % 2 != 0)) set_jogador(e, 2);
-    else set_jogador(e, 1);
+    if ((feitas % 2 != 0))
+    {
+        set_jogador(e, 2);
+        int coluna = converte_letra(c1);
+        printf("%c%d %d\n",c1,l1,coluna);   // teste
+        set_ultima_jogada(e, l1 - 1, coluna);
+    }
+    else {
+        set_jogador(e, 1);
+        int coluna = converte_letra(c2);
+        printf("%c%d %d\n",c2,l2,coluna);  // teste
+        set_ultima_jogada(e, l2 - 1, coluna);
+    }
     fclose(fp);
 }
 
