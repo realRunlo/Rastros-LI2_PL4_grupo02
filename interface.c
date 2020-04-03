@@ -40,7 +40,7 @@ void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
 
 //Imprime a jogada efetuada numero i no ficheiro
 void flista_ronda(ESTADO *e,int i,FILE *filename){
-    if(i==get_Nrondas(e)-1 && get_Njogadas(e)%2!=0)
+    if(i==get_Nrondas(e) && get_Njogadas(e)%2!=0)
         fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
     else{
         fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
@@ -51,13 +51,18 @@ void flista_ronda(ESTADO *e,int i,FILE *filename){
 
 //Imprime jogadas efetuadas no ficheiro
 void flista_movimentos(ESTADO *e,FILE *filename){
-    int j=1;
+    int j = 1;
+    int i = 0;
     fprintf(filename,"\n");
-    for(int i=0;i<(get_Nrondas(e)-1);i++){
-        fprintf(filename,"0%d:",j);
-        flista_ronda(e,i,filename);
-        j++;
-        fprintf(filename,"\n");
+    if (get_Njogadas(e) == 0) {}
+    else{
+        for(int nj=1; nj <= get_Njogadas(e) ;nj += 2){
+            fprintf(filename,"0%d: ",j);
+            flista_ronda(e,i,filename);
+            j++;
+            i++;
+            fprintf(filename,"\n");
+        }
     }
 }
 
@@ -74,20 +79,21 @@ void lista_ronda(ESTADO *e,int i){
 
 }
 
-
-//Imprime jogadas efetuadas
 void lista_movimentos(ESTADO *e){
-    int j=1;
+    int j = 1;
+    int i = 0;
     printf("\n");
-    for(int i=0;i<=get_Nrondas(e) && get_Njogadas(e) != 0;i++){
-        printf("0%d:",j);
-        lista_ronda(e,i);
-        j++;
-        printf("\n");
+    if (get_Njogadas(e) == 0) {}
+    else{
+        for(int nj=1; nj <= get_Njogadas(e) ;nj += 2){
+            printf("0%d: ",j);
+            lista_ronda(e,i);
+            j++;
+            i++;
+            printf("\n");
+        }
     }
 }
-
-
 
 
 
@@ -127,8 +133,8 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
 
     char crt;
     int l, c, feitas = 0; //posição do canto superior esquerdo do tabuleiro
-    for (l = 7; l >=
-                0; l--) { //lê cada linha do tabuleiro , a contagem das linhas vai de cima para baixo por uma questão de correspondência à imagem
+    for (l = 7; l >=0; l--) { //lê cada linha do tabuleiro , a contagem das linhas vai de cima para baixo por uma questão de correspondência à imagem
+
         for (c = 0; c <= 8; c++) {
             fscanf(fp, "%c", &crt);
             if (crt == '#') feitas++;
@@ -139,37 +145,38 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
 
     fscanf(fp, "\n");
     char ronda;
-    int l1, l2, Nrondas, rondas=0;
+    int l1, l2,rondas=0;
     char c1, c2;
-    if (feitas % 2 != 0) Nrondas = (feitas + 1) / 2;
-    else Nrondas = feitas/2;
+    int nj = 1;
 
-    for (int i = 1; i <= Nrondas; i++) {
+    for (nj; nj <= feitas;nj += 2) {
         fscanf(fp, "0%c: ", &ronda);
-        if ((feitas % 2 != 0) && i == Nrondas) {
-            fscanf(fp, "%c%d", &c1, &l1);
+
+        if ((feitas % 2 != 0) && nj == feitas) {
+            fscanf(fp, "%c%d ", &c1, &l1);
             set_jogada_efetuada(e, 1, rondas , c1, l1);
         } else {
             fscanf(fp, "%c%d ", &c1, &l1);
             set_jogada_efetuada(e, 1, rondas, c1, l1);
             fscanf(fp, "%c%d", &c2, &l2);
-            set_jogada_efetuada(e, 2, rondas , c2, l2);rondas++;
+            set_jogada_efetuada(e, 2, rondas , c2, l2);
+            rondas++;
         }
+
         fscanf(fp, "\n");
     }
-    set_nRondas(e, Nrondas);
+
+    set_nRondas(e, rondas);
     if ((feitas % 2 != 0))
     {
         set_jogador(e, 2);
         int coluna = converte_letra(c1);
-        printf("%c%d %d\n",c1,l1,coluna);   // teste
-        set_ultima_jogada(e, l1 - 1, coluna);
+        set_ultima_jogada(e, l1 -1, coluna);
     }
     else {
         set_jogador(e, 1);
         int coluna = converte_letra(c2);
-        printf("%c%d %d\n",c2,l2,coluna);  // teste
-        set_ultima_jogada(e, l2 - 1, coluna);
+        set_ultima_jogada(e, l2-1 , coluna);
     }
     fclose(fp);
 }
