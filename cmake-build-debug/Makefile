@@ -177,6 +177,33 @@ interface.c.s:
 	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/interface.c.s
 .PHONY : interface.c.s
 
+listaslig.o: listaslig.c.o
+
+.PHONY : listaslig.o
+
+# target to build an object file
+listaslig.c.o:
+	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/listaslig.c.o
+.PHONY : listaslig.c.o
+
+listaslig.i: listaslig.c.i
+
+.PHONY : listaslig.i
+
+# target to preprocess a source file
+listaslig.c.i:
+	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/listaslig.c.i
+.PHONY : listaslig.c.i
+
+listaslig.s: listaslig.c.s
+
+.PHONY : listaslig.s
+
+# target to generate assembly for a file
+listaslig.c.s:
+	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/listaslig.c.s
+.PHONY : listaslig.c.s
+
 logica.o: logica.c.o
 
 .PHONY : logica.o
@@ -246,6 +273,9 @@ help:
 	@echo "... interface.o"
 	@echo "... interface.i"
 	@echo "... interface.s"
+	@echo "... listaslig.o"
+	@echo "... listaslig.i"
+	@echo "... listaslig.s"
 	@echo "... logica.o"
 	@echo "... logica.i"
 	@echo "... logica.s"
