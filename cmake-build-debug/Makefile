@@ -176,7 +176,7 @@ interface.c.s:
 	$(MAKE) -f CMakeFiles\Rastros.dir\build.make CMakeFiles/Rastros.dir/interface.c.s
 .PHONY : interface.c.s
 
-logica.obj: logica.c.obj
+
 
 .PHONY : logica.obj
 
@@ -232,25 +232,7 @@ rastros.c.s:
 
 # Help Target
 help:
-	@echo The following are some of the valid targets for this Makefile:
-	@echo ... all (the default if no target is provided)
-	@echo ... clean
-	@echo ... depend
-	@echo ... rebuild_cache
-	@echo ... Rastros
-	@echo ... edit_cache
-	@echo ... camada_dados.obj
-	@echo ... camada_dados.i
-	@echo ... camada_dados.s
-	@echo ... interface.obj
-	@echo ... interface.i
-	@echo ... interface.s
-	@echo ... logica.obj
-	@echo ... logica.i
-	@echo ... logica.s
-	@echo ... rastros.obj
-	@echo ... rastros.i
-	@echo ... rastros.s
+
 .PHONY : help
 
 

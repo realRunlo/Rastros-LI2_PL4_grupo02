@@ -71,16 +71,12 @@ preinstall:
 
 # All Build rule for target.
 CMakeFiles/Rastros.dir/all:
-	$(MAKE) -f CMakeFiles\Rastros.dir\build.make CMakeFiles/Rastros.dir/depend
-	$(MAKE) -f CMakeFiles\Rastros.dir\build.make CMakeFiles/Rastros.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\cmake-build-debug\CMakeFiles --progress-num=1,2,3,4,5 "Built target Rastros"
+
 .PHONY : CMakeFiles/Rastros.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Rastros.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\cmake-build-debug\CMakeFiles 5
-	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/Rastros.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\cmake-build-debug\CMakeFiles 0
+
 .PHONY : CMakeFiles/Rastros.dir/rule
 
 # Convenience name for target.
