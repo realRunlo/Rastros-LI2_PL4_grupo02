@@ -53,19 +53,14 @@ int espaco_vitoria(ESTADO *e){
     int c = e->ultima_jogada.coluna;
     int l = e->ultima_jogada.linha;
     if((l != 0 || c != 0) && (l != 7 || c != 7))
-    if(l<=3) {
+        return 1;
+    if(l==0 ){
         printf("Jogador 1 ganhou\n");
-    }
-        else if (l==4) {
-            printf("O jogo terminou num empate\n");
-        }
-    }
-    else
-        {
+        return 0;
+    }else{
         printf("Jogador 2 ganhou\n");
         return 0;
     }
-
 
 }
 
