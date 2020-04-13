@@ -4,10 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/runlo/LI2/Rastros/camada_dados.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/camada_dados.c.o"
-  "/home/runlo/LI2/Rastros/interface.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/interface.c.o"
-  "/home/runlo/LI2/Rastros/logica.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/logica.c.o"
-  "/home/runlo/LI2/Rastros/rastros.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/rastros.c.o"
+
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
