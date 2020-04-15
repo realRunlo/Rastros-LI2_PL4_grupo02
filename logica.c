@@ -6,6 +6,7 @@
 #include "camada_dados.h"
 
 
+
 //Funcao que realiza a jogada emitida e altera o estado do jogo de acordo
 int jogar(ESTADO *e, COORDENADA c){
     int l = c.linha;
@@ -37,14 +38,29 @@ int espaco_vazio(ESTADO *e){
     int c = e->ultima_jogada.coluna;
     int l = e->ultima_jogada.linha;
     int j = get_jogador(e);
-    if ((e_vazio(e, l + 1, c)     || e_vazio(e, l - 1, c)     || e_vazio(e, l, c + 1)     || e_vazio(e, l, c - 1) ||
-        e_vazio(e, l + 1, c + 1)  || e_vazio(e, l + 1, c - 1) || e_vazio(e, l - 1, c + 1) || e_vazio(e, l - 1, c - 1)))
-         return 1;
+    if (c == 0 && l == 7 && (e_vazio(e, l - 1, c) || e_vazio(e, l, c + 1) || e_vazio(e, l - 1, c + 1) ))           // canto superior esquerdo
+        return 1;
+    else if (l == 0 && c == 7 && (e_vazio(e, l + 1, c) || e_vazio(e, l + 1, c - 1) || e_vazio(e, l, c - 1)))       // canto inferior direito
+        return 1;
+    else if (c == 0 && l != 7 && (e_vazio(e, l + 1, c) || e_vazio(e, l - 1, c) || e_vazio(e, l, c + 1) ||          // esta na primeira coluna
+                                  e_vazio(e, l + 1, c + 1) || e_vazio(e, l - 1, c + 1) ))
+        return 1;
+    else if (c == 7 && l != 0 && (e_vazio(e, l + 1, c) || e_vazio(e, l - 1, c) || e_vazio(e, l, c - 1) ||          // esta na ultima coluna
+                                  e_vazio(e, l + 1, c - 1) || e_vazio(e, l - 1, c - 1)))
+          return 1;
+    else if (l == 0 && c != 7 && (e_vazio(e, l + 1, c) || e_vazio(e, l, c + 1) || e_vazio(e, l, c - 1) ||          // esta na primeira linha
+                                  e_vazio(e, l + 1, c + 1)  || e_vazio(e, l + 1, c - 1) ))
+          return 1;
+    else if (l == 7 && c != 0 && (e_vazio(e, l - 1, c) || e_vazio(e, l, c + 1) || e_vazio(e, l, c - 1) ||          // esta na ultima linha
+                                  e_vazio(e, l + 1, c - 1) || e_vazio(e, l - 1, c + 1) || e_vazio(e, l - 1, c - 1)))
+          return 1;
+    else if ( c != 0 && c != 7 && l != 0 && l != 7 && (e_vazio(e, l + 1, c)  || e_vazio(e, l - 1, c)  || e_vazio(e, l, c + 1) || e_vazio(e, l, c - 1) ||                 // fora das fronteiras
+                                                       e_vazio(e, l + 1, c + 1)  || e_vazio(e, l + 1, c - 1) || e_vazio(e, l - 1, c + 1) || e_vazio(e, l - 1, c - 1)))
+             return 1;
     else {
-        printf("Jogador %d bloqueado!Perdeu\n",j);
-        return 0;
-    }
-
+            printf("Jogador %d bloqueado!Perdeu\n", j);
+            return 0;
+         }
 }
 
 //Verifica se está numa casa de vitória e felicita o repetivo jogador pela vitória
@@ -66,7 +82,7 @@ int espaco_vitoria(ESTADO *e){
 
 //Funcao que verifica se e possivel continuar a jogar
 int jogada_possivel(ESTADO *e){
-    if(espaco_vazio(e)  && espaco_vitoria(e))
+    if(espaco_vitoria(e) && espaco_vazio(e))
         return 1;
     return 0;
 

@@ -9,6 +9,7 @@
 #include "logica.h"
 
 
+
 // Funcao que desenha o tabuleiro
 void desenha_tabuleiro(ESTADO *e){
     printf ("   A B C D E F G H \n");
