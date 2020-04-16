@@ -220,7 +220,7 @@ void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha){
 
 
 
-//funcao que retorna o estado das jogadas efetuadas
+/*//funcao que retorna as coordenadas de uma jogada ja efetuada
 int get_jogada_efetuada(ESTADO *e, int j, int jogada, int mode){
     int c,l;
     switch(mode) {
@@ -242,9 +242,10 @@ int get_jogada_efetuada(ESTADO *e, int j, int jogada, int mode){
             }
             return c;
     }
-}
+}*/
 
-/*//funcao que retorna o estado das jogadas efetuadas
+
+//funcao que retorna as coordenadas de uma jogada ja efetuada
 COORDENADA get_jogada_efetuada(ESTADO *e, int j, int jogada){
     COORDENADA c;
     if (j == 1) {
@@ -256,4 +257,38 @@ COORDENADA get_jogada_efetuada(ESTADO *e, int j, int jogada){
         c.coluna = e->jogadas[jogada].jogador2.coluna;
     }
     return c;
-}*/
+}
+
+
+//funcao que retorna o estado das jogadas efetuadas
+COORDENADA get_ultima_jogada(ESTADO *e){
+    COORDENADA c;
+    c.linha  = e->ultima_jogada.linha;
+    c.coluna = e->ultima_jogada.coluna;
+    return c;
+}
+
+
+//Funcao que devolve o numero de casas que envolve a ultima jogada
+int get_num_casas_envolta(ESTADO *e, COORDENADA cord){
+    int c = cord.coluna;
+    int l = cord.linha;
+    if ( ( c == 0 && l == 7 )|| (c == 7 && l == 0)) return 3; // cantos
+    else if (c == 0 || c == 7 || l == 0 || l == 7) return 5; // fronteiras sem cantos
+    else return 8;                                           // fora das fronteiras
+
+}
+
+
+//Verifica se o jogador esta na fronteira
+int jogador_local_tabuleiro(COORDENADA cord){
+    int c = cord.coluna;
+    int l = cord.linha;
+    if (c < 7 && c > 0 && l > 0 && l < 7) return 0;  // interior do tabuleiro
+    else if (c == 0 && l == 7) return 1; // canto superior esquerdo
+    else if (c == 7 && l == 0) return 2; // canto inferior direito
+    else if (l == 7) return 3; // fronteira superior
+    else if (l == 0) return 4; // fronteira inferior
+    else if (c == 0) return 5; // fronteira esquerda
+    return 6;                  // fronteira direita
+}

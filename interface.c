@@ -185,43 +185,29 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
 
 //funcao que retorna o tabuleiro para uma ronda especificada
 void volta_tabuleiro(ESTADO *e, int n_ronda){
-    printf("teste\n");
     int n_rondas= get_Nrondas(e);
     int n_jogadas= get_Njogadas(e);
     int impar;
-    printf("%d\n",n_rondas);
-    printf("%d\n",n_jogadas);
+    COORDENADA cord1;
+    COORDENADA cord2;
     if (n_jogadas % 2 != 0) impar = 1;
     for(int i = n_rondas+1; i > n_ronda;i--) {
         if (impar == 1) {    // apaga a jogada caso o ultimo a jogar tenha sido o jogador 1
-            printf("teste1\n");
-            printf("teste\n");
-            int linha  = get_jogada_efetuada(e,1,i-1,0);
-            int coluna = get_jogada_efetuada(e,1,i-1,1);
-            printf("%d %d\n",linha,coluna);
-            set_vazio(e, linha, coluna);
+            cord1  = get_jogada_efetuada(e,1,i-1);
+            set_vazio(e, cord1.linha, cord1.coluna);
             impar = 0;
         }
         else {               // apaga a jogadas normalmente
-            printf("teste2\n");
-            printf("teste\n");
-            int linha1  = get_jogada_efetuada(e,1,i-1,0);
-            int coluna1 = get_jogada_efetuada(e,1,i-1,1);
-            int linha2  = get_jogada_efetuada(e,2,i-1,0);
-            int coluna2 = get_jogada_efetuada(e,2,i-1,1);
-            printf("%d %d\n",linha1,coluna1);
-            printf("%d %d\n",linha2,coluna2);
-            set_vazio(e, linha1, coluna1);
-            set_vazio(e, linha2, coluna2);
-            printf("teste\n");
+            cord1  = get_jogada_efetuada(e,1,i-1);
+            set_vazio(e, cord1.linha, cord1.coluna);
+            cord2  = get_jogada_efetuada(e,2,i-1);
+            set_vazio(e, cord2.linha, cord2.coluna);
         }
     }
     // torna a ultima casa da ronda n como branca
-    printf("teste3\n");
-    int linha  = get_jogada_efetuada(e,2,n_ronda-1,0);
-    int coluna = get_jogada_efetuada(e,2,n_ronda-1,1);
-    set_branca(e, linha, coluna);
-    set_ultima_jogada(e,linha,coluna);
+    cord2  = get_jogada_efetuada(e,2,n_rondas-1);
+    set_branca(e, cord2.linha, cord2.coluna);
+    set_ultima_jogada(e,cord2.linha,cord2.coluna);
 }
 
 

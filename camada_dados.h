@@ -193,6 +193,20 @@ void novo_tabuleiro(ESTADO *e, int l, int c, char x); // atualiza o tabuleiro no
 //funcao que modifica o estado da jogada efetuada numero j
 void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha);
 
-//funcao que retorna uma jogada efetuada
-int get_jogada_efetuada(ESTADO *e, int j, int jogada, int mode);
+/*//funcao que retorna uma jogada efetuada
+int get_jogada_efetuada(ESTADO *e, int j, int jogada, int mode);*/
+
+COORDENADA get_jogada_efetuada(ESTADO *e, int j, int jogada);
+
+//funcao que retorna as coordenadas da ultima jogada
+COORDENADA get_ultima_jogada(ESTADO *e);
+
+
+//Funcao que devolve o numero de casas que envolve a ultima jogada
+int get_num_casas_envolta(ESTADO *e, COORDENADA cord);
+
+//Funcao que indica se o local da coordenada no tabuleiro (ex: fronteira esquerda)
+int jogador_local_tabuleiro(COORDENADA cord);
 #endif //___CAMADADEDADOS_H__
+
+
