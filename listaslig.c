@@ -93,8 +93,8 @@ void lista_insere_vazias(LISTA lista, ESTADO *e){
         }
          valor.coluna = c + iC;
          valor.linha  = l + iL;
-         if (e_branca(e, valor.linha, valor.coluna))
-            insere_cabeca(lista, valor);            // guarda na lista a casa se for branca
+         if (e_vazio(e, valor.linha, valor.coluna))
+            insere_cabeca(lista, valor);            // guarda na lista a casa se for vazia
      }
 }
 
