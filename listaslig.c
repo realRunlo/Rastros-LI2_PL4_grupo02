@@ -4,10 +4,12 @@
 
 #include "listaslig.h"
 #include "camada_dados.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 LISTA criar_lista(){
     LISTA l1 = malloc(sizeof(LISTA));
+    return l1;
 
 }
 
@@ -16,7 +18,7 @@ LISTA insere_cabeca(LISTA L, COORDENADA valor){
     head->valor = valor;
     head->prox = L;
 
-    L = head;   //pode não ser necessário mas tbm não há problema
+    L = head;
     return L;
 }
 
@@ -34,11 +36,18 @@ LISTA remove_cabeca(LISTA L){
     return r;
 }
 
+void imprimeLista(LISTA l){
+    for(l;l;l = l->prox){
+        printf("%d%d->",l->valor.coluna,l->valor.linha);printf("\n");
+    }
+
+}
+
 /*int lista_esta_vazia(LISTA L){
     return (L->valor == NULL); //talvez 0 e não null
 }*/
 
-void lista_insere_vazias(LISTA lista, ESTADO *e){
+LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
      COORDENADA cord = get_ultima_jogada(e);
      COORDENADA valor;
      int c = cord.coluna;
@@ -94,7 +103,8 @@ void lista_insere_vazias(LISTA lista, ESTADO *e){
          valor.coluna = c + iC;
          valor.linha  = l + iL;
          if (e_vazio(e, valor.linha, valor.coluna))
-            insere_cabeca(lista, valor);            // guarda na lista a casa se for vazia
+            lista = insere_cabeca(lista, valor);            // guarda na lista a casa se for vazia
      }
+     return lista;
 }
 

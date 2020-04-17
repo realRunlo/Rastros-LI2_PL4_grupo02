@@ -184,20 +184,25 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
 
 
 //funcao que retorna o tabuleiro para uma ronda especificada
-void volta_tabuleiro(ESTADO *e, int n_ronda){
+void volta_tabuleiro(ESTADO *e, int indice){
     int n_rondas= get_Nrondas(e);
     int n_jogadas= get_Njogadas(e);
-    int impar;
+    int i;
+    int impar=0;
+    if (n_jogadas % 2 != 0) impar = 1;
     COORDENADA cord1;
     COORDENADA cord2;
-    if (n_jogadas % 2 != 0) impar = 1;
-    for(int i = n_rondas+1; i > n_ronda;i--) {
+
+    if(indice<=n_rondas){
+
+    for(i = n_rondas+1; i > indice;i--) {
         if (impar == 1) {    // apaga a jogada caso o ultimo a jogar tenha sido o jogador 1
-            cord1  = get_jogada_efetuada(e,1,i-1);
+            printf("entrei crlh");
+            cord1  = get_ultima_jogada(e);
             set_vazio(e, cord1.linha, cord1.coluna);
             impar = 0;
         }
-        else {               // apaga a jogadas normalmente
+        else {    // apaga a jogadas normalmente
             cord1  = get_jogada_efetuada(e,1,i-1);
             set_vazio(e, cord1.linha, cord1.coluna);
             cord2  = get_jogada_efetuada(e,2,i-1);
@@ -205,9 +210,19 @@ void volta_tabuleiro(ESTADO *e, int n_ronda){
         }
     }
     // torna a ultima casa da ronda n como branca
-    cord2  = get_jogada_efetuada(e,2,n_rondas-1);
+    cord2  = get_jogada_efetuada(e,2,indice-1);
     set_branca(e, cord2.linha, cord2.coluna);
     set_ultima_jogada(e,cord2.linha,cord2.coluna);
+    }else{
+        for(int i=n_rondas;i<indice;i++){
+            cord1  = get_jogada_efetuada(e,1,i);
+            jogar(e,cord1);
+            cord2  = get_jogada_efetuada(e,2,i);
+            jogar(e,cord2);
+        }
+
+    }
+
 }
 
 
@@ -273,7 +288,7 @@ int interpretador(ESTADO *e) {
         else if (sscanf(linha,"%c%c%c%c",&c1,&c2,&c3,&c4) == 4 && c1=='m' && c2=='o' && c3=='v' && c4 == 's'){
             lista_movimentos(e);
         }
-        else if (sscanf(linha,"%c%c%c%c%d",&c1,&c2,&c3,&c4,&n_ronda) == 5 && c1=='p' && c2=='o' && c3=='s' && c4 == ' ' && n_ronda >= 0 && n_ronda <= get_Nrondas(e)){
+        else if (sscanf(linha,"%c%c%c%c%d",&c1,&c2,&c3,&c4,&n_ronda) == 5 && c1=='p' && c2=='o' && c3=='s' && c4 == ' ' && n_ronda >= 0){
                 pos(e, n_ronda);  //lê o novo tabuleiro atualizando o respetivo estado
                 desenha_tabuleiro(e);   //desenha um novo tabuleiro
                 imprime_estadoI(e);

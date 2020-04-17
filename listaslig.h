@@ -27,6 +27,10 @@ LISTA proximo(LISTA L);
 LISTA remove_cabeca(LISTA L);
 // Devolve verdareiro se a lista é vazia
 int lista_esta_vazia(LISTA L);
+//imprime valores da lista
+void imprimeLista(LISTA l);
+
+LISTA lista_insere_vazias(LISTA lista, ESTADO *e);
 
 
 
