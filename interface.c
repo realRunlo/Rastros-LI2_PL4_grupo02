@@ -306,8 +306,8 @@ int interpretador(ESTADO *e) {
             lista = lista_insere_vazias(lista, e);
             aleatorio = rand() % lengthL(lista);
             coordal = procuraL (lista,aleatorio);
-            printf("%d %d",aleatorio,lengthL(lista)); printf("\n");
-            imprimeLista(lista);
+           // printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
+           // imprimeLista(lista);
             jogar(e,coordal);
             desenha_tabuleiro(e);
             imprime_estado(e,coordal);
