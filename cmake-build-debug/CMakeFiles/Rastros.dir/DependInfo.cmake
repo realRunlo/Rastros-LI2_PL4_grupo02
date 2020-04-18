@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/home/runlo/LI2/Rastros/camada_dados.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/camada_dados.c.o"
   "/home/runlo/LI2/Rastros/interface.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/interface.c.o"
-  "/home/runlo/LI2/Rastros/listaslig.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/listaslig.c.o"
+  "/home/runlo/LI2/Rastros/lista.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/lista.c.o"
   "/home/runlo/LI2/Rastros/logica.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/logica.c.o"
   "/home/runlo/LI2/Rastros/rastros.c" "/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir/rastros.c.o"
   )

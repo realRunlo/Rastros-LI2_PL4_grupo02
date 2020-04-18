@@ -90,10 +90,10 @@
 		<Unit filename="/home/runlo/LI2/Rastros/interface.h">
 			<Option target="Rastros"/>
 		</Unit>
-		<Unit filename="/home/runlo/LI2/Rastros/listaslig.c">
+		<Unit filename="/home/runlo/LI2/Rastros/lista.c">
 			<Option target="Rastros"/>
 		</Unit>
-		<Unit filename="/home/runlo/LI2/Rastros/listaslig.h">
+		<Unit filename="/home/runlo/LI2/Rastros/lista.h">
 			<Option target="Rastros"/>
 		</Unit>
 		<Unit filename="/home/runlo/LI2/Rastros/logica.c">

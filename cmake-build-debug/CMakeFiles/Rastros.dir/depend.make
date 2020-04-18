@@ -3,20 +3,22 @@
 
 CMakeFiles/Rastros.dir/camada_dados.c.o: ../camada_dados.c
 CMakeFiles/Rastros.dir/camada_dados.c.o: ../camada_dados.h
+CMakeFiles/Rastros.dir/camada_dados.c.o: ../lista.h
 
 CMakeFiles/Rastros.dir/interface.c.o: ../camada_dados.h
 CMakeFiles/Rastros.dir/interface.c.o: ../interface.c
+CMakeFiles/Rastros.dir/interface.c.o: ../lista.h
 CMakeFiles/Rastros.dir/interface.c.o: ../logica.h
 
-CMakeFiles/Rastros.dir/listaslig.c.o: ../camada_dados.h
-CMakeFiles/Rastros.dir/listaslig.c.o: ../listaslig.c
-CMakeFiles/Rastros.dir/listaslig.c.o: ../listaslig.h
+CMakeFiles/Rastros.dir/lista.c.o: ../camada_dados.h
+CMakeFiles/Rastros.dir/lista.c.o: ../lista.c
+CMakeFiles/Rastros.dir/lista.c.o: ../lista.h
 
 CMakeFiles/Rastros.dir/logica.c.o: ../camada_dados.h
 CMakeFiles/Rastros.dir/logica.c.o: ../logica.c
 
 CMakeFiles/Rastros.dir/rastros.c.o: ../camada_dados.h
 CMakeFiles/Rastros.dir/rastros.c.o: ../interface.h
-CMakeFiles/Rastros.dir/rastros.c.o: ../listaslig.h
+CMakeFiles/Rastros.dir/rastros.c.o: ../lista.h
 CMakeFiles/Rastros.dir/rastros.c.o: ../rastros.c
 

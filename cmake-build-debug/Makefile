@@ -177,32 +177,32 @@ interface.c.s:
 	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/interface.c.s
 .PHONY : interface.c.s
 
-listaslig.o: listaslig.c.o
+lista.o: lista.c.o
 
-.PHONY : listaslig.o
+.PHONY : lista.o
 
 # target to build an object file
-listaslig.c.o:
-	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/listaslig.c.o
-.PHONY : listaslig.c.o
+lista.c.o:
+	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/lista.c.o
+.PHONY : lista.c.o
 
-listaslig.i: listaslig.c.i
+lista.i: lista.c.i
 
-.PHONY : listaslig.i
+.PHONY : lista.i
 
 # target to preprocess a source file
-listaslig.c.i:
-	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/listaslig.c.i
-.PHONY : listaslig.c.i
+lista.c.i:
+	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/lista.c.i
+.PHONY : lista.c.i
 
-listaslig.s: listaslig.c.s
+lista.s: lista.c.s
 
-.PHONY : listaslig.s
+.PHONY : lista.s
 
 # target to generate assembly for a file
-listaslig.c.s:
-	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/listaslig.c.s
-.PHONY : listaslig.c.s
+lista.c.s:
+	$(MAKE) -f CMakeFiles/Rastros.dir/build.make CMakeFiles/Rastros.dir/lista.c.s
+.PHONY : lista.c.s
 
 logica.o: logica.c.o
 
@@ -273,9 +273,9 @@ help:
 	@echo "... interface.o"
 	@echo "... interface.i"
 	@echo "... interface.s"
-	@echo "... listaslig.o"
-	@echo "... listaslig.i"
-	@echo "... listaslig.s"
+	@echo "... lista.o"
+	@echo "... lista.i"
+	@echo "... lista.s"
 	@echo "... logica.o"
 	@echo "... logica.i"
 	@echo "... logica.s"

@@ -10,7 +10,11 @@ Definição do estado e das funções que o manipulam
 #ifndef ___CAMADADEDADOS_H___
 #define ___CAMADADEDADOS_H___
 
+
+
 // conjunto de tipos utilizados para armazenamento e edicao dos dados do estado do jogo
+
+
 
 /**
 \brief Tipo de dados para a casa

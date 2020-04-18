@@ -13,8 +13,6 @@ typedef struct NODO {
 
 }*LISTA;
 
-
-
 // Cria uma lista vazia
 LISTA criar_lista();
 // Insere um valor na cabeça da lista
@@ -31,6 +29,9 @@ int lista_esta_vazia(LISTA L);
 void imprimeLista(LISTA l);
 
 LISTA lista_insere_vazias(LISTA lista, ESTADO *e);
+int lengthL(LISTA l);
+COORDENADA procuraL (LISTA l,int i);
+void limpaL(LISTA l);
 
 
 

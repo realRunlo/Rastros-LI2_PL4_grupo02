@@ -4,9 +4,11 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <time.h>
 #define BUF_SIZE 1024
 #include "camada_dados.h"
 #include "logica.h"
+#include "lista.h"
 
 
 
@@ -250,8 +252,13 @@ void pos(ESTADO *e, int n_ronda){
 
 // Função de interface,que permite a intereção com os jogadores
 int interpretador(ESTADO *e) {
+    time_t t;
+    srand((unsigned) time(&t));
 
     char linha[BUF_SIZE];
+    LISTA lista,saveL;
+    int aleatorio;
+    COORDENADA coordal;
     int n_ronda;
     char col[2], lin[2],q,c1,c2,c3,c4;
     char filename[50];
@@ -293,6 +300,21 @@ int interpretador(ESTADO *e) {
                 desenha_tabuleiro(e);   //desenha um novo tabuleiro
                 imprime_estadoI(e);
         }
+        else if(sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='j' && c2=='o' && c3=='g'){
+            lista = criar_lista();
+            saveL = lista;
+            lista = lista_insere_vazias(lista, e);
+            aleatorio = rand() % lengthL(lista);
+            coordal = procuraL (lista,aleatorio);
+            printf("%d %d",aleatorio,lengthL(lista)); printf("\n");
+            imprimeLista(lista);
+            jogar(e,coordal);
+            desenha_tabuleiro(e);
+            imprime_estado(e,coordal);
+            limpaL(saveL);
+
+
+        }
 
         else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída
             return 1;
@@ -301,6 +323,8 @@ int interpretador(ESTADO *e) {
 
         if(jogada_possivel(e) !=1) return 1;  //este return é de forma a não haver a repetição do jogada_possivel na quebra do ciclo
         add_numcomandos(e);
+
+
     }
 
 }
