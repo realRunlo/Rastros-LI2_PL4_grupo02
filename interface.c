@@ -306,7 +306,7 @@ int interpretador(ESTADO *e) {
             saveL = lista;
             COORDENADA c1 = * (COORDENADA *) devolve_cabeca(lista->prox);
 
-            aleatorio = rand() % lengthL(lista)-1;
+            aleatorio = rand() % lengthL(lista);
             coordal = * (COORDENADA *) (procuraL (lista,aleatorio));
             //printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
             // imprimeLista(lista);
