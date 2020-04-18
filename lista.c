@@ -11,20 +11,20 @@
 
 LISTA criar_lista(){
     LISTA l1 = malloc(sizeof(LISTA));
+    l1 = NULL;
     return l1;
 
 }
 
-LISTA insere_cabeca(LISTA L, COORDENADA valor){
+LISTA insere_cabeca(LISTA L, void * valor){
     LISTA head = malloc(sizeof(LISTA));
     head->valor = valor;
-    head->prox = L;
-
+    head->prox  = L;
     L = head;
     return L;
 }
 
-COORDENADA devolve_cabeca(LISTA L){
+void * devolve_cabeca(LISTA L){
     return (L->valor);
 }
 
@@ -39,10 +39,12 @@ LISTA remove_cabeca(LISTA L){
 }
 
 void imprimeLista(LISTA l){
-    for(l;l->prox;l = l->prox){
-        printf("%d%d->",l->valor.coluna,l->valor.linha);
+    for(;l->prox != NULL;l = l->prox){
+        void * aux = devolve_cabeca(l); // devolve o endereco do que esta dentro da lista
+        COORDENADA c = * (COORDENADA *) l->valor;
+        printf("%d %d->",c.linha + 1,c.coluna + 1);
     }
-
+    printf("\n");
 }
 
 /*int lista_esta_vazia(LISTA L){
@@ -51,7 +53,7 @@ void imprimeLista(LISTA l){
 
 LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
      COORDENADA cord = get_ultima_jogada(e);
-     COORDENADA valor;
+     COORDENADA valor[sizeof(COORDENADA)*8];
      int c = cord.coluna;
      int l = cord.linha;
      int casas_envolta = get_num_casas_envolta(e, cord);
@@ -99,34 +101,33 @@ LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
                  else iC++;
                  break;
          }
-         valor.coluna = c + iC;
-         valor.linha  = l + iL;
-         if (e_vazio(e, valor.linha, valor.coluna))
-            lista = insere_cabeca(lista, valor);            // guarda na lista a casa se for vazia
+         valor[acc].coluna = c + iC;
+         valor[acc].linha  = l + iL;
+         if (e_vazio(e, valor[acc].linha, valor[acc].coluna)){
+            lista = insere_cabeca(lista, (void *) &valor[acc]);
+         }            // guarda na lista a casa se for vazia
      }
      return lista;
 }
 
 int lengthL(LISTA l){
     int r = 0;
-    for(l;l->prox;l = l->prox){
+    for(;l->prox != NULL;l = l->prox){
         r++;
     }
     return r;
 }
 
-COORDENADA procuraL (LISTA l,int i){
+void * procuraL (LISTA l,int i){
 
     for(int j=0;j<=i;j++,l = l->prox);
-
     return l->valor;
 
 
 }
 
 void limpaL(LISTA l){
-
-    for(l;l->prox;l = l->prox)
+    for(l;l->prox != NULL;l = l->prox) {
         free(l);
-
+    }
 }
