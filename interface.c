@@ -301,19 +301,25 @@ int interpretador(ESTADO *e) {
                 imprime_estadoI(e);
         }
         else if(sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='j' && c2=='o' && c3=='g'){
+            printf("oii11");
             lista = criar_lista();
+            printf("oii11");
             lista = lista_insere_vazias(lista, e);
-            saveL = lista;
+            printf("oii22");
             COORDENADA c1 = * (COORDENADA *) devolve_cabeca(lista->prox);
-
+            printf("%d",lengthL(lista));
+            printf("oii33");
             aleatorio = rand() % lengthL(lista);
+            printf("oii44");
+            printf("%d",aleatorio);
             coordal = * (COORDENADA *) (procuraL (lista,aleatorio));
             //printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
-            // imprimeLista(lista);
+            //imprimeLista(lista);
             jogar(e,coordal);
             desenha_tabuleiro(e);
             imprime_estado(e,coordal);
-            //limpaL(saveL);
+            limpaL(lista);
+
 
 
         }

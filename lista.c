@@ -39,8 +39,7 @@ LISTA remove_cabeca(LISTA L){
 }
 
 void imprimeLista(LISTA l){
-    for(;l->prox != NULL;l = l->prox){
-        void * aux = devolve_cabeca(l); // devolve o endereco do que esta dentro da lista
+    for(;l;l = l->prox){
         COORDENADA c = * (COORDENADA *) l->valor;
         printf("%d %d->",c.linha + 1,c.coluna + 1);
     }
@@ -112,7 +111,7 @@ LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
 
 int lengthL(LISTA l){
     int r = 0;
-    for(;l->prox != NULL;l = l->prox){
+    for(;l;l = l->prox){
         r++;
     }
     return r;
@@ -120,14 +119,18 @@ int lengthL(LISTA l){
 
 void * procuraL (LISTA l,int i){
 
-    for(int j=0;j<=i;j++,l = l->prox);
+    for(int j=0;j<i;j++,l = l->prox);
     return l->valor;
 
 
 }
 
 void limpaL(LISTA l){
-    for(l;l->prox != NULL;l = l->prox) {
+    LISTA aux;
+
+    for(l;l!= NULL;l = aux) {
+        aux = l->prox;
         free(l);
     }
+
 }
