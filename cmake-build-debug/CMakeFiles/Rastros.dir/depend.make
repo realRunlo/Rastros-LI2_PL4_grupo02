@@ -11,6 +11,7 @@ CMakeFiles/Rastros.dir/interface.c.obj: ../lista.h
 CMakeFiles/Rastros.dir/interface.c.obj: ../logica.h
 
 CMakeFiles/Rastros.dir/lista.c.obj: ../camada_dados.h
+CMakeFiles/Rastros.dir/lista.c.obj: ../interface.h
 CMakeFiles/Rastros.dir/lista.c.obj: ../lista.c
 CMakeFiles/Rastros.dir/lista.c.obj: ../lista.h
 CMakeFiles/Rastros.dir/lista.c.obj: ../logica.h

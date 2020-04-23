@@ -42,7 +42,6 @@ LISTA remove_cabeca(LISTA L){
 
 void imprimeLista(LISTA l){
     for(;!lista_esta_vazia(l);l = proximo(l)){
-        void * aux = devolve_cabeca(l); // devolve o endereco do que esta dentro da lista
         COORDENADA c = * (COORDENADA *) l->valor;
         printf("%d %d->",c.linha + 1,c.coluna + 1);
     }
@@ -100,7 +99,7 @@ void limpaL(LISTA L){
     }
 }
 
-
+//funcao que joga aleatoriamente
 void joga_aleatorio(ESTADO* e,LISTA lista){
     int aleatorio = rand() % (lengthL(lista) - 1);
     //printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
@@ -111,8 +110,123 @@ void joga_aleatorio(ESTADO* e,LISTA lista){
     limpaL(lista);
 }
 
+//funcao que utiliza a estrategia euclidiana
+void joga_euclidiana(ESTADO* e,LISTA lista){
+    imprimeLista(lista);
+    COORDENADA c = procura_caminho_curto(e, lista);
+    jogar(e,c);
+    desenha_tabuleiro(e);
+    imprime_estado(e,c);
+    limpaL(lista);
+}
 
 
+COORDENADA procura_caminho_curto(ESTADO* e, LISTA l){
+    COORDENADA c;
+    COORDENADA casa_atual = get_ultima_jogada(e);
+    printf("entrei caminho curto\n");
+    if (get_jogador(e) == 2){
+        printf("entrei jogador 2\n");
+        if (verifica_na_lista(l, casa_atual.linha + 1, casa_atual.coluna+1))
+        {
+            c.linha = casa_atual.linha + 1;
+            c.coluna = casa_atual.coluna + 1;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha+1, casa_atual.coluna))
+        {
+            c.linha = casa_atual.linha + 1;
+            c.coluna = casa_atual.coluna;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha+1, casa_atual.coluna-1))
+        {
+            c.linha = casa_atual.linha+1;
+            c.coluna = casa_atual.coluna-1;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha, casa_atual.coluna+1))
+        {
+            c.linha = casa_atual.linha ;
+            c.coluna = casa_atual.coluna + 1;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha-1, casa_atual.coluna+1))
+        {
+            c.linha  = casa_atual.linha-1;
+            c.coluna = casa_atual.coluna + 1;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha, casa_atual.coluna-1))
+        {
+            c.linha  = casa_atual.linha;
+            c.coluna = casa_atual.coluna - 1;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha-1, casa_atual.coluna))
+        {
+            c.linha  = casa_atual.linha - 1;
+            c.coluna = casa_atual.coluna;
+        }
+        else
+        {
+            c.linha  = casa_atual.linha - 1;
+            c.coluna = casa_atual.coluna - 1;
+        }
+    }
+    else {
+        printf("entrei jogador 1\n");
+        if (verifica_na_lista(l, casa_atual.linha-1, casa_atual.coluna-1))
+        {
+            c.linha = casa_atual.linha - 1;
+            c.coluna = casa_atual.coluna - 1;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha-1, casa_atual.coluna))
+        {
+            c.linha = casa_atual.linha - 1;
+            c.coluna = casa_atual.coluna;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha, casa_atual.coluna-1))
+        {
+            c.linha = casa_atual.linha;
+            c.coluna = casa_atual.coluna - 1;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha-1, casa_atual.coluna+1))
+        {
+            c.linha = casa_atual.linha - 1;
+            c.coluna = casa_atual.coluna + 1;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha, casa_atual.coluna+1))
+        {
+            c.linha  = casa_atual.linha;
+            c.coluna = casa_atual.coluna + 1;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha+1, casa_atual.coluna-1))
+        {
+            c.linha  = casa_atual.linha + 1;
+            c.coluna = casa_atual.coluna - 1;
+        }
+        else if(verifica_na_lista(l, casa_atual.linha+1, casa_atual.coluna))
+        {
+            c.linha  = casa_atual.linha + 1;
+            c.coluna = casa_atual.coluna;
+        }
+        else
+        {
+            c.linha  = casa_atual.linha + 1;
+            c.coluna = casa_atual.coluna + 1;
+        }
+    }
+    return c;
+}
+
+
+int verifica_na_lista(LISTA l, int linha_desejada, int coluna_desejada){
+    printf("quero %d %d\n", linha_desejada +1 , coluna_desejada + 1);
+    COORDENADA c;
+    LISTA r = l;
+    for(; lista_esta_vazia(r) != 1 ; r = proximo(r)){
+        c = * (COORDENADA *) r->valor;
+        printf("%d %d\n",c.linha + 1,c.coluna + 1);
+        if (c.linha == linha_desejada && c.coluna == coluna_desejada)
+            return 1;
+    }
+    return 0;
+}
 /*switch (jogador_local_tabuleiro(cord))
          {
              case (0):
