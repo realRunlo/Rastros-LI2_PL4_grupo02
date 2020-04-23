@@ -41,6 +41,8 @@ void * procuraL (LISTA l,int i);
 
 void limpaL(LISTA l);
 
+//funcao que utiliza a jogada aleatoria
+void joga_aleatorio(ESTADO* e,LISTA lista);
 
 
 

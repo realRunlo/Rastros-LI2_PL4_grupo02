@@ -303,19 +303,10 @@ int interpretador(ESTADO *e) {
         else if(sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='j' && c2=='o' && c3=='g'){
             lista = criar_lista();
             lista = lista_insere_vazias(lista, e);
-            saveL = lista;
-            COORDENADA c1 = * (COORDENADA *) devolve_cabeca(lista->prox);
-
-            aleatorio = rand() % lengthL(lista)-1;
-            coordal = * (COORDENADA *) (procuraL (lista,aleatorio));
-            //printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
-            // imprimeLista(lista);
-            jogar(e,coordal);
-            desenha_tabuleiro(e);
-            imprime_estado(e,coordal);
-            //limpaL(saveL);
-
-
+            //saveL = lista;
+            //COORDENADA c1 = * (COORDENADA *) devolve_cabeca(lista->prox);
+            //imprimeLista(lista);
+            joga_aleatorio(e,lista);
         }
 
         else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída

@@ -4,6 +4,8 @@
 
 #include "lista.h"
 #include "camada_dados.h"
+#include "logica.h"
+#include "interface.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -39,7 +41,7 @@ LISTA remove_cabeca(LISTA L){
 }
 
 void imprimeLista(LISTA l){
-    for(;l->prox != NULL;l = l->prox){
+    for(;!lista_esta_vazia(l);l = proximo(l)){
         void * aux = devolve_cabeca(l); // devolve o endereco do que esta dentro da lista
         COORDENADA c = * (COORDENADA *) l->valor;
         printf("%d %d->",c.linha + 1,c.coluna + 1);
@@ -47,9 +49,10 @@ void imprimeLista(LISTA l){
     printf("\n");
 }
 
-/*int lista_esta_vazia(LISTA L){
-    return (L->valor == NULL); //talvez 0 e não null
-}*/
+int lista_esta_vazia(LISTA L){
+    if (L == NULL) return 1;
+    return 0;//talvez 0 e não null
+}
 
 LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
      COORDENADA cord = get_ultima_jogada(e);
@@ -58,14 +61,62 @@ LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
      int l = cord.linha;
      int casas_envolta = get_num_casas_envolta(e, cord);
      for(int iC = 0,iL = 0, acc = 0; acc < casas_envolta; acc++){
-         switch (jogador_local_tabuleiro(cord))
-         {
-             case (0):
                  if ((iC == (-1) && iL < 1) || (iC == 0 && iL == 0)) iL++;          // interior do tabuleiro
                  else if (iC > (-1) && iL == (-1)) iC--;
                  else if (iC == 1 && iL > (-1)) iL--;
                  else if (iC < 1 && iL == 1) iC++;
-                 break;
+         valor[acc].coluna = c + iC;
+         valor[acc].linha  = l + iL;
+         if (jogada_valida(e, valor[acc]) == 1){
+             //printf("%d %d\n",valor[acc].linha+1, valor[acc].coluna+1);      teste para saber o k esta a ser gravado
+             lista = insere_cabeca(lista, (void *) &valor[acc]); // guarda na lista a casa se for vazia
+         }
+     }
+     return lista;
+}
+
+int lengthL(LISTA l){
+    int r = 0;
+    for(;l != NULL;l = proximo(l)){
+        /*printf("%d ",r);
+        COORDENADA c = * (COORDENADA *) l->valor;
+        printf("%d %d->\n",c.linha + 1,c.coluna + 1);*/
+        r++;
+    }
+    return r;
+}
+
+void * procuraL (LISTA l,int i){
+
+    for(int j=0;j<=i;j++,l = proximo(l));
+    return l->valor;
+
+
+}
+
+void limpaL(LISTA L){
+    while(!lista_esta_vazia(L)) {
+        L = remove_cabeca(L);
+    }
+}
+
+
+void joga_aleatorio(ESTADO* e,LISTA lista){
+    int aleatorio = rand() % (lengthL(lista) - 1);
+    //printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
+    COORDENADA coordal = * (COORDENADA *) (procuraL (lista,aleatorio));
+    jogar(e,coordal);
+    desenha_tabuleiro(e);
+    imprime_estado(e,coordal);
+    limpaL(lista);
+}
+
+
+
+/*switch (jogador_local_tabuleiro(cord))
+         {
+             case (0):
+  break;
              case (1):
                  if ((iC == 0 && iL == 0)) iC++;
                  else if (iC == 1 && iL == 0) iL--;                          // canto superior esquerdo
@@ -100,34 +151,4 @@ LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
                  else if (iC == 1 && iL > (-1)) iL--;          // fronteira direito
                  else iC++;
                  break;
-         }
-         valor[acc].coluna = c + iC;
-         valor[acc].linha  = l + iL;
-         if (e_vazio(e, valor[acc].linha, valor[acc].coluna)){
-            lista = insere_cabeca(lista, (void *) &valor[acc]);
-         }            // guarda na lista a casa se for vazia
-     }
-     return lista;
-}
-
-int lengthL(LISTA l){
-    int r = 0;
-    for(;l->prox != NULL;l = l->prox){
-        r++;
-    }
-    return r;
-}
-
-void * procuraL (LISTA l,int i){
-
-    for(int j=0;j<=i;j++,l = l->prox);
-    return l->valor;
-
-
-}
-
-void limpaL(LISTA l){
-    for(l;l->prox != NULL;l = l->prox) {
-        free(l);
-    }
-}
+         }*/
