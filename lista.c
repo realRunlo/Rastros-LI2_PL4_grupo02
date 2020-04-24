@@ -12,8 +12,7 @@
 
 
 LISTA criar_lista(){
-    LISTA l1 = malloc(sizeof(LISTA));
-    l1 = NULL;
+    LISTA l1 = NULL;
     return l1;
 
 }
@@ -55,7 +54,7 @@ int lista_esta_vazia(LISTA L){
 
 LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
      COORDENADA cord = get_ultima_jogada(e);
-     COORDENADA valor[sizeof(COORDENADA)*8];
+     COORDENADA valor[sizeof(COORDENADA)*30];
      int c = cord.coluna;
      int l = cord.linha;
      int casas_envolta = get_num_casas_envolta(e, cord);
@@ -67,7 +66,7 @@ LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
          valor[acc].coluna = c + iC;
          valor[acc].linha  = l + iL;
          if (jogada_valida(e, valor[acc]) == 1){
-             //printf("%d %d\n",valor[acc].linha+1, valor[acc].coluna+1);      //teste para saber o k esta a ser gravado
+             printf("%d %d\n",valor[acc].linha+1, valor[acc].coluna+1);      //teste para saber o k esta a ser gravado
              lista = insere_cabeca(lista, (void *) &valor[acc]); // guarda na lista a casa se for vazia
          }
      }
@@ -112,7 +111,7 @@ void joga_aleatorio(ESTADO* e,LISTA lista){
 
 //funcao que utiliza a estrategia euclidiana
 void joga_euclidiana(ESTADO* e,LISTA lista){
-    imprimeLista(lista);
+    //imprimeLista(lista);
     COORDENADA c = procura_caminho_curto(e, lista);
     jogar(e,c);
     desenha_tabuleiro(e);
@@ -121,14 +120,13 @@ void joga_euclidiana(ESTADO* e,LISTA lista){
 }
 
 COORDENADA procura_caminho_curto(ESTADO* e, LISTA l){
+    printf("entrei\n");
     COORDENADA c;
     imprimeLista(l);
     if (get_jogador(e) == 2){
-        printf("entrei jogador 2\n");
-        c = verifica_na_lista(l, 16);
+        c = verifica_na_lista(l, 14);
     }
     else {
-        printf("entrei jogador 1\n");
         c = verifica_na_lista(l, 0);
     }
     return c;
@@ -138,21 +136,27 @@ COORDENADA verifica_na_lista(LISTA l, int c_objetivo){
     COORDENADA c;
     COORDENADA jogada;
     imprimeLista(l);
-    int melhor_pontuacao = 50;
+    int melhor_pontuacao;
+    if (c_objetivo == 0) melhor_pontuacao = 50;
+    else melhor_pontuacao = 0;
     int pontuacao;
-    for(; l->prox != NULL ; l = l->prox){
+    for(; l != NULL ; l = l->prox){
         c = * (COORDENADA *) l->valor;
-        /*printf("%d %d\n",c.linha + 1,c.coluna + 1);
         pontuacao = c.linha + c.coluna;
-        c = * (COORDENADA *) l->prox->valor;
-        printf("%d %d\n",c.linha + 1,c.coluna + 1);*/
         if (c_objetivo == 0)
         {
-            if (pontuacao < melhor_pontuacao) jogada = c;
+            if (pontuacao < melhor_pontuacao) {
+                jogada = c;
+                melhor_pontuacao = pontuacao;
+            }
         }
         else
         {
-            if (16 - pontuacao < melhor_pontuacao) jogada = c;
+            if (pontuacao > melhor_pontuacao)
+            {
+                jogada = c;
+                melhor_pontuacao = pontuacao;
+            }
         }
     }
     return jogada;
