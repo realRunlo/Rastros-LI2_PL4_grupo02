@@ -51,5 +51,5 @@ void joga_euclidiana(ESTADO* e,LISTA lista);
 COORDENADA procura_caminho_curto(ESTADO* e, LISTA l);
 
 // funcao que verifica se um elemento pertence a lista
-int verifica_na_lista(LISTA l, int linha_desejada, int coluna_desejada);
+COORDENADA verifica_na_lista(LISTA l,int c_objetivo);
 #endif //___LISTASLIG_H___

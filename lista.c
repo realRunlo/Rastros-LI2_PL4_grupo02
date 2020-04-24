@@ -67,7 +67,7 @@ LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
          valor[acc].coluna = c + iC;
          valor[acc].linha  = l + iL;
          if (jogada_valida(e, valor[acc]) == 1){
-             //printf("%d %d\n",valor[acc].linha+1, valor[acc].coluna+1);      teste para saber o k esta a ser gravado
+             //printf("%d %d\n",valor[acc].linha+1, valor[acc].coluna+1);      //teste para saber o k esta a ser gravado
              lista = insere_cabeca(lista, (void *) &valor[acc]); // guarda na lista a casa se for vazia
          }
      }
@@ -120,44 +120,83 @@ void joga_euclidiana(ESTADO* e,LISTA lista){
     limpaL(lista);
 }
 
-
 COORDENADA procura_caminho_curto(ESTADO* e, LISTA l){
+    COORDENADA c;
+    imprimeLista(l);
+    if (get_jogador(e) == 2){
+        printf("entrei jogador 2\n");
+        c = verifica_na_lista(l, 16);
+    }
+    else {
+        printf("entrei jogador 1\n");
+        c = verifica_na_lista(l, 0);
+    }
+    return c;
+}
+
+COORDENADA verifica_na_lista(LISTA l, int c_objetivo){
+    COORDENADA c;
+    COORDENADA jogada;
+    imprimeLista(l);
+    int melhor_pontuacao = 50;
+    int pontuacao;
+    for(; l->prox != NULL ; l = l->prox){
+        c = * (COORDENADA *) l->valor;
+        /*printf("%d %d\n",c.linha + 1,c.coluna + 1);
+        pontuacao = c.linha + c.coluna;
+        c = * (COORDENADA *) l->prox->valor;
+        printf("%d %d\n",c.linha + 1,c.coluna + 1);*/
+        if (c_objetivo == 0)
+        {
+            if (pontuacao < melhor_pontuacao) jogada = c;
+        }
+        else
+        {
+            if (16 - pontuacao < melhor_pontuacao) jogada = c;
+        }
+    }
+    return jogada;
+}
+
+
+/*COORDENADA procura_caminho_curto(ESTADO* e, LISTA l){
+    LISTA r = l;
     COORDENADA c;
     COORDENADA casa_atual = get_ultima_jogada(e);
     printf("entrei caminho curto\n");
     if (get_jogador(e) == 2){
         printf("entrei jogador 2\n");
-        if (verifica_na_lista(l, casa_atual.linha + 1, casa_atual.coluna+1))
+        if (verifica_na_lista(r, casa_atual.linha + 1, casa_atual.coluna+1))
         {
             c.linha = casa_atual.linha + 1;
             c.coluna = casa_atual.coluna + 1;
         }
-        else if(verifica_na_lista(l, casa_atual.linha+1, casa_atual.coluna))
+        else if(verifica_na_lista(r, casa_atual.linha+1, casa_atual.coluna))
         {
             c.linha = casa_atual.linha + 1;
             c.coluna = casa_atual.coluna;
         }
-        else if(verifica_na_lista(l, casa_atual.linha+1, casa_atual.coluna-1))
+        else if(verifica_na_lista(r, casa_atual.linha+1, casa_atual.coluna-1))
         {
             c.linha = casa_atual.linha+1;
             c.coluna = casa_atual.coluna-1;
         }
-        else if(verifica_na_lista(l, casa_atual.linha, casa_atual.coluna+1))
+        else if(verifica_na_lista(r, casa_atual.linha, casa_atual.coluna+1))
         {
             c.linha = casa_atual.linha ;
             c.coluna = casa_atual.coluna + 1;
         }
-        else if(verifica_na_lista(l, casa_atual.linha-1, casa_atual.coluna+1))
+        else if(verifica_na_lista(r, casa_atual.linha-1, casa_atual.coluna+1))
         {
             c.linha  = casa_atual.linha-1;
             c.coluna = casa_atual.coluna + 1;
         }
-        else if(verifica_na_lista(l, casa_atual.linha, casa_atual.coluna-1))
+        else if(verifica_na_lista(r, casa_atual.linha, casa_atual.coluna-1))
         {
             c.linha  = casa_atual.linha;
             c.coluna = casa_atual.coluna - 1;
         }
-        else if(verifica_na_lista(l, casa_atual.linha-1, casa_atual.coluna))
+        else if(verifica_na_lista(r, casa_atual.linha-1, casa_atual.coluna))
         {
             c.linha  = casa_atual.linha - 1;
             c.coluna = casa_atual.coluna;
@@ -170,37 +209,37 @@ COORDENADA procura_caminho_curto(ESTADO* e, LISTA l){
     }
     else {
         printf("entrei jogador 1\n");
-        if (verifica_na_lista(l, casa_atual.linha-1, casa_atual.coluna-1))
+        if (verifica_na_lista(r, casa_atual.linha-1, casa_atual.coluna-1))
         {
             c.linha = casa_atual.linha - 1;
             c.coluna = casa_atual.coluna - 1;
         }
-        else if(verifica_na_lista(l, casa_atual.linha-1, casa_atual.coluna))
+        else if(verifica_na_lista(r, casa_atual.linha-1, casa_atual.coluna))
         {
             c.linha = casa_atual.linha - 1;
             c.coluna = casa_atual.coluna;
         }
-        else if(verifica_na_lista(l, casa_atual.linha, casa_atual.coluna-1))
+        else if(verifica_na_lista(r, casa_atual.linha, casa_atual.coluna-1))
         {
             c.linha = casa_atual.linha;
             c.coluna = casa_atual.coluna - 1;
         }
-        else if(verifica_na_lista(l, casa_atual.linha-1, casa_atual.coluna+1))
+        else if(verifica_na_lista(r, casa_atual.linha-1, casa_atual.coluna+1))
         {
             c.linha = casa_atual.linha - 1;
             c.coluna = casa_atual.coluna + 1;
         }
-        else if(verifica_na_lista(l, casa_atual.linha, casa_atual.coluna+1))
+        else if(verifica_na_lista(r, casa_atual.linha, casa_atual.coluna+1))
         {
             c.linha  = casa_atual.linha;
             c.coluna = casa_atual.coluna + 1;
         }
-        else if(verifica_na_lista(l, casa_atual.linha+1, casa_atual.coluna-1))
+        else if(verifica_na_lista(r, casa_atual.linha+1, casa_atual.coluna-1))
         {
             c.linha  = casa_atual.linha + 1;
             c.coluna = casa_atual.coluna - 1;
         }
-        else if(verifica_na_lista(l, casa_atual.linha+1, casa_atual.coluna))
+        else if(verifica_na_lista(r, casa_atual.linha+1, casa_atual.coluna))
         {
             c.linha  = casa_atual.linha + 1;
             c.coluna = casa_atual.coluna;
@@ -212,21 +251,21 @@ COORDENADA procura_caminho_curto(ESTADO* e, LISTA l){
         }
     }
     return c;
-}
+}*/
 
 
-int verifica_na_lista(LISTA l, int linha_desejada, int coluna_desejada){
+/*int verifica_na_lista(LISTA l, int linha_desejada, int coluna_desejada){
     printf("quero %d %d\n", linha_desejada +1 , coluna_desejada + 1);
     COORDENADA c;
-    LISTA r = l;
-    for(; lista_esta_vazia(r) != 1 ; r = proximo(r)){
-        c = * (COORDENADA *) r->valor;
+    for(; lista_esta_vazia(l) != 1 ; l = proximo(l)){
+        c = * (COORDENADA *) l->valor;
         printf("%d %d\n",c.linha + 1,c.coluna + 1);
         if (c.linha == linha_desejada && c.coluna == coluna_desejada)
             return 1;
     }
     return 0;
-}
+}*/
+
 /*switch (jogador_local_tabuleiro(cord))
          {
              case (0):
