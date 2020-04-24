@@ -59,67 +59,67 @@ include CMakeFiles/Rastros.dir/flags.make
 CMakeFiles/Rastros.dir/rastros.c.obj: CMakeFiles/Rastros.dir/flags.make
 CMakeFiles/Rastros.dir/rastros.c.obj: ../rastros.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Rastros.dir/rastros.c.obj"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\rastros.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\rastros.c
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\rastros.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\rastros.c
 
 CMakeFiles/Rastros.dir/rastros.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Rastros.dir/rastros.c.i"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\rastros.c > CMakeFiles\Rastros.dir\rastros.c.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\rastros.c > CMakeFiles\Rastros.dir\rastros.c.i
 
 CMakeFiles/Rastros.dir/rastros.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Rastros.dir/rastros.c.s"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\rastros.c -o CMakeFiles\Rastros.dir\rastros.c.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\rastros.c -o CMakeFiles\Rastros.dir\rastros.c.s
 
 CMakeFiles/Rastros.dir/camada_dados.c.obj: CMakeFiles/Rastros.dir/flags.make
 CMakeFiles/Rastros.dir/camada_dados.c.obj: ../camada_dados.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Rastros.dir/camada_dados.c.obj"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\camada_dados.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\camada_dados.c
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\camada_dados.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\camada_dados.c
 
 CMakeFiles/Rastros.dir/camada_dados.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Rastros.dir/camada_dados.c.i"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\camada_dados.c > CMakeFiles\Rastros.dir\camada_dados.c.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\camada_dados.c > CMakeFiles\Rastros.dir\camada_dados.c.i
 
 CMakeFiles/Rastros.dir/camada_dados.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Rastros.dir/camada_dados.c.s"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\camada_dados.c -o CMakeFiles\Rastros.dir\camada_dados.c.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\camada_dados.c -o CMakeFiles\Rastros.dir\camada_dados.c.s
 
 CMakeFiles/Rastros.dir/interface.c.obj: CMakeFiles/Rastros.dir/flags.make
 CMakeFiles/Rastros.dir/interface.c.obj: ../interface.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Rastros.dir/interface.c.obj"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\interface.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interface.c
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\interface.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interface.c
 
 CMakeFiles/Rastros.dir/interface.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Rastros.dir/interface.c.i"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interface.c > CMakeFiles\Rastros.dir\interface.c.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interface.c > CMakeFiles\Rastros.dir\interface.c.i
 
 CMakeFiles/Rastros.dir/interface.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Rastros.dir/interface.c.s"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interface.c -o CMakeFiles\Rastros.dir\interface.c.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\interface.c -o CMakeFiles\Rastros.dir\interface.c.s
 
 CMakeFiles/Rastros.dir/logica.c.obj: CMakeFiles/Rastros.dir/flags.make
 CMakeFiles/Rastros.dir/logica.c.obj: ../logica.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Rastros.dir/logica.c.obj"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\logica.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\logica.c
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\logica.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\logica.c
 
 CMakeFiles/Rastros.dir/logica.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Rastros.dir/logica.c.i"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\logica.c > CMakeFiles\Rastros.dir\logica.c.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\logica.c > CMakeFiles\Rastros.dir\logica.c.i
 
 CMakeFiles/Rastros.dir/logica.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Rastros.dir/logica.c.s"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\logica.c -o CMakeFiles\Rastros.dir\logica.c.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\logica.c -o CMakeFiles\Rastros.dir\logica.c.s
 
 CMakeFiles/Rastros.dir/lista.c.obj: CMakeFiles/Rastros.dir/flags.make
 CMakeFiles/Rastros.dir/lista.c.obj: ../lista.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Rastros.dir/lista.c.obj"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\lista.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\lista.c
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Rastros.dir\lista.c.obj   -c C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\lista.c
 
 CMakeFiles/Rastros.dir/lista.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Rastros.dir/lista.c.i"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\lista.c > CMakeFiles\Rastros.dir\lista.c.i
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\lista.c > CMakeFiles\Rastros.dir\lista.c.i
 
 CMakeFiles/Rastros.dir/lista.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Rastros.dir/lista.c.s"
-	D:\8.6.5\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\lista.c -o CMakeFiles\Rastros.dir\lista.c.s
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\braza\OneDrive\Documentos\GitHub\Rastros\lista.c -o CMakeFiles\Rastros.dir\lista.c.s
 
 # Object files for target Rastros
 Rastros_OBJECTS = \
