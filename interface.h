@@ -5,7 +5,7 @@
 @file interface.h
 Funçoes que interpretam os comandos dados pelo jogador.
 */
-
+#include <stdio.h>
 #ifndef ___INTERPRETADOR_H___
 #define ___INTERPRETADOR_H___
 

@@ -221,30 +221,6 @@ void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha){
 
 
 
-/*//funcao que retorna as coordenadas de uma jogada ja efetuada
-int get_jogada_efetuada(ESTADO *e, int j, int jogada, int mode){
-    int c,l;
-    switch(mode) {
-        case (0):
-            if (j == 1) {
-                l = e->jogadas[jogada].jogador1.linha;
-
-            } else {
-                l = e->jogadas[jogada].jogador2.linha;
-
-            }
-            return l;
-        case (1):
-            if (j == 1) {
-                c = e->jogadas[jogada].jogador1.coluna;
-            } else {
-
-                c = e->jogadas[jogada].jogador2.coluna;
-            }
-            return c;
-    }
-}*/
-
 
 //funcao que retorna as coordenadas de uma jogada ja efetuada
 COORDENADA get_jogada_efetuada(ESTADO *e, int j, int jogada){

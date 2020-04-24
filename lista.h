@@ -41,9 +41,15 @@ void * procuraL (LISTA l,int i);
 
 void limpaL(LISTA l);
 
+//funcao que utiliza a jogada aleatoria
+void joga_aleatorio(ESTADO* e,LISTA lista);
 
+//funcao que utiliza a estrategia euclidiana
+void joga_euclidiana(ESTADO* e,LISTA lista);
 
+//funcao que procura o caminho mais curto para a casa objetivo
+COORDENADA procura_caminho_curto(ESTADO* e, LISTA l);
 
-
-
+// funcao que verifica se um elemento pertence a lista
+COORDENADA verifica_na_lista(LISTA l,int c_objetivo);
 #endif //___LISTASLIG_H___

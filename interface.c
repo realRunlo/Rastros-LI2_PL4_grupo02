@@ -264,70 +264,66 @@ int interpretador(ESTADO *e) {
     char filename[50];
     while (jogada_possivel(e) == 1) {
         printf("Digite um comando->");
-        if (fgets(linha, BUF_SIZE, stdin) == NULL)
+        if (fgets(linha, BUF_SIZE, stdin) == NULL) {
             return 0;
-        if (strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
-            COORDENADA coord = {*col - 'a', *lin - '1'};
-            if(jogada_valida(e, coord) == 1) {
-                jogar(e, coord);
-                desenha_tabuleiro(e);
-                imprime_estado(e,coord);
-
-            }else{
-                printf("Faça uma jogada válida pf\n");       //se a jogada não for válida pede por uma jogada válida
-                add_numcomandos(e);
-                imprime_estado(e,coord);
-                interpretador(e);
-                return 1;
-            }
-
         }
-        else if(sscanf(linha,"%c%c%c%s", &c1, &c2, &c3, filename) == 4 && c1=='g' && c2=='r' && c3 == ' '){
-            gravar(e,filename,"w");
-            printf("O seu jogo foi salvo!\n");
-        }
-        else if (sscanf(linha,"%c%c%c %s",&c1,&c2,&c3,filename) == 4 && c1=='l' && c2=='e' && c3=='r' ){
-            ler(e,filename, "r");  //lê o novo tabuleiro atualizando o respetivo estado
-            desenha_tabuleiro(e);   //desenha um novo tabuleiro
-            imprime_estadoI(e);
-
-        }
-        else if (sscanf(linha,"%c%c%c%c",&c1,&c2,&c3,&c4) == 4 && c1=='m' && c2=='o' && c3=='v' && c4 == 's'){
-            lista_movimentos(e);
-        }
-        else if (sscanf(linha,"%c%c%c%c%d",&c1,&c2,&c3,&c4,&n_ronda) == 5 && c1=='p' && c2=='o' && c3=='s' && c4 == ' ' && n_ronda >= 0){
-                pos(e, n_ronda);  //lê o novo tabuleiro atualizando o respetivo estado
-                desenha_tabuleiro(e);   //desenha um novo tabuleiro
-                imprime_estadoI(e);
-        }
-        else if(sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='j' && c2=='o' && c3=='g'){
-            printf("oii11");
-            lista = criar_lista();
-            printf("oii11");
-            lista = lista_insere_vazias(lista, e);
-            printf("oii22");
-            COORDENADA c1 = * (COORDENADA *) devolve_cabeca(lista->prox);
-            printf("%d",lengthL(lista));
-            printf("oii33");
-            aleatorio = rand() % lengthL(lista);
-            printf("oii44");
-            printf("%d",aleatorio);
-            coordal = * (COORDENADA *) (procuraL (lista,aleatorio));
-            //printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
-            //imprimeLista(lista);
-            jogar(e,coordal);
+    if (strlen(linha) == 3 && sscanf(linha, "%[a-h]%[1-8]", col, lin) == 2) {
+        COORDENADA coord = {*col - 'a', *lin - '1'};
+        if(jogada_valida(e, coord) == 1) {
+            jogar(e, coord);
             desenha_tabuleiro(e);
-            imprime_estado(e,coordal);
-            limpaL(lista);
+            imprime_estado(e,coord);
 
-
-
+        }else{
+            printf("Faça uma jogada válida pf\n");       //se a jogada não for válida pede por uma jogada válida
+            add_numcomandos(e);
+            imprime_estado(e,coord);
+            interpretador(e);
+            return 1;
         }
 
-        else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída
-            return 1;
-        else
-            printf("Digite um comando válido por favor!\n");
+    }
+    else if(sscanf(linha,"%c%c%c%s", &c1, &c2, &c3, filename) == 4 && c1=='g' && c2=='r' && c3 == ' '){
+        gravar(e,filename,"w");
+        printf("O seu jogo foi salvo!\n");
+    }
+    else if (sscanf(linha,"%c%c%c %s",&c1,&c2,&c3,filename) == 4 && c1=='l' && c2=='e' && c3=='r' ){
+        ler(e,filename, "r");  //lê o novo tabuleiro atualizando o respetivo estado
+        desenha_tabuleiro(e);   //desenha um novo tabuleiro
+        imprime_estadoI(e);
+
+    }
+    else if (sscanf(linha,"%c%c%c%c",&c1,&c2,&c3,&c4) == 4 && c1=='m' && c2=='o' && c3=='v' && c4 == 's'){
+        lista_movimentos(e);
+    }
+    else if (sscanf(linha,"%c%c%c%c%d",&c1,&c2,&c3,&c4,&n_ronda) == 5 && c1=='p' && c2=='o' && c3=='s' && c4 == ' ' && n_ronda >= 0){
+        pos(e, n_ronda);  //lê o novo tabuleiro atualizando o respetivo estado
+        desenha_tabuleiro(e);   //desenha um novo tabuleiro
+        imprime_estadoI(e);
+    }
+    else if(sscanf(linha,"%c%c%c%c",&c1,&c2,&c3,&c4) == 4 && c1=='j' && c2=='o' && c3=='g' && c4== '2'){
+        lista = criar_lista();
+        lista = lista_insere_vazias(lista, e);
+        //saveL = lista;
+        //COORDENADA c1 = * (COORDENADA *) devolve_cabeca(lista->prox);
+        //imprimeLista(lista);
+        joga_euclidiana(e,lista);
+    }
+    else if(sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='j' && c2=='o' && c3=='g'){
+        lista = criar_lista();
+        lista = lista_insere_vazias(lista, e);
+        //saveL = lista;
+        //COORDENADA c1 = * (COORDENADA *) devolve_cabeca(lista->prox);
+        //imprimeLista(lista);
+        joga_aleatorio(e,lista);
+    }
+
+
+    else if(strlen(linha) == 2 && sscanf(linha, "%c",&q) == 1 && q=='q')      //comando de saída
+        return 1;
+    else
+        printf("Digite um comando válido por favor!\n");
+
 
         if(jogada_possivel(e) !=1) return 1;  //este return é de forma a não haver a repetição do jogada_possivel na quebra do ciclo
         add_numcomandos(e);
