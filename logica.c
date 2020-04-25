@@ -94,7 +94,7 @@ int jogada_valida(ESTADO *e,COORDENADA c){
     int lAnt = e->ultima_jogada.linha;
     int cJog = c.coluna;
     int lJog = c.linha;
-    if(abs(cJog-cAnt)>1 || abs(lJog-lAnt)>1 || e_preta(e, lJog, cJog) || (cJog == cAnt && lJog == lAnt) || e_vazio(e, lJog, cJog) == 0)
+    if(abs(cJog-cAnt)>1 || abs(lJog-lAnt)>1 || e_preta(e, lJog, cJog) || (cJog == cAnt && lJog == lAnt) || e_vazio(e, lJog, cJog) == 0 || cJog<0 || cJog>7 || lJog<0 ||  lJog>7)
         return 0;
 
     return 1;

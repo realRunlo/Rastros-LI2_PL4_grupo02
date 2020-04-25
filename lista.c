@@ -53,25 +53,26 @@ int lista_esta_vazia(LISTA L){
 }
 
 LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
-     COORDENADA cord = get_ultima_jogada(e);
-     COORDENADA valor[sizeof(COORDENADA)*50];
-     int c = cord.coluna;
-     int l = cord.linha;
-     int casas_envolta = get_num_casas_envolta(e, cord);
-     for(int iC = 0,iL = 0, acc = 0; acc < casas_envolta; acc++){
-                 if ((iC == (-1) && iL < 1) || (iC == 0 && iL == 0)) iL++;          // interior do tabuleiro
-                 else if (iC > (-1) && iL == (-1)) iC--;
-                 else if (iC == 1 && iL > (-1)) iL--;
-                 else if (iC < 1 && iL == 1) iC++;
-         valor[acc].coluna = c + iC;
-         valor[acc].linha  = l + iL;
-         if (jogada_valida(e, valor[acc]) == 1){
-             printf("%d %d\n",valor[acc].linha+1, valor[acc].coluna+1);      //teste para saber o k esta a ser gravado
-             lista = insere_cabeca(lista, (void *) &valor[acc]); // guarda na lista a casa se for vazia
-         }
-     }
-     return lista;
+    COORDENADA cord = get_ultima_jogada(e);
+    COORDENADA valor[sizeof(COORDENADA)*50];
+    int c = cord.coluna;
+    int l = cord.linha;
+    int casas_envolta = get_num_casas_envolta(e, cord);
+    for(int iC = 0,iL = 0, acc = 0; acc < casas_envolta; acc++){
+        if ((iC == (-1) && iL < 1) || (iC == 0 && iL == 0)) iL++;          // interior do tabuleiro
+        else if (iC > (-1) && iL == (-1)) iC--;
+        else if (iC == 1 && iL > (-1)) iL--;
+        else if (iC < 1 && iL == 1) iC++;
+        valor[acc].coluna = c + iC;
+        valor[acc].linha  = l + iL;
+        if (jogada_valida(e, valor[acc]) == 1 ){
+            printf("%d %d\n",valor[acc].linha+1, valor[acc].coluna+1);      //teste para saber o k esta a ser gravado
+            lista = insere_cabeca(lista, (void *) &valor[acc]); // guarda na lista a casa se for vazia
+        }
+    }
+    return lista;
 }
+
 
 int lengthL(LISTA l){
     int r = 0;
