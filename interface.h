@@ -48,6 +48,15 @@ void gravar(ESTADO *e,const char *filename, const char *mode);
 
 
 /**
+ * \brief Funçao que le o tabuleiro no ficheiro e conta o numero de jogadas realizadas
+ * @param e Apontador para o estado.
+ * @param fp Nome do ficheiro .txt onde se ira gravar tabuleiro e o prompt.
+ * @return Numero de jogadas realizadas no tabuleiro lido.
+ */
+int le_tabuleiro(ESTADO *e,FILE *fp);
+
+
+/**
  * \brief Funçao que le o tabuleiro e respetivo prompt de um ficheiro .txt especificado.
  * @param e Apontador para o estado.
  * @param filename Nome do ficheiro .txt onde se ira ler tabuleiro e o prompt.
@@ -87,6 +96,19 @@ void lista_ronda(ESTADO *e,int i);
 void lista_movimentos(ESTADO *e);
 
 // POS//
+
+/**
+ * \brief funcao auxiliar da pos que limpa as jogadas ja realizadas do tabuleiro
+ * @param e Apontador para o estado.
+ * @param n_rondas numero de rondas realizadas no tabuleiro.
+ * @param n_jogadas numero de jogadas realizadas no tabuleiro.
+ * @param indice Indice da ronda para retornar.
+ * @param impar Indicador se o numero de jogadas e impar ou par.
+ * @param cord1 Coordenada do jogador 1.
+ * @param cord2 Coordenada do jogador 2.
+ */
+void limpa_jogadas(ESTADO *e,int n_rondas, int n_jogadas, int indice, int impar, COORDENADA cord1, COORDENADA cord2);
+
 /**
  * \brief Funcao que retorna o tabuleiro para uma ronda especificada
  * @param e Apontador para o estado.

@@ -30,13 +30,13 @@ void desenha_tabuleiro(ESTADO *e){
 }
 
 // ////////////////////////////////////////////////////////////////////////////
+
 void imprime_estadoI(ESTADO *e){ //prompt só para o estado inicial
     printf("#  %d Jog:%d N:%d \n",get_Ncomandos(e) ,get_jogador(e),get_Nrondas(e));
-
 }
+
 void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
     printf("#  %d Jog:%d N:%d >>%c%d\n",get_Ncomandos(e) ,get_jogador(e),get_Nrondas(e),converte_numero(get_coluna(c)),get_linha(c)+1);
-
 }
 
 // //////////////////////// Listar movimentos //////////////////////////////////////////////
@@ -82,6 +82,7 @@ void lista_ronda(ESTADO *e,int i){
 
 }
 
+// auxiliar da movs que imprime as jogadas efetuadas
 void lista_movimentos(ESTADO *e){
     int j = 1;
     int i = 0;
@@ -102,6 +103,7 @@ void lista_movimentos(ESTADO *e){
 
 // FUNÇÔES DE MANUSEAMENTO DE FICHEIRO EXTERNO ///////////////////////////////////////////////////////////////
 
+//auxiliar do comando gravar, que regista o tabuleiro
 void grava_tabuleiro(ESTADO *e,FILE *filename){ // Função que grava o tabuleiro num dado ficheiro
     for(int l = 7; l >= 0; l--){
         for(int c = 0; c < 8; c++) {
@@ -128,12 +130,8 @@ void gravar(ESTADO *e,const char *filename, const char *mode){
     fclose(fp);
 }
 
-
-void ler(ESTADO *e, const char *filename, const char *mode) {
-    FILE *fp;
-
-    fp = fopen(filename, mode);
-
+// funcao auxiliar do comando ler que le o tabuleiro do ficheiro
+int le_tabuleiro(ESTADO *e,FILE *fp){
     char crt;
     int l, c, feitas = 0; //posição do canto superior esquerdo do tabuleiro
     for (l = 7; l >=0; l--) { //lê cada linha do tabuleiro , a contagem das linhas vai de cima para baixo por uma questão de correspondência à imagem
@@ -144,17 +142,19 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
             novo_tabuleiro(e, l, c, crt);
         }
     }
+    return feitas;
+}
+
+// funcao principal do comando ler
+void ler(ESTADO *e, const char *filename, const char *mode) {
+    FILE *fp;
+    fp = fopen(filename, mode);
+    int l1, l2, rondas=0, nj = 1, feitas = le_tabuleiro(e, fp); // percorre o tabuleiro e calcula o numero de jogadas feitas
+    char c1, c2, ronda;
     set_nJogadas(e, feitas);
-
     fscanf(fp, "\n");
-    char ronda;
-    int l1, l2,rondas=0;
-    char c1, c2;
-    int nj = 1;
-
     for (nj; nj <= feitas;nj += 2) {
         fscanf(fp, "0%c: ", &ronda);
-
         if ((feitas % 2 != 0) && nj == feitas) {
             fscanf(fp, "%c%d ", &c1, &l1);
             set_jogada_efetuada(e, 1, rondas , c1, l1);
@@ -165,13 +165,10 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
             set_jogada_efetuada(e, 2, rondas , c2, l2);
             rondas++;
         }
-
         fscanf(fp, "\n");
     }
-
     set_nRondas(e, rondas);
-    if ((feitas % 2 != 0))
-    {
+    if ((feitas % 2 != 0)){
         set_jogador(e, 2);
         int coluna = converte_letra(c1);
         set_ultima_jogada(e, l1 -1, coluna);
@@ -185,46 +182,42 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
 }
 
 
+// funcao auxiliar da pos que limpa as jogadas ja realizadas do tabuleiro
+void limpa_jogadas(ESTADO *e,int n_rondas, int n_jogadas, int indice, int impar, COORDENADA cord1, COORDENADA cord2){
+    for (int i = n_rondas + 1; i > indice; i--) {
+        if (impar == 1) {    // apaga a jogada caso o ultimo a jogar tenha sido o jogador 1
+            cord1 = get_ultima_jogada(e);
+            set_vazio(e, cord1.linha, cord1.coluna);
+            impar = 0;
+        } else {    // apaga a jogadas normalmente
+            cord1 = get_jogada_efetuada(e, 1, i - 1);
+            set_vazio(e, cord1.linha, cord1.coluna);
+            cord2 = get_jogada_efetuada(e, 2, i - 1);
+            set_vazio(e, cord2.linha, cord2.coluna);
+        }
+    }
+}
+
+
 //funcao que retorna o tabuleiro para uma ronda especificada
 void volta_tabuleiro(ESTADO *e, int indice){
     int n_rondas= get_Nrondas(e);
     int n_jogadas= get_Njogadas(e);
-    int i;
-    int impar=0;
+    int i, impar=0;
+    COORDENADA cord1, cord2;
     if (n_jogadas % 2 != 0) impar = 1;
-    COORDENADA cord1;
-    COORDENADA cord2;
-
-    if(indice<=n_rondas){
-
-    for(i = n_rondas+1; i > indice;i--) {
-        if (impar == 1) {    // apaga a jogada caso o ultimo a jogar tenha sido o jogador 1
-            printf("entrei crlh");
-            cord1  = get_ultima_jogada(e);
-            set_vazio(e, cord1.linha, cord1.coluna);
-            impar = 0;
-        }
-        else {    // apaga a jogadas normalmente
-            cord1  = get_jogada_efetuada(e,1,i-1);
-            set_vazio(e, cord1.linha, cord1.coluna);
-            cord2  = get_jogada_efetuada(e,2,i-1);
-            set_vazio(e, cord2.linha, cord2.coluna);
-        }
-    }
-    // torna a ultima casa da ronda n como branca
-    cord2  = get_jogada_efetuada(e,2,indice-1);
-    set_branca(e, cord2.linha, cord2.coluna);
-    set_ultima_jogada(e,cord2.linha,cord2.coluna);
-    }else{
+    if(indice<=n_rondas) {limpa_jogadas(e, n_rondas, n_jogadas, indice, impar, cord1, cord2);}
+    else{
         for(int i=n_rondas;i<indice;i++){
             cord1  = get_jogada_efetuada(e,1,i);
             jogar(e,cord1);
             cord2  = get_jogada_efetuada(e,2,i);
             jogar(e,cord2);
         }
-
     }
-
+    cord2  = get_jogada_efetuada(e,2,indice-1); // torna a ultima casa da ronda n como branca
+    set_branca(e, cord2.linha, cord2.coluna);
+    set_ultima_jogada(e,cord2.linha,cord2.coluna);
 }
 
 

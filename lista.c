@@ -57,8 +57,7 @@ LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
     COORDENADA valor[sizeof(COORDENADA)*50];
     int c = cord.coluna;
     int l = cord.linha;
-    int casas_envolta = get_num_casas_envolta(e, cord);
-    for(int iC = 0,iL = 0, acc = 0; acc < casas_envolta; acc++){
+    for(int iC = 0,iL = 0, acc = 0; acc < 8; acc++){
         if ((iC == (-1) && iL < 1) || (iC == 0 && iL == 0)) iL++;          // interior do tabuleiro
         else if (iC > (-1) && iL == (-1)) iC--;
         else if (iC == 1 && iL > (-1)) iL--;
@@ -66,7 +65,7 @@ LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
         valor[acc].coluna = c + iC;
         valor[acc].linha  = l + iL;
         if (jogada_valida(e, valor[acc]) == 1 ){
-            //printf("%d %d\n",valor[acc].linha+1, valor[acc].coluna+1);      //teste para saber o k esta a ser gravado
+            //printf("%d %d\n",valor[acc].linha, valor[acc].coluna);      //teste para saber o k esta a ser gravado
             lista = insere_cabeca(lista, (void *) &valor[acc]); // guarda na lista a casa se for vazia
         }
     }
@@ -77,16 +76,12 @@ LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
 int lengthL(LISTA l){
     int r = 0;
     for(;l != NULL;l = proximo(l)){
-        /*printf("%d ",r);
-        COORDENADA c = * (COORDENADA *) l->valor;
-        printf("%d %d->\n",c.linha + 1,c.coluna + 1);*/
         r++;
     }
-    return r;
+    return r-1;
 }
 
 void * procuraL (LISTA l,int i){
-
     for(int j=0;j<=i;j++,l = proximo(l));
     return l->valor;
 
@@ -101,11 +96,16 @@ void limpaL(LISTA L){
 
 //funcao que joga aleatoriamente
 void joga_aleatorio(ESTADO* e,LISTA lista){
-    int aleatorio = rand() % (lengthL(lista) - 1);
-    printf("%d",lengthL(lista) );
-    printf("%d",aleatorio );
+    int aleatorio;
+    COORDENADA coordal;
+    if (lengthL(lista) == 0){
+        coordal = * (COORDENADA *) devolve_cabeca(lista);
+    }
+    else {
+        aleatorio = rand() % lengthL(lista);
+        coordal = * (COORDENADA *) (procuraL (lista,aleatorio));
+    }
     //printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
-    COORDENADA coordal = * (COORDENADA *) (procuraL (lista,aleatorio));
     jogar(e,coordal);
     desenha_tabuleiro(e);
     imprime_estado(e,coordal);
