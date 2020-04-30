@@ -13,7 +13,7 @@ Funçoes que interpretam os comandos dados pelo jogador.
  * \brief Funçao que desenha o tabuleiro de acordo com o estado dado.
  * @param e Apontador para o estado.
  */
-void desenha_tabuleiro(ESTADO *e); // funcao que desenha o tabuleiro com o estado atual do jogo
+void desenha_tabuleiro(ESTADO *e);
 
 
 /**
@@ -32,10 +32,11 @@ void grava_tabuleiro(ESTADO *e,FILE *filename);
  */
 void imprime_estado(ESTADO *e,COORDENADA c);
 
+/**
+ * \brief Funçao que desenha o prompt do jogo de acordo com o estado lido
+ * @param e Apontador para o estado.
+ */
 void imprime_estadoI(ESTADO *e);
-
-
-
 
 /**
  * \brief Funçao que grava num documento .txt especificado o tabuleiro do estado atual e o respetivo prompt.
@@ -54,6 +55,52 @@ void gravar(ESTADO *e,const char *filename, const char *mode);
  */
 void ler(ESTADO *e, const char *filename, const char *mode);
 
+// MOVS ///
+
+
+/**
+ * \brief Funçao que imprime uma dada ronda consoante o argumento i passado
+ * @param e Apontador para o estado.
+ * @param i Indice
+ * @param filename Ficheiro
+ */
+void flista_ronda(ESTADO *e,int i,FILE *filename);
+
+/**
+ * \brief Funçao nao terminada que ira imprimir os movimentos ja realizados no jogo.
+ * @param e Apontador para o estado.
+ */
+void flista_movimentos(ESTADO *e,FILE *filename);
+
+
+/**
+ * \brief Funçao que imprime uma dada ronda consoante o argumento i passado
+ * @param e Apontador para o estado.
+ * @param i Indice
+ */
+void lista_ronda(ESTADO *e,int i);
+
+/**
+ * \brief Funcao que imprime a lista de movimentos efetuados
+ * @param e Apontador para o estado.
+ */
+void lista_movimentos(ESTADO *e);
+
+// POS//
+/**
+ * \brief Funcao que retorna o tabuleiro para uma ronda especificada
+ * @param e Apontador para o estado.
+ * @param indice Indice da ronda
+ */
+void volta_tabuleiro(ESTADO *e, int indice);
+
+/**
+ * \brief Funcao que reverte o estado do jogo para onde é pretendido
+ * @param e Apontador para o estado.
+ * @param n_ronda Ronda a qual se quer regresar
+ */
+void pos(ESTADO *e, int n_ronda);
+
 // /////////////////////////////////////////////////////////////////////////////////////
 //INTERPRETADOR
 
@@ -63,31 +110,20 @@ void ler(ESTADO *e, const char *filename, const char *mode);
  * jogada (linha, coluna): executa a funçao jogar para, se possivel realizar a jogada desejada.
  * gr: grava o estado atual do jogo num ficheiro .txt aparte para futura continuaçao do jogo se desejado.
  * ler: altera o estado do jogo para o gravado num ficheiro .txt para continuar o jogo neste guardado.
+ * movs: lista os movimentos realizadas
+ * pos: Volta atrás a uma ronda pretendida
+ * jog: jogada automática aleatória
+ * jog2: jogada automática seguindo um pensamento euclidiano
  * q: termina o jogo.
  * @param e Apontador para o estado.
  * @return 1 Caso o jogo continue.
  * @return 0 Caso o jogo termine.
  */
-int interpretador(ESTADO *e); // funcao que interpretada o comando dado e atualiza o estado do jogo de acordo
+int interpretador(ESTADO *e);
 
 
 
 
-/**
- * \brief Funçao nao terminada que ira imprimir os movimentos ja realizados no jogo.
- * @param e Apontador para o estado.
- */
-void flista_movimentos(ESTADO *e,FILE *filename);
 
 
-
-void flista_ronda(ESTADO *e,int i,FILE *filename);//funcao que imprime a jogada efetuada numero i no ficheiro
-
-
-
-void lista_movimentos(ESTADO *e);//funcao que imprime a lista de movimentos efetuados
-
-
-
-void lista_ronda(ESTADO *e,int j, int i);//funcao que imprime a jogada efetuada numero i
 #endif //___INTERPRETADOR_H__

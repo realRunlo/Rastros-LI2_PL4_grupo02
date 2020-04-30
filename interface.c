@@ -304,17 +304,11 @@ int interpretador(ESTADO *e) {
     else if(sscanf(linha,"%c%c%c%c",&c1,&c2,&c3,&c4) == 4 && c1=='j' && c2=='o' && c3=='g' && c4== '2'){
         lista = criar_lista();
         lista = lista_insere_vazias(lista, e);
-        //saveL = lista;
-        //COORDENADA c1 = * (COORDENADA *) devolve_cabeca(lista->prox);
-        //imprimeLista(lista);
         joga_euclidiana(e,lista);
     }
     else if(sscanf(linha,"%c%c%c",&c1,&c2,&c3) == 3 && c1=='j' && c2=='o' && c3=='g'){
         lista = criar_lista();
         lista = lista_insere_vazias(lista, e);
-        //saveL = lista;
-        //COORDENADA c1 = * (COORDENADA *) devolve_cabeca(lista->prox);
-        //imprimeLista(lista);
         joga_aleatorio(e,lista);
     }
 

@@ -66,7 +66,7 @@ LISTA lista_insere_vazias(LISTA lista, ESTADO *e){
         valor[acc].coluna = c + iC;
         valor[acc].linha  = l + iL;
         if (jogada_valida(e, valor[acc]) == 1 ){
-            printf("%d %d\n",valor[acc].linha+1, valor[acc].coluna+1);      //teste para saber o k esta a ser gravado
+            //printf("%d %d\n",valor[acc].linha+1, valor[acc].coluna+1);      //teste para saber o k esta a ser gravado
             lista = insere_cabeca(lista, (void *) &valor[acc]); // guarda na lista a casa se for vazia
         }
     }
@@ -102,6 +102,8 @@ void limpaL(LISTA L){
 //funcao que joga aleatoriamente
 void joga_aleatorio(ESTADO* e,LISTA lista){
     int aleatorio = rand() % (lengthL(lista) - 1);
+    printf("%d",lengthL(lista) );
+    printf("%d",aleatorio );
     //printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
     COORDENADA coordal = * (COORDENADA *) (procuraL (lista,aleatorio));
     jogar(e,coordal);
@@ -112,7 +114,6 @@ void joga_aleatorio(ESTADO* e,LISTA lista){
 
 //funcao que utiliza a estrategia euclidiana
 void joga_euclidiana(ESTADO* e,LISTA lista){
-    //imprimeLista(lista);
     COORDENADA c = procura_caminho_curto(e, lista);
     jogar(e,c);
     desenha_tabuleiro(e);
@@ -121,9 +122,7 @@ void joga_euclidiana(ESTADO* e,LISTA lista){
 }
 
 COORDENADA procura_caminho_curto(ESTADO* e, LISTA l){
-    printf("entrei\n");
     COORDENADA c;
-    imprimeLista(l);
     if (get_jogador(e) == 2){
         c = verifica_na_lista(l, 14);
     }
@@ -136,7 +135,6 @@ COORDENADA procura_caminho_curto(ESTADO* e, LISTA l){
 COORDENADA verifica_na_lista(LISTA l, int c_objetivo){
     COORDENADA c;
     COORDENADA jogada;
-    imprimeLista(l);
     int melhor_pontuacao;
     if (c_objetivo == 0) melhor_pontuacao = 50;
     else melhor_pontuacao = 0;

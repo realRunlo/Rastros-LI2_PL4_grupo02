@@ -66,7 +66,7 @@ void limpaTab (ESTADO *e);
 /** \brief Inicializa o estado*/
 ESTADO *inicializar_estado(); // funcao que da o estado inicial do jogo
 
-/** \brief Inicializa o estado*/
+/** \brief Dá reset ao estado do jogo(estado inicial)*/
 void reset_estado(); // funcao que da reset ao jogo
 
 /** \brief Converte um número para a letra correspondente
@@ -154,11 +154,6 @@ int set_nJogadas(ESTADO *e, int nJ);//atualiza o número de jogadas
  * @param nJ Número de rondas a atualizar*/
 int set_nRondas(ESTADO *e, int nC);//atualiza o número de rondas
 
-/** \brief Altera o número de comandos
- * @param e Apontador para o estado
- * @param nj Número de comandos anterior*/
-int set_nComandos(ESTADO *e, int nJ);//atualiza o número de comandos
-
 /** \brief Altera as coordenadas da ultima jogada
  * @param e Apontador para o estado
  * @param l Linha da casa da jogada
@@ -171,46 +166,56 @@ void set_ultima_jogada(ESTADO *e, int l, int c); //Funcao que modifica as coorde
  * @param l Linha da jogada
  * @param c Coluna da jogada
  * @param jogador Jogador que efetuou a jogada*/
-void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador); // funcao que adiciona na lista de jogadas a ultima jogada feita
+void adiciona_lista_jogadas(ESTADO *e, int l, int c, int jogador);
 
 
 /** \brief Adiciona 1 ao numero de jogadas
  * @param e Apontador para o estado*/
-void add_numjogadas(ESTADO *e); //Adiciona 1 ao numero de jogadas
+void add_numjogadas(ESTADO *e);
 
 /** \brief Adiciona 1 ao numero de rondas
  * @param e Apontador para o estado*/
-void add_numrondas(ESTADO *e); //Adiciona 1 ao numero de rondas
+void add_numrondas(ESTADO *e);
 
 /** \brief Adiciona 1 ao numero de comandos
  * @param e Apontador para o estado*/
-void add_numcomandos(ESTADO *e); //Adiciona 1 ao numero de comandos
+void add_numcomandos(ESTADO *e);
 
 /** \brief Atualiza o tabuleiro no estado de acordo com o que esta gravado no ficheiro externo
  * @param e Apontador para o estado
  * @param l Linha da jogada
  * @param c Coluna da jogada
  * @param x Caracter nessa casa*/
-void novo_tabuleiro(ESTADO *e, int l, int c, char x); // atualiza o tabuleiro no estado de acordo com o que esta gravado no ficheiro de texto
+void novo_tabuleiro(ESTADO *e, int l, int c, char x);
 
 
-//funcao que modifica o estado da jogada efetuada numero j
+/** \brief Funcao que modifica o estado da jogada efetuada numero j
+ * @param e Apontador para o estado
+ * @param j Jogador
+ * @param jogada Número da jogada
+ * @param coluna Coluna jogada
+ * @param linha Linha jogada*/
 void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha);
 
-/*//funcao que retorna uma jogada efetuada
-int get_jogada_efetuada(ESTADO *e, int j, int jogada, int mode);*/
-
+/** \brief Retorna a jogada que foi efetuada numa dada jogada por um jogador
+ * @param e Apontador para o estado
+ * @param j Jogador
+ * @param jogada Número da jogada*/
 COORDENADA get_jogada_efetuada(ESTADO *e, int j, int jogada);
 
-//funcao que retorna as coordenadas da ultima jogada
+
+/** \brief Retorna as coordenadas da ultima jogada
+ * @param e Apontador para o estado*/
 COORDENADA get_ultima_jogada(ESTADO *e);
 
 
 //Funcao que devolve o numero de casas que envolve a ultima jogada
+/** \brief Retorna o numero de casas em volta da ultima jogada
+ * @param e Apontador para o estado
+ * @param cord Coordenadas da jogada efetuada*/
 int get_num_casas_envolta(ESTADO *e, COORDENADA cord);
 
-//Funcao que indica se o local da coordenada no tabuleiro (ex: fronteira esquerda)
-int jogador_local_tabuleiro(COORDENADA cord);
+
 #endif //___CAMADADEDADOS_H__
 
 

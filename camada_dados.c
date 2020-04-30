@@ -195,15 +195,6 @@ void novo_tabuleiro(ESTADO *e, int l, int c, char x){
 }
 
 
-
-//funcao nao utilizada de momento
-void novo_prompt(ESTADO *e, int jogador, int nJogadas, int nComandos){
-    set_jogador(e, jogador);
-    set_nJogadas(e, nJogadas);
-    set_nComandos(e, nComandos);
-}
-
-
 //funcao que atualiza o estado das jogadas efetuadas
 void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha){
     int c = converte_letra(coluna);
