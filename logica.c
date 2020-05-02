@@ -3,8 +3,9 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
-#include "camada_dados.h"
-
+#include "lista.h"
+#include "interface.h"
+#include <time.h>
 
 
 //Funcao que realiza a jogada emitida e altera o estado do jogo de acordo
@@ -31,6 +32,36 @@ int jogar(ESTADO *e, COORDENADA c){
 
     return 1;
 }
+
+//funcao que joga aleatoriamente
+void joga_aleatorio(ESTADO* e,LISTA lista){
+    time_t t;
+    srand((unsigned) time(&t));
+    int aleatorio;
+    COORDENADA coordal;
+    if (lengthL(lista) == 0){
+        coordal = * (COORDENADA *) devolve_cabeca(lista);
+    }
+    else {
+        aleatorio = rand() % lengthL(lista);
+        coordal = * (COORDENADA *) (procuraL (lista,aleatorio));
+    }
+    //printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
+    jogar(e,coordal);
+    desenha_tabuleiro(e);
+    imprime_estado(e,coordal);
+    limpaL(lista);
+}
+
+//funcao que utiliza a estrategia euclidiana
+void joga_euclidiana(ESTADO* e,LISTA lista){
+    COORDENADA c = procura_caminho_curto(e, lista);
+    jogar(e,c);
+    desenha_tabuleiro(e);
+    imprime_estado(e,c);
+    limpaL(lista);
+}
+
 
 
 //Verifica de há casas disponiveis para jogar

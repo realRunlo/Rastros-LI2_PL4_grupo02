@@ -245,13 +245,10 @@ void pos(ESTADO *e, int n_ronda){
 
 // Função de interface,que permite a intereção com os jogadores
 int interpretador(ESTADO *e) {
-    time_t t;
-    srand((unsigned) time(&t));
-
+    desenha_tabuleiro(e);
+    imprime_estadoI(e);
     char linha[BUF_SIZE];
-    LISTA lista,saveL;
-    int aleatorio;
-    COORDENADA coordal;
+    LISTA lista;
     int n_ronda;
     char col[2], lin[2],q,c1,c2,c3,c4;
     char filename[50];

@@ -6,6 +6,7 @@ Funçoes que realizam e verificam a validade das jogadas no jogo.
 #ifndef ___LOGICA_H___
 #define ___LOGICA_H___
 
+#include "lista.h"
 
 /**
  * \brief Funçao principal da logica, que altera o estado do tabuleiro dependendo da jogada efetuada.
@@ -15,6 +16,16 @@ Funçoes que realizam e verificam a validade das jogadas no jogo.
 */
 int jogar(ESTADO *e, COORDENADA c); // funcao que modifica o estado do jogo dependendo da jogada efetuada
 
+
+/** \brief Joga uma jogada aleatória
+ * @param e Estado
+ * @param L Lista*/
+void joga_aleatorio(ESTADO* e,LISTA lista);
+
+/** \brief Joga uma jogada baseada da distãncia à casa de vitória do jogador (euclidiana)
+ * @param e Estado
+ * @param L Lista*/
+void joga_euclidiana(ESTADO* e,LISTA lista);
 // /////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**

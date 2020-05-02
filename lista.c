@@ -94,32 +94,6 @@ void limpaL(LISTA L){
     }
 }
 
-//funcao que joga aleatoriamente
-void joga_aleatorio(ESTADO* e,LISTA lista){
-    int aleatorio;
-    COORDENADA coordal;
-    if (lengthL(lista) == 0){
-        coordal = * (COORDENADA *) devolve_cabeca(lista);
-    }
-    else {
-        aleatorio = rand() % lengthL(lista);
-        coordal = * (COORDENADA *) (procuraL (lista,aleatorio));
-    }
-    //printf("%d %d",aleatorio,lengthL(lista)); printf("\n");    //usar isto para testes
-    jogar(e,coordal);
-    desenha_tabuleiro(e);
-    imprime_estado(e,coordal);
-    limpaL(lista);
-}
-
-//funcao que utiliza a estrategia euclidiana
-void joga_euclidiana(ESTADO* e,LISTA lista){
-    COORDENADA c = procura_caminho_curto(e, lista);
-    jogar(e,c);
-    desenha_tabuleiro(e);
-    imprime_estado(e,c);
-    limpaL(lista);
-}
 
 COORDENADA procura_caminho_curto(ESTADO* e, LISTA l){
     COORDENADA c;

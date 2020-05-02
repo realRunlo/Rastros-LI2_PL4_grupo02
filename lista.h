@@ -40,6 +40,8 @@ LISTA remove_cabeca(LISTA L);
 int lista_esta_vazia(LISTA L);
 
 //imprime valores da lista
+/** \brief Imprime os valores da lista (utilizada para testes)
+ * @param l Lista*/
 void imprimeLista(LISTA l);
 
 /** \brief Verifica a casas vazias em volta da ultima jogada e adiciona a uma lista essas casa
@@ -59,17 +61,6 @@ void * procuraL (LISTA l,int i);
 /** \brief Limpa lista
  * @param L Lista*/
 void limpaL(LISTA l);
-
-/** \brief Joga uma jogada aleatória
- * @param e Estado
- * @param L Lista*/
-void joga_aleatorio(ESTADO* e,LISTA lista);
-
-/** \brief Joga uma jogada baseada da distãncia à casa de vitória do jogador (euclidiana)
- * @param e Estado
- * @param L Lista*/
-void joga_euclidiana(ESTADO* e,LISTA lista);
-
 
 /** \brief Procura o caminho mais curto para a casa objetivo
  * @param e Estado

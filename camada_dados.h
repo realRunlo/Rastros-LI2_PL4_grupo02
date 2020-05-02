@@ -208,14 +208,6 @@ COORDENADA get_jogada_efetuada(ESTADO *e, int j, int jogada);
  * @param e Apontador para o estado*/
 COORDENADA get_ultima_jogada(ESTADO *e);
 
-
-//Funcao que devolve o numero de casas que envolve a ultima jogada
-/** \brief Retorna o numero de casas em volta da ultima jogada
- * @param e Apontador para o estado
- * @param cord Coordenadas da jogada efetuada*/
-int get_num_casas_envolta(ESTADO *e, COORDENADA cord);
-
-
 #endif //___CAMADADEDADOS_H__
 
 
