@@ -66,8 +66,10 @@ void limpaTab (ESTADO *e);
 /** \brief Inicializa o estado*/
 ESTADO *inicializar_estado(); // funcao que da o estado inicial do jogo
 
-/** \brief Dá reset ao estado do jogo(estado inicial)*/
-void reset_estado(); // funcao que da reset ao jogo
+/** \brief Dá reset ao estado do jogo(estado inicial)
+ * @param e Apontador para o estado.
+ */
+void reset_estado(ESTADO *e); // funcao que da reset ao jogo
 
 /** \brief Converte um número para a letra correspondente
  * @param x Número a converter*/
@@ -142,17 +144,17 @@ int get_linha(COORDENADA c); // retorna o número da linha de uma coordenada
 /** \brief Altera o numero do jogador atual
  * @param e Apontador para o estado
  * @param j Jogador a atualizar*/
-int set_jogador(ESTADO *e, int j); //funcao que atualiza o numero do jogador atual
+void set_jogador(ESTADO *e, int j); //funcao que atualiza o numero do jogador atual
 
 /** \brief Altera o número de jogadas
  * @param e Apontador para o estado
  * @param nJ Número de jogadas a atualizar*/
-int set_nJogadas(ESTADO *e, int nJ);//atualiza o número de jogadas
+void set_nJogadas(ESTADO *e, int nJ);//atualiza o número de jogadas
 
 /** \brief Altera o número de rondas
  * @param e Apontador para o estado
  * @param nJ Número de rondas a atualizar*/
-int set_nRondas(ESTADO *e, int nC);//atualiza o número de rondas
+void set_nRondas(ESTADO *e, int nC);//atualiza o número de rondas
 
 /** \brief Altera as coordenadas da ultima jogada
  * @param e Apontador para o estado

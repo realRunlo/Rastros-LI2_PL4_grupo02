@@ -107,7 +107,7 @@ void lista_movimentos(ESTADO *e);
  * @param cord1 Coordenada do jogador 1.
  * @param cord2 Coordenada do jogador 2.
  */
-void limpa_jogadas(ESTADO *e,int n_rondas, int n_jogadas, int indice, int impar, COORDENADA cord1, COORDENADA cord2);
+void limpa_jogadas(ESTADO *e,int n_rondas, int indice, int impar, COORDENADA cord1, COORDENADA cord2);
 
 /**
  * \brief Funcao que retorna o tabuleiro para uma ronda especificada

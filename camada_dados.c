@@ -108,7 +108,7 @@ int get_jogador(ESTADO *e){
 }
 
 //Funcao que atualiza o numero do jogador atual
-int set_jogador(ESTADO *e, int j){
+void set_jogador(ESTADO *e, int j){
     e->jogador_atual = j;
 }
 
@@ -125,17 +125,14 @@ int get_Ncomandos(ESTADO *e){ //retorna o número de comandos
     return e->num_comandos;
 }
 
-int set_nJogadas(ESTADO *e, int nJ){ //atualiza o número de jogadas
+void set_nJogadas(ESTADO *e, int nJ){ //atualiza o número de jogadas
     e->num_jogadas = nJ;
 }
 
-int set_nRondas(ESTADO *e, int nR){ //atualiza o número de rondas
+void set_nRondas(ESTADO *e, int nR){ //atualiza o número de rondas
     e->num_rondas = nR;
 }
 
-int set_nComandos(ESTADO *e, int nC){ //atualiza o número de comandos
-    e->num_comandos = nC;
-}
 
 int get_coluna(COORDENADA c){
     return c.coluna;

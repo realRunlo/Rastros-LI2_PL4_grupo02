@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <time.h>
 #define BUF_SIZE 1024
 #include "camada_dados.h"
 #include "logica.h"
@@ -137,9 +136,10 @@ int le_tabuleiro(ESTADO *e,FILE *fp){
     for (l = 7; l >=0; l--) { //lê cada linha do tabuleiro , a contagem das linhas vai de cima para baixo por uma questão de correspondência à imagem
 
         for (c = 0; c <= 8; c++) {
-            fscanf(fp, "%c", &crt);
+            if (fscanf(fp, "%c", &crt) == 1)
             if (crt == '#') feitas++;
             novo_tabuleiro(e, l, c, crt);
+
         }
     }
     return feitas;
@@ -152,38 +152,39 @@ void ler(ESTADO *e, const char *filename, const char *mode) {
     int l1, l2, rondas=0, nj = 1, feitas = le_tabuleiro(e, fp); // percorre o tabuleiro e calcula o numero de jogadas feitas
     char c1, c2, ronda;
     set_nJogadas(e, feitas);
-    fscanf(fp, "\n");
-    for (nj; nj <= feitas;nj += 2) {
-        fscanf(fp, "0%c: ", &ronda);
+    if (fscanf(fp, "\n") == 0) {
+    for (; nj <= feitas; nj += 2) {
+        if (fscanf(fp, "0%c: ", &ronda) == 1) {
         if ((feitas % 2 != 0) && nj == feitas) {
-            fscanf(fp, "%c%d ", &c1, &l1);
-            set_jogada_efetuada(e, 1, rondas , c1, l1);
+            if (fscanf(fp, "%c%d\n", &c1, &l1) == 2)
+                set_jogada_efetuada(e, 1, rondas, c1, l1);
         } else {
-            fscanf(fp, "%c%d ", &c1, &l1);
-            set_jogada_efetuada(e, 1, rondas, c1, l1);
-            fscanf(fp, "%c%d", &c2, &l2);
-            set_jogada_efetuada(e, 2, rondas , c2, l2);
+            if (fscanf(fp, "%c%d ", &c1, &l1) == 2)
+                set_jogada_efetuada(e, 1, rondas, c1, l1);
+            if (fscanf(fp, "%c%d\n", &c2, &l2) == 2)
+                set_jogada_efetuada(e, 2, rondas, c2, l2);
             rondas++;
         }
-        fscanf(fp, "\n");
+        }
     }
     set_nRondas(e, rondas);
-    if ((feitas % 2 != 0)){
+    if ((feitas % 2 != 0)) {
         set_jogador(e, 2);
         int coluna = converte_letra(c1);
-        set_ultima_jogada(e, l1 -1, coluna);
-    }
-    else {
+        set_ultima_jogada(e, l1 - 1, coluna);
+    } else {
         set_jogador(e, 1);
         int coluna = converte_letra(c2);
-        set_ultima_jogada(e, l2-1 , coluna);
+        set_ultima_jogada(e, l2 - 1, coluna);
     }
-    fclose(fp);
+    }
+        fclose(fp);
+
 }
 
 
 // funcao auxiliar da pos que limpa as jogadas ja realizadas do tabuleiro
-void limpa_jogadas(ESTADO *e,int n_rondas, int n_jogadas, int indice, int impar, COORDENADA cord1, COORDENADA cord2){
+void limpa_jogadas(ESTADO *e,int n_rondas, int indice, int impar, COORDENADA cord1, COORDENADA cord2){
     for (int i = n_rondas + 1; i > indice; i--) {
         if (impar == 1) {    // apaga a jogada caso o ultimo a jogar tenha sido o jogador 1
             cord1 = get_ultima_jogada(e);
@@ -206,9 +207,9 @@ void volta_tabuleiro(ESTADO *e, int indice){
     int i, impar=0;
     COORDENADA cord1, cord2;
     if (n_jogadas % 2 != 0) impar = 1;
-    if(indice<=n_rondas) {limpa_jogadas(e, n_rondas, n_jogadas, indice, impar, cord1, cord2);}
+    if(indice<=n_rondas) {limpa_jogadas(e, n_rondas, indice, impar, cord1, cord2);}
     else{
-        for(int i=n_rondas;i<indice;i++){
+        for(i=n_rondas;i<indice;i++){
             cord1  = get_jogada_efetuada(e,1,i);
             jogar(e,cord1);
             cord2  = get_jogada_efetuada(e,2,i);
@@ -309,11 +310,12 @@ int interpretador(ESTADO *e) {
         printf("Digite um comando válido por favor!\n");
 
 
-        if(jogada_possivel(e) !=1) return 1;  //este return é de forma a não haver a repetição do jogada_possivel na quebra do ciclo
-        add_numcomandos(e);
+    if(jogada_possivel(e) !=1) return 1;  //este return é de forma a não haver a repetição do jogada_possivel na quebra do ciclo
+    add_numcomandos(e);
 
 
     }
+    return 0;
 
 }
 
