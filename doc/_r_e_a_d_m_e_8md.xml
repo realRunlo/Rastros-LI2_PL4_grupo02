@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Rastros-LI2_PL4_grupo2</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>Laboratórios<sp/>de<sp/>informática<sp/>2</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>Turno:PL4</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#####<sp/>Grupo:2</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Membros<sp/>do<sp/>grupo:</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>Gonçalo<sp/>José<sp/>Teixeira<sp/>Pereira<sp/>(realRunlo),a93168</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>Gonçalo<sp/>Braz<sp/>Afonso<sp/>(brazafonso),a93178</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>João<sp/>Nuno<sp/>Pereira<sp/>Barbosa<sp/>(NeNelsonofficial),a93270</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Objetivo<sp/>do<sp/>trabalho</highlight></codeline>
+<codeline><highlight class="normal">Como<sp/>método<sp/>de<sp/>aprendizagem<sp/>e<sp/>de<sp/>aprofundamento<sp/>dos<sp/>conhecimentos<sp/>de<sp/>programação<sp/>mais<sp/>em<sp/>concreto<sp/>C<sp/>prentende-se<sp/>a<sp/>realização<sp/></highlight></codeline>
+<codeline><highlight class="normal">do<sp/>jogo<sp/>**Rastros**,<sp/>sendo<sp/>este<sp/>jogado<sp/>numa<sp/>consola<sp/>por<sp/>dois<sp/>jogadores<sp/>no<sp/>mesmo<sp/>teclado.<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Implementações<sp/>feitas</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>Criação<sp/>de<sp/>módulos</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Estruturação<sp/>dos<sp/>dados</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>Estado<sp/>inicial<sp/>do<sp/>tabuleiro</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>Função<sp/>que<sp/>desenha<sp/>o<sp/>tabuleiro</highlight></codeline>
+<codeline><highlight class="normal">5.<sp/>Função<sp/>que<sp/>executa<sp/>a<sp/>jogada</highlight></codeline>
+<codeline><highlight class="normal">6.<sp/>Função<sp/>de<sp/>win<sp/>e<sp/>loss<sp/>condition</highlight></codeline>
+<codeline><highlight class="normal">7.<sp/>Função<sp/>de<sp/>validação<sp/>de<sp/>jogada</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>Principais<sp/>desafios</highlight></codeline>
+<codeline><highlight class="normal">Inicialmente<sp/>o<sp/>uso<sp/>do<sp/>github<sp/>foi<sp/>um<sp/>problema<sp/>devido<sp/>à<sp/>inexperiência<sp/>em<sp/>relação<sp/>á<sp/>plataforma,<sp/>mas<sp/>facilmente<sp/>foi<sp/>resolvido.</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>
