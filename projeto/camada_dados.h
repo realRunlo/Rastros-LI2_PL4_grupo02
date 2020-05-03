@@ -25,7 +25,9 @@ typedef enum {VAZIO, BRANCA, PRETA} CASA;
 \brief Tipo de dados para as coordenadas
 */
 typedef struct {
+    /** Coluna*/
     int coluna;
+    /** Linha*/
     int linha;
 } COORDENADA;
 
@@ -33,10 +35,15 @@ typedef struct {
 \brief Tipo de dados para jogada
 */
 typedef struct {
+    /** Coordenada jog1*/
     COORDENADA jogador1;
+    /** Coordenada jog2*/
     COORDENADA jogador2;
 } JOGADA;
 
+/**
+\brief Array de Jogada
+*/
 typedef JOGADA JOGADAS[32];
 
 /**
@@ -60,7 +67,9 @@ typedef struct{
 } ESTADO;
 
 // //////////////////////////////////////////////////////////////////////////////////////////////////////
-
+/**\brief Limpa o tabuleiro
+ *  @param e Apontador para o estado
+*/
 void limpaTab (ESTADO *e);
 
 /** \brief Inicializa o estado*/

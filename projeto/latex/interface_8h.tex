@@ -1,0 +1,311 @@
+\hypertarget{interface_8h}{}\section{interface.\+h File Reference}
+\label{interface_8h}\index{interface.\+h@{interface.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{interface_8h_a9c7d524ac924a134b255a07981ac993c}{desenha\+\_\+tabuleiro} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Funçao que desenha o tabuleiro de acordo com o estado dado. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_aba63ec0328956b851d7a09ee8d3c5a90}{grava\+\_\+tabuleiro} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, F\+I\+LE $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Funçao que grava o tabuleiro, num ficheiro .txt especificado, de acordo com o estado atual do jogo. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_a23c49c2e0c607f12b537580469548ed1}{imprime\+\_\+estado} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c)
+\begin{DoxyCompactList}\small\item\em Funçao que desenha o prompt do jogo de acordo com o estado atual. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_a0034f48efad2f088f2d2ef7eee83c479}{imprime\+\_\+estadoI} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Funçao que desenha o prompt do jogo de acordo com o estado lido. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_ab8dea779c8d414e1393939c6e6e0ef28}{gravar} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, const char $\ast$filename, const char $\ast$mode)
+\begin{DoxyCompactList}\small\item\em Funçao que grava num documento .txt especificado o tabuleiro do estado atual e o respetivo prompt. \end{DoxyCompactList}\item 
+int \hyperlink{interface_8h_a99e6cf4fe626819f15d258723f990f86}{le\+\_\+tabuleiro} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, F\+I\+LE $\ast$fp)
+\begin{DoxyCompactList}\small\item\em Funçao que le o tabuleiro no ficheiro e conta o numero de jogadas realizadas. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_acb45a4bd8a253dbe5d2f14ebd9ec82a5}{ler} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, const char $\ast$filename, const char $\ast$mode)
+\begin{DoxyCompactList}\small\item\em Funçao que le o tabuleiro e respetivo prompt de um ficheiro .txt especificado. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_a39908e7cee1866f1a77081cb0e2069cf}{flista\+\_\+ronda} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, int i, F\+I\+LE $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Funçao que imprime uma dada ronda consoante o argumento i passado. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_adc656c53fad066e70dac7760dfeb7438}{flista\+\_\+movimentos} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, F\+I\+LE $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Funçao nao terminada que ira imprimir os movimentos ja realizados no jogo. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_af5991c1f67cfbe3ed1507f2396b1e36f}{lista\+\_\+ronda} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, int i)
+\begin{DoxyCompactList}\small\item\em Funçao que imprime uma dada ronda consoante o argumento i passado. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_aff864d63fae0837104ff8614083f7a29}{lista\+\_\+movimentos} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Funcao que imprime a lista de movimentos efetuados. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_a8bf790cd68112593bf4fbe3d7f588828}{limpa\+\_\+jogadas} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, int n\+\_\+rondas, int indice, int impar, \hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA} cord1, \hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA} cord2)
+\begin{DoxyCompactList}\small\item\em funcao auxiliar da pos que limpa as jogadas ja realizadas do tabuleiro \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_a081d3b0d4f218aae3cd87928cae323df}{volta\+\_\+tabuleiro} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, int indice)
+\begin{DoxyCompactList}\small\item\em Funcao que retorna o tabuleiro para uma ronda especificada. \end{DoxyCompactList}\item 
+void \hyperlink{interface_8h_aa1df7abe318da18c09c5e40e05b6bc1d}{pos} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, int n\+\_\+ronda)
+\begin{DoxyCompactList}\small\item\em Funcao que reverte o estado do jogo para onde é pretendido. \end{DoxyCompactList}\item 
+int \hyperlink{interface_8h_a24da95ebeede4a540e37790ce8be359b}{interpretador} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Funçao principal deste modulo, que recolhe o comando dado pelo jogador e o executa. Comandos \+: jogada (linha, coluna)\+: executa a funçao jogar para, se possivel realizar a jogada desejada. gr\+: grava o estado atual do jogo num ficheiro .txt aparte para futura continuaçao do jogo se desejado. ler\+: altera o estado do jogo para o gravado num ficheiro .txt para continuar o jogo neste guardado. movs\+: lista os movimentos realizadas pos\+: Volta atrás a uma ronda pretendida jog\+: jogada automática aleatória jog2\+: jogada automática seguindo um pensamento euclidiano q\+: termina o jogo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Funçoes que interpretam os comandos dados pelo jogador. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{interface_8h_a9c7d524ac924a134b255a07981ac993c}\label{interface_8h_a9c7d524ac924a134b255a07981ac993c}} 
+\index{interface.\+h@{interface.\+h}!desenha\+\_\+tabuleiro@{desenha\+\_\+tabuleiro}}
+\index{desenha\+\_\+tabuleiro@{desenha\+\_\+tabuleiro}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{desenha\+\_\+tabuleiro()}{desenha\_tabuleiro()}}
+{\footnotesize\ttfamily void desenha\+\_\+tabuleiro (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Funçao que desenha o tabuleiro de acordo com o estado dado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_adc656c53fad066e70dac7760dfeb7438}\label{interface_8h_adc656c53fad066e70dac7760dfeb7438}} 
+\index{interface.\+h@{interface.\+h}!flista\+\_\+movimentos@{flista\+\_\+movimentos}}
+\index{flista\+\_\+movimentos@{flista\+\_\+movimentos}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{flista\+\_\+movimentos()}{flista\_movimentos()}}
+{\footnotesize\ttfamily void flista\+\_\+movimentos (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{F\+I\+LE $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Funçao nao terminada que ira imprimir os movimentos ja realizados no jogo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a39908e7cee1866f1a77081cb0e2069cf}\label{interface_8h_a39908e7cee1866f1a77081cb0e2069cf}} 
+\index{interface.\+h@{interface.\+h}!flista\+\_\+ronda@{flista\+\_\+ronda}}
+\index{flista\+\_\+ronda@{flista\+\_\+ronda}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{flista\+\_\+ronda()}{flista\_ronda()}}
+{\footnotesize\ttfamily void flista\+\_\+ronda (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{int}]{i,  }\item[{F\+I\+LE $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Funçao que imprime uma dada ronda consoante o argumento i passado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em i} & Indice \\
+\hline
+{\em filename} & Ficheiro \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_aba63ec0328956b851d7a09ee8d3c5a90}\label{interface_8h_aba63ec0328956b851d7a09ee8d3c5a90}} 
+\index{interface.\+h@{interface.\+h}!grava\+\_\+tabuleiro@{grava\+\_\+tabuleiro}}
+\index{grava\+\_\+tabuleiro@{grava\+\_\+tabuleiro}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{grava\+\_\+tabuleiro()}{grava\_tabuleiro()}}
+{\footnotesize\ttfamily void grava\+\_\+tabuleiro (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{F\+I\+LE $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Funçao que grava o tabuleiro, num ficheiro .txt especificado, de acordo com o estado atual do jogo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em filename} & Nome do ficheiro onde se guardara o tabuleiro. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_ab8dea779c8d414e1393939c6e6e0ef28}\label{interface_8h_ab8dea779c8d414e1393939c6e6e0ef28}} 
+\index{interface.\+h@{interface.\+h}!gravar@{gravar}}
+\index{gravar@{gravar}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{gravar()}{gravar()}}
+{\footnotesize\ttfamily void gravar (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{const char $\ast$}]{filename,  }\item[{const char $\ast$}]{mode }\end{DoxyParamCaption})}
+
+
+
+Funçao que grava num documento .txt especificado o tabuleiro do estado atual e o respetivo prompt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em filename} & Nome do ficheiro .txt onde se ira gravar tabuleiro e o prompt. \\
+\hline
+{\em mode} & Modo de uso do ficheiro, dado ao fopen, por exemplo para escrever ou apenas para leitura. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a23c49c2e0c607f12b537580469548ed1}\label{interface_8h_a23c49c2e0c607f12b537580469548ed1}} 
+\index{interface.\+h@{interface.\+h}!imprime\+\_\+estado@{imprime\+\_\+estado}}
+\index{imprime\+\_\+estado@{imprime\+\_\+estado}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{imprime\+\_\+estado()}{imprime\_estado()}}
+{\footnotesize\ttfamily void imprime\+\_\+estado (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}]{c }\end{DoxyParamCaption})}
+
+
+
+Funçao que desenha o prompt do jogo de acordo com o estado atual. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em c} & A coordenada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a0034f48efad2f088f2d2ef7eee83c479}\label{interface_8h_a0034f48efad2f088f2d2ef7eee83c479}} 
+\index{interface.\+h@{interface.\+h}!imprime\+\_\+estadoI@{imprime\+\_\+estadoI}}
+\index{imprime\+\_\+estadoI@{imprime\+\_\+estadoI}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{imprime\+\_\+estado\+I()}{imprime\_estadoI()}}
+{\footnotesize\ttfamily void imprime\+\_\+estadoI (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Funçao que desenha o prompt do jogo de acordo com o estado lido. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a24da95ebeede4a540e37790ce8be359b}\label{interface_8h_a24da95ebeede4a540e37790ce8be359b}} 
+\index{interface.\+h@{interface.\+h}!interpretador@{interpretador}}
+\index{interpretador@{interpretador}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{interpretador()}{interpretador()}}
+{\footnotesize\ttfamily int interpretador (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Funçao principal deste modulo, que recolhe o comando dado pelo jogador e o executa. Comandos \+: jogada (linha, coluna)\+: executa a funçao jogar para, se possivel realizar a jogada desejada. gr\+: grava o estado atual do jogo num ficheiro .txt aparte para futura continuaçao do jogo se desejado. ler\+: altera o estado do jogo para o gravado num ficheiro .txt para continuar o jogo neste guardado. movs\+: lista os movimentos realizadas pos\+: Volta atrás a uma ronda pretendida jog\+: jogada automática aleatória jog2\+: jogada automática seguindo um pensamento euclidiano q\+: termina o jogo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 Caso o jogo continue. 
+
+0 Caso o jogo termine. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_8h_a99e6cf4fe626819f15d258723f990f86}\label{interface_8h_a99e6cf4fe626819f15d258723f990f86}} 
+\index{interface.\+h@{interface.\+h}!le\+\_\+tabuleiro@{le\+\_\+tabuleiro}}
+\index{le\+\_\+tabuleiro@{le\+\_\+tabuleiro}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{le\+\_\+tabuleiro()}{le\_tabuleiro()}}
+{\footnotesize\ttfamily int le\+\_\+tabuleiro (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{F\+I\+LE $\ast$}]{fp }\end{DoxyParamCaption})}
+
+
+
+Funçao que le o tabuleiro no ficheiro e conta o numero de jogadas realizadas. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em fp} & Nome do ficheiro .txt onde se ira gravar tabuleiro e o prompt. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Numero de jogadas realizadas no tabuleiro lido. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{interface_8h_acb45a4bd8a253dbe5d2f14ebd9ec82a5}\label{interface_8h_acb45a4bd8a253dbe5d2f14ebd9ec82a5}} 
+\index{interface.\+h@{interface.\+h}!ler@{ler}}
+\index{ler@{ler}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{ler()}{ler()}}
+{\footnotesize\ttfamily void ler (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{const char $\ast$}]{filename,  }\item[{const char $\ast$}]{mode }\end{DoxyParamCaption})}
+
+
+
+Funçao que le o tabuleiro e respetivo prompt de um ficheiro .txt especificado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em filename} & Nome do ficheiro .txt onde se ira ler tabuleiro e o prompt. \\
+\hline
+{\em mode} & Modo de uso do ficheiro, neste caso, read. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a8bf790cd68112593bf4fbe3d7f588828}\label{interface_8h_a8bf790cd68112593bf4fbe3d7f588828}} 
+\index{interface.\+h@{interface.\+h}!limpa\+\_\+jogadas@{limpa\+\_\+jogadas}}
+\index{limpa\+\_\+jogadas@{limpa\+\_\+jogadas}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{limpa\+\_\+jogadas()}{limpa\_jogadas()}}
+{\footnotesize\ttfamily void limpa\+\_\+jogadas (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{int}]{n\+\_\+rondas,  }\item[{int}]{indice,  }\item[{int}]{impar,  }\item[{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}]{cord1,  }\item[{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}]{cord2 }\end{DoxyParamCaption})}
+
+
+
+funcao auxiliar da pos que limpa as jogadas ja realizadas do tabuleiro 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em n\+\_\+rondas} & numero de rondas realizadas no tabuleiro. \\
+\hline
+{\em n\+\_\+jogadas} & numero de jogadas realizadas no tabuleiro. \\
+\hline
+{\em indice} & Indice da ronda para retornar. \\
+\hline
+{\em impar} & Indicador se o numero de jogadas e impar ou par. \\
+\hline
+{\em cord1} & Coordenada do jogador 1. \\
+\hline
+{\em cord2} & Coordenada do jogador 2. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_aff864d63fae0837104ff8614083f7a29}\label{interface_8h_aff864d63fae0837104ff8614083f7a29}} 
+\index{interface.\+h@{interface.\+h}!lista\+\_\+movimentos@{lista\+\_\+movimentos}}
+\index{lista\+\_\+movimentos@{lista\+\_\+movimentos}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{lista\+\_\+movimentos()}{lista\_movimentos()}}
+{\footnotesize\ttfamily void lista\+\_\+movimentos (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Funcao que imprime a lista de movimentos efetuados. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_af5991c1f67cfbe3ed1507f2396b1e36f}\label{interface_8h_af5991c1f67cfbe3ed1507f2396b1e36f}} 
+\index{interface.\+h@{interface.\+h}!lista\+\_\+ronda@{lista\+\_\+ronda}}
+\index{lista\+\_\+ronda@{lista\+\_\+ronda}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{lista\+\_\+ronda()}{lista\_ronda()}}
+{\footnotesize\ttfamily void lista\+\_\+ronda (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Funçao que imprime uma dada ronda consoante o argumento i passado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em i} & Indice \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_aa1df7abe318da18c09c5e40e05b6bc1d}\label{interface_8h_aa1df7abe318da18c09c5e40e05b6bc1d}} 
+\index{interface.\+h@{interface.\+h}!pos@{pos}}
+\index{pos@{pos}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{pos()}{pos()}}
+{\footnotesize\ttfamily void pos (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{int}]{n\+\_\+ronda }\end{DoxyParamCaption})}
+
+
+
+Funcao que reverte o estado do jogo para onde é pretendido. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em n\+\_\+ronda} & Ronda a qual se quer regresar \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{interface_8h_a081d3b0d4f218aae3cd87928cae323df}\label{interface_8h_a081d3b0d4f218aae3cd87928cae323df}} 
+\index{interface.\+h@{interface.\+h}!volta\+\_\+tabuleiro@{volta\+\_\+tabuleiro}}
+\index{volta\+\_\+tabuleiro@{volta\+\_\+tabuleiro}!interface.\+h@{interface.\+h}}
+\subsubsection{\texorpdfstring{volta\+\_\+tabuleiro()}{volta\_tabuleiro()}}
+{\footnotesize\ttfamily void volta\+\_\+tabuleiro (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{int}]{indice }\end{DoxyParamCaption})}
+
+
+
+Funcao que retorna o tabuleiro para uma ronda especificada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em indice} & Indice da ronda \\
+\hline
+\end{DoxyParams}

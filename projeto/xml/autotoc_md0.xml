@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="autotoc_md0" kind="page">
+    <compoundname>autotoc_md0</compoundname>
+    <title>Rastros-LI2_PL4_grupo2</title>
+    <detaileddescription>
+<para><anchor id="invalid_1invalid"/><heading level="5">Laboratórios de informática 2</heading>
+</para><para><anchor id="invalid_1invalid"/><heading level="5">Turno:PL4</heading>
+</para><para><anchor id="invalid_1invalid"/><heading level="5">Grupo:2</heading>
+</para><para><itemizedlist>
+<listitem><para>Gonçalo José Teixeira Pereira (realRunlo),a93168</para></listitem><listitem><para>Gonçalo Braz Afonso (brazafonso),a93178</para></listitem><listitem><para>João Nuno Pereira Barbosa (NeNelsonofficial),a93270</para></listitem></itemizedlist>
+</para><para>Como método de aprendizagem e de aprofundamento dos conhecimentos de programação mais em concreto C prentende-se a realização do jogo <bold>Rastros</bold>, sendo este jogado numa consola por dois jogadores no mesmo teclado.</para><para><orderedlist>
+<listitem><para>Criação de módulos</para></listitem><listitem><para>Estruturação dos dados</para></listitem><listitem><para>Estado inicial do tabuleiro</para></listitem><listitem><para>Função que desenha o tabuleiro</para></listitem><listitem><para>Função que executa a jogada</para></listitem><listitem><para>Função de win e loss condition</para></listitem><listitem><para>Função de validação de jogada </para></listitem></orderedlist>
+</para><para>Inicialmente o uso do github foi um problema devido à inexperiência em relação á plataforma, mas facilmente foi resolvido. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

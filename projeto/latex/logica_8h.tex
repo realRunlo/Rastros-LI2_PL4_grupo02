@@ -1,0 +1,162 @@
+\hypertarget{logica_8h}{}\section{logica.\+h File Reference}
+\label{logica_8h}\index{logica.\+h@{logica.\+h}}
+{\ttfamily \#include \char`\"{}lista.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{logica_8h_ac313d7e553b1e2b5f266acb9bfff8141}{jogar} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c)
+\begin{DoxyCompactList}\small\item\em Funçao principal da logica, que altera o estado do tabuleiro dependendo da jogada efetuada. \end{DoxyCompactList}\item 
+void \hyperlink{logica_8h_a0d21396d8c7a30be8ca2f081b693cf1b}{joga\+\_\+aleatorio} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} lista)
+\begin{DoxyCompactList}\small\item\em Joga uma jogada aleatória. \end{DoxyCompactList}\item 
+void \hyperlink{logica_8h_a945b03d92d89f5e95b17a9325330d364}{joga\+\_\+euclidiana} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} lista)
+\begin{DoxyCompactList}\small\item\em Joga uma jogada baseada da distãncia à casa de vitória do jogador (euclidiana) \end{DoxyCompactList}\item 
+int \hyperlink{logica_8h_a3b34b1c3215b062f8307fcb2597cd6b2}{espaco\+\_\+vazio} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Funçao que verifica se envolta da peça branca existem peças vazias onde se possa jogar. \end{DoxyCompactList}\item 
+int \hyperlink{logica_8h_a83c01037efbc2f1c1f4a65f51e67133b}{espaco\+\_\+vitoria} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Funçao que verifica se a peça branca se encontra numa das casas objetivo para vitoria. \end{DoxyCompactList}\item 
+int \hyperlink{logica_8h_a20c21beb5f2a94b0621f9844550e24e2}{jogada\+\_\+possivel} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Funçao que atraves das funçoes \textquotesingle{}espaco\+\_\+vazio\textquotesingle{} e \textquotesingle{}espaco\+\_\+vitoria\textquotesingle{} verifica se ainda e possivel continuar o jogo. \end{DoxyCompactList}\item 
+int \hyperlink{logica_8h_ab1160bacb55fe9977b2a60e615c2e627}{jogada\+\_\+valida} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA} c)
+\begin{DoxyCompactList}\small\item\em Funçao que verifica se a jogada indicada pelo jogador atual e valida. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Funçoes que realizam e verificam a validade das jogadas no jogo. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{logica_8h_a3b34b1c3215b062f8307fcb2597cd6b2}\label{logica_8h_a3b34b1c3215b062f8307fcb2597cd6b2}} 
+\index{logica.\+h@{logica.\+h}!espaco\+\_\+vazio@{espaco\+\_\+vazio}}
+\index{espaco\+\_\+vazio@{espaco\+\_\+vazio}!logica.\+h@{logica.\+h}}
+\subsubsection{\texorpdfstring{espaco\+\_\+vazio()}{espaco\_vazio()}}
+{\footnotesize\ttfamily int espaco\+\_\+vazio (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Funçao que verifica se envolta da peça branca existem peças vazias onde se possa jogar. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 Caso haja jogadas possiveis. 
+
+0 Caso nao seja possivel continuar a jogar. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{logica_8h_a83c01037efbc2f1c1f4a65f51e67133b}\label{logica_8h_a83c01037efbc2f1c1f4a65f51e67133b}} 
+\index{logica.\+h@{logica.\+h}!espaco\+\_\+vitoria@{espaco\+\_\+vitoria}}
+\index{espaco\+\_\+vitoria@{espaco\+\_\+vitoria}!logica.\+h@{logica.\+h}}
+\subsubsection{\texorpdfstring{espaco\+\_\+vitoria()}{espaco\_vitoria()}}
+{\footnotesize\ttfamily int espaco\+\_\+vitoria (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Funçao que verifica se a peça branca se encontra numa das casas objetivo para vitoria. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 Caso tal nao se verifique. 
+
+0 Caso se encontre numa das casas objetivo. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{logica_8h_a0d21396d8c7a30be8ca2f081b693cf1b}\label{logica_8h_a0d21396d8c7a30be8ca2f081b693cf1b}} 
+\index{logica.\+h@{logica.\+h}!joga\+\_\+aleatorio@{joga\+\_\+aleatorio}}
+\index{joga\+\_\+aleatorio@{joga\+\_\+aleatorio}!logica.\+h@{logica.\+h}}
+\subsubsection{\texorpdfstring{joga\+\_\+aleatorio()}{joga\_aleatorio()}}
+{\footnotesize\ttfamily void joga\+\_\+aleatorio (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{lista }\end{DoxyParamCaption})}
+
+
+
+Joga uma jogada aleatória. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Estado \\
+\hline
+{\em L} & Lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logica_8h_a945b03d92d89f5e95b17a9325330d364}\label{logica_8h_a945b03d92d89f5e95b17a9325330d364}} 
+\index{logica.\+h@{logica.\+h}!joga\+\_\+euclidiana@{joga\+\_\+euclidiana}}
+\index{joga\+\_\+euclidiana@{joga\+\_\+euclidiana}!logica.\+h@{logica.\+h}}
+\subsubsection{\texorpdfstring{joga\+\_\+euclidiana()}{joga\_euclidiana()}}
+{\footnotesize\ttfamily void joga\+\_\+euclidiana (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{lista }\end{DoxyParamCaption})}
+
+
+
+Joga uma jogada baseada da distãncia à casa de vitória do jogador (euclidiana) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Estado \\
+\hline
+{\em L} & Lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{logica_8h_a20c21beb5f2a94b0621f9844550e24e2}\label{logica_8h_a20c21beb5f2a94b0621f9844550e24e2}} 
+\index{logica.\+h@{logica.\+h}!jogada\+\_\+possivel@{jogada\+\_\+possivel}}
+\index{jogada\+\_\+possivel@{jogada\+\_\+possivel}!logica.\+h@{logica.\+h}}
+\subsubsection{\texorpdfstring{jogada\+\_\+possivel()}{jogada\_possivel()}}
+{\footnotesize\ttfamily int jogada\+\_\+possivel (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Funçao que atraves das funçoes \textquotesingle{}espaco\+\_\+vazio\textquotesingle{} e \textquotesingle{}espaco\+\_\+vitoria\textquotesingle{} verifica se ainda e possivel continuar o jogo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 Caso ainda haja espaços vazios ou ainda nao se encontre numa casa objetivo. 
+
+0 Caso nao seja possivel continuar a jogar. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{logica_8h_ab1160bacb55fe9977b2a60e615c2e627}\label{logica_8h_ab1160bacb55fe9977b2a60e615c2e627}} 
+\index{logica.\+h@{logica.\+h}!jogada\+\_\+valida@{jogada\+\_\+valida}}
+\index{jogada\+\_\+valida@{jogada\+\_\+valida}!logica.\+h@{logica.\+h}}
+\subsubsection{\texorpdfstring{jogada\+\_\+valida()}{jogada\_valida()}}
+{\footnotesize\ttfamily int jogada\+\_\+valida (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}]{c }\end{DoxyParamCaption})}
+
+
+
+Funçao que verifica se a jogada indicada pelo jogador atual e valida. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em c} & A coordenada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 Caso a jogada nao seja valida. 
+
+1 Caso a jogada seja valida. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{logica_8h_ac313d7e553b1e2b5f266acb9bfff8141}\label{logica_8h_ac313d7e553b1e2b5f266acb9bfff8141}} 
+\index{logica.\+h@{logica.\+h}!jogar@{jogar}}
+\index{jogar@{jogar}!logica.\+h@{logica.\+h}}
+\subsubsection{\texorpdfstring{jogar()}{jogar()}}
+{\footnotesize\ttfamily int jogar (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA}}]{c }\end{DoxyParamCaption})}
+
+
+
+Funçao principal da logica, que altera o estado do tabuleiro dependendo da jogada efetuada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Apontador para o estado. \\
+\hline
+{\em c} & A coordenada. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Um valor de confirmaçao de sucesso. 
+\end{DoxyReturn}

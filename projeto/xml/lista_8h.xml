@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="lista_8h" kind="file" language="C++">
+    <compoundname>lista.h</compoundname>
+    <includes refid="camada__dados_8h" local="yes">camada_dados.h</includes>
+    <includedby refid="camada__dados_8c" local="yes">camada_dados.c</includedby>
+    <includedby refid="logica_8h" local="yes">logica.h</includedby>
+    <includedby refid="interface_8c" local="yes">interface.c</includedby>
+    <includedby refid="lista_8c" local="yes">lista.c</includedby>
+    <includedby refid="logica_8c" local="yes">logica.c</includedby>
+    <includedby refid="rastros_8c" local="yes">rastros.c</includedby>
+    <incdepgraph>
+      <node id="32">
+        <label>camada_dados.h</label>
+        <link refid="camada__dados_8h"/>
+      </node>
+      <node id="31">
+        <label>lista.h</label>
+        <link refid="lista_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="34">
+        <label>logica.h</label>
+        <link refid="logica_8h"/>
+      </node>
+      <node id="33">
+        <label>lista.h</label>
+        <link refid="lista_8h"/>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_n_o_d_o" prot="public">NODO</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="lista_8h_1a0854699467ad41e82099f108fbd64185" prot="public" static="no">
+        <type>struct <ref refid="struct_n_o_d_o" kindref="compound">NODO</ref> *</type>
+        <definition>typedef struct NODO* LISTA</definition>
+        <argsstring></argsstring>
+        <name>LISTA</name>
+        <briefdescription>
+<para>Estrutura da lista. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="22" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="lista_8h_1ae3b99323b6f8f35d80bb69ff1a27985e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+        <definition>LISTA criar_lista</definition>
+        <argsstring>()</argsstring>
+        <name>criar_lista</name>
+        <briefdescription>
+<para>Cria uma lista vazia. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="27" column="1" bodyfile="lista.c" bodystart="14" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1a37ba5fc3cfddb6bc94d4b54b00bc696e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+        <definition>LISTA insere_cabeca</definition>
+        <argsstring>(LISTA L, void *valor)</argsstring>
+        <name>insere_cabeca</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>L</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>valor</declname>
+        </param>
+        <briefdescription>
+<para>Insere um valor na cabeça da lista. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>valor</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor a inserir </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="32" column="1" bodyfile="lista.c" bodystart="20" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1abfcb205f3eb670157be0d1221021714b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* devolve_cabeca</definition>
+        <argsstring>(LISTA L)</argsstring>
+        <name>devolve_cabeca</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+<para>Retorna a cabeça da lista. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="36" column="1" bodyfile="lista.c" bodystart="28" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1ad9380152361127432c55c1c6067e05ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+        <definition>LISTA proximo</definition>
+        <argsstring>(LISTA L)</argsstring>
+        <name>proximo</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+<para>Retorna a cauda da lista. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="40" column="1" bodyfile="lista.c" bodystart="32" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1a9026a681a68322b5ec7f07137b864cbd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+        <definition>LISTA remove_cabeca</definition>
+        <argsstring>(LISTA L)</argsstring>
+        <name>remove_cabeca</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+<para>Remove a cabeça da lista (libertando o espaço ocupado) e devolve a cauda. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="44" column="1" bodyfile="lista.c" bodystart="36" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1a4c10928f7acaa4e3de3760cea0dfd9c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lista_esta_vazia</definition>
+        <argsstring>(LISTA L)</argsstring>
+        <name>lista_esta_vazia</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>L</declname>
+        </param>
+        <briefdescription>
+<para>Retorna verdareiro se a lista é vazia. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="48" column="1" bodyfile="lista.c" bodystart="50" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1ab2c5a74e6965638fae4885d3313e4799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void imprimeLista</definition>
+        <argsstring>(LISTA l)</argsstring>
+        <name>imprimeLista</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Imprime os valores da lista (utilizada para testes) </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>l</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="53" column="1" bodyfile="lista.c" bodystart="42" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1af1a4c0904c2891739e5a9a38644189cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+        <definition>LISTA lista_insere_vazias</definition>
+        <argsstring>(LISTA lista, ESTADO *e)</argsstring>
+        <name>lista_insere_vazias</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>lista</declname>
+        </param>
+        <param>
+          <type><ref refid="struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Verifica a casas vazias em volta da ultima jogada e adiciona a uma lista essas casa. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="58" column="1" bodyfile="lista.c" bodystart="55" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1a905b5f469f4557625111dacb70db5fb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int lengthL</definition>
+        <argsstring>(LISTA l)</argsstring>
+        <name>lengthL</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Retorna o comprimento da lista. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="62" column="1" bodyfile="lista.c" bodystart="76" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1a8eab56a46ab9524313d9af48cab9896a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* procuraL</definition>
+        <argsstring>(LISTA l, int i)</argsstring>
+        <name>procuraL</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Procura na lista o elemento no indice fornecido. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Indice fornecido </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="67" column="1" bodyfile="lista.c" bodystart="84" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1aad72001ec7a0d5618aef581abeb99e8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void limpaL</definition>
+        <argsstring>(LISTA l)</argsstring>
+        <name>limpaL</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Limpa lista. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="71" column="1" bodyfile="lista.c" bodystart="91" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1a523773b63eed19d5f04cac0813ac470b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA procura_caminho_curto</definition>
+        <argsstring>(ESTADO *e, LISTA l)</argsstring>
+        <name>procura_caminho_curto</name>
+        <param>
+          <type><ref refid="struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <briefdescription>
+<para>Procura o caminho mais curto para a casa objetivo. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Estado </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="76" column="1" bodyfile="lista.c" bodystart="98" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="lista_8h_1a9943f8aae21d04608af92792a3e615b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref></type>
+        <definition>COORDENADA verifica_na_lista</definition>
+        <argsstring>(LISTA l, int c_objetivo)</argsstring>
+        <name>verifica_na_lista</name>
+        <param>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>c_objetivo</declname>
+        </param>
+        <briefdescription>
+<para>Verifica se um elemento pertence a lista. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>L</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Lista </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c_objetivo</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Valor </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="lista.h" line="81" column="1" bodyfile="lista.c" bodystart="109" bodyend="136"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Funçoes que para guardar e manipular dados </para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Created<sp/>by<sp/>runlo<sp/>on<sp/>09/04/20.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="comment">//</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"></highlight><highlight class="preprocessor">#ifndef<sp/>___LISTASLIG_H___</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>___LISTASLIG_H___</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="camada__dados_8h" kindref="compound">camada_dados.h</ref>&quot;</highlight></codeline>
+<codeline lineno="16" refid="struct_n_o_d_o" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_n_o_d_o" kindref="compound">NODO</ref><sp/>{</highlight></codeline>
+<codeline lineno="18" refid="struct_n_o_d_o_1a7295ec923d6d0ffeed534d397f49f535" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="struct_n_o_d_o_1a7295ec923d6d0ffeed534d397f49f535" kindref="member">valor</ref>;</highlight></codeline>
+<codeline lineno="20" refid="struct_n_o_d_o_1a78014339586cd5cc8579603c69d3e301" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_n_o_d_o" kindref="compound">NODO</ref><sp/>*<sp/><ref refid="struct_n_o_d_o_1a78014339586cd5cc8579603c69d3e301" kindref="member">prox</ref>;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal">}*<ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/><ref refid="lista_8h_1ae3b99323b6f8f35d80bb69ff1a27985e" kindref="member">criar_lista</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/><ref refid="lista_8h_1a37ba5fc3cfddb6bc94d4b54b00bc696e" kindref="member">insere_cabeca</ref>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>L,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><ref refid="struct_n_o_d_o_1a7295ec923d6d0ffeed534d397f49f535" kindref="member">valor</ref>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><ref refid="lista_8h_1abfcb205f3eb670157be0d1221021714b" kindref="member">devolve_cabeca</ref>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>L);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/><ref refid="lista_8h_1ad9380152361127432c55c1c6067e05ae" kindref="member">proximo</ref>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>L);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/><ref refid="lista_8h_1a9026a681a68322b5ec7f07137b864cbd" kindref="member">remove_cabeca</ref>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>L);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="lista_8h_1a4c10928f7acaa4e3de3760cea0dfd9c0" kindref="member">lista_esta_vazia</ref>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>L);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">//imprime<sp/>valores<sp/>da<sp/>lista</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="lista_8h_1ab2c5a74e6965638fae4885d3313e4799" kindref="member">imprimeLista</ref>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>l);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/><ref refid="lista_8h_1af1a4c0904c2891739e5a9a38644189cb" kindref="member">lista_insere_vazias</ref>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>lista,<sp/><ref refid="struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="lista_8h_1a905b5f469f4557625111dacb70db5fb4" kindref="member">lengthL</ref>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>l);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<sp/><ref refid="lista_8h_1a8eab56a46ab9524313d9af48cab9896a" kindref="member">procuraL</ref><sp/>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>l,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="lista_8h_1aad72001ec7a0d5618aef581abeb99e8f" kindref="member">limpaL</ref>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>l);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><ref refid="struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref><sp/><ref refid="lista_8h_1a523773b63eed19d5f04cac0813ac470b" kindref="member">procura_caminho_curto</ref>(<ref refid="struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref>*<sp/>e,<sp/><ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>l);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><ref refid="struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref><sp/><ref refid="lista_8h_1a9943f8aae21d04608af92792a3e615b3" kindref="member">verifica_na_lista</ref>(<ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref><sp/>l,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>c_objetivo);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//___LISTASLIG_H___</highlight></codeline>
+    </programlisting>
+    <location file="lista.h"/>
+  </compounddef>
+</doxygen>

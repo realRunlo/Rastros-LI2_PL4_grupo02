@@ -1,14 +1,22 @@
 //
 // Created by runlo on 09/04/20.
 //
+/**
+@file lista.h
+Funçoes que para guardar e manipular dados
+*/
 
 #ifndef ___LISTASLIG_H___
 #define ___LISTASLIG_H___
 
 #include "camada_dados.h"
-
+/**
+\brief Estrutura da lista
+*/
 typedef struct NODO {
+    /** Valor*/
     void *valor;
+    /** Próximo valor*/
     struct NODO * prox;
 
 }*LISTA;

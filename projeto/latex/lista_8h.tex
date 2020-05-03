@@ -1,0 +1,240 @@
+\hypertarget{lista_8h}{}\section{lista.\+h File Reference}
+\label{lista_8h}\index{lista.\+h@{lista.\+h}}
+{\ttfamily \#include \char`\"{}camada\+\_\+dados.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_n_o_d_o}{N\+O\+DO}
+\begin{DoxyCompactList}\small\item\em Estrutura da lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lista_8h_a0854699467ad41e82099f108fbd64185}\label{lista_8h_a0854699467ad41e82099f108fbd64185}} 
+typedef struct \hyperlink{struct_n_o_d_o}{N\+O\+DO} $\ast$ \hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}
+\begin{DoxyCompactList}\small\item\em Estrutura da lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{lista_8h_ae3b99323b6f8f35d80bb69ff1a27985e}\label{lista_8h_ae3b99323b6f8f35d80bb69ff1a27985e}} 
+\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} \hyperlink{lista_8h_ae3b99323b6f8f35d80bb69ff1a27985e}{criar\+\_\+lista} ()
+\begin{DoxyCompactList}\small\item\em Cria uma lista vazia. \end{DoxyCompactList}\item 
+\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} \hyperlink{lista_8h_a37ba5fc3cfddb6bc94d4b54b00bc696e}{insere\+\_\+cabeca} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} L, void $\ast$valor)
+\begin{DoxyCompactList}\small\item\em Insere um valor na cabeça da lista. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{lista_8h_abfcb205f3eb670157be0d1221021714b}{devolve\+\_\+cabeca} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} L)
+\begin{DoxyCompactList}\small\item\em Retorna a cabeça da lista. \end{DoxyCompactList}\item 
+\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} \hyperlink{lista_8h_ad9380152361127432c55c1c6067e05ae}{proximo} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} L)
+\begin{DoxyCompactList}\small\item\em Retorna a cauda da lista. \end{DoxyCompactList}\item 
+\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} \hyperlink{lista_8h_a9026a681a68322b5ec7f07137b864cbd}{remove\+\_\+cabeca} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} L)
+\begin{DoxyCompactList}\small\item\em Remove a cabeça da lista (libertando o espaço ocupado) e devolve a cauda. \end{DoxyCompactList}\item 
+int \hyperlink{lista_8h_a4c10928f7acaa4e3de3760cea0dfd9c0}{lista\+\_\+esta\+\_\+vazia} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} L)
+\begin{DoxyCompactList}\small\item\em Retorna verdareiro se a lista é vazia. \end{DoxyCompactList}\item 
+void \hyperlink{lista_8h_ab2c5a74e6965638fae4885d3313e4799}{imprime\+Lista} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} l)
+\begin{DoxyCompactList}\small\item\em Imprime os valores da lista (utilizada para testes) \end{DoxyCompactList}\item 
+\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} \hyperlink{lista_8h_af1a4c0904c2891739e5a9a38644189cb}{lista\+\_\+insere\+\_\+vazias} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} lista, \hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Verifica a casas vazias em volta da ultima jogada e adiciona a uma lista essas casa. \end{DoxyCompactList}\item 
+int \hyperlink{lista_8h_a905b5f469f4557625111dacb70db5fb4}{lengthL} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} l)
+\begin{DoxyCompactList}\small\item\em Retorna o comprimento da lista. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{lista_8h_a8eab56a46ab9524313d9af48cab9896a}{procuraL} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} l, int i)
+\begin{DoxyCompactList}\small\item\em Procura na lista o elemento no indice fornecido. \end{DoxyCompactList}\item 
+void \hyperlink{lista_8h_aad72001ec7a0d5618aef581abeb99e8f}{limpaL} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} l)
+\begin{DoxyCompactList}\small\item\em Limpa lista. \end{DoxyCompactList}\item 
+\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA} \hyperlink{lista_8h_a523773b63eed19d5f04cac0813ac470b}{procura\+\_\+caminho\+\_\+curto} (\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$e, \hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} l)
+\begin{DoxyCompactList}\small\item\em Procura o caminho mais curto para a casa objetivo. \end{DoxyCompactList}\item 
+\hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA} \hyperlink{lista_8h_a9943f8aae21d04608af92792a3e615b3}{verifica\+\_\+na\+\_\+lista} (\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} l, int c\+\_\+objetivo)
+\begin{DoxyCompactList}\small\item\em Verifica se um elemento pertence a lista. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Funçoes que para guardar e manipular dados 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{lista_8h_abfcb205f3eb670157be0d1221021714b}\label{lista_8h_abfcb205f3eb670157be0d1221021714b}} 
+\index{lista.\+h@{lista.\+h}!devolve\+\_\+cabeca@{devolve\+\_\+cabeca}}
+\index{devolve\+\_\+cabeca@{devolve\+\_\+cabeca}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{devolve\+\_\+cabeca()}{devolve\_cabeca()}}
+{\footnotesize\ttfamily void$\ast$ devolve\+\_\+cabeca (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{L }\end{DoxyParamCaption})}
+
+
+
+Retorna a cabeça da lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_ab2c5a74e6965638fae4885d3313e4799}\label{lista_8h_ab2c5a74e6965638fae4885d3313e4799}} 
+\index{lista.\+h@{lista.\+h}!imprime\+Lista@{imprime\+Lista}}
+\index{imprime\+Lista@{imprime\+Lista}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{imprime\+Lista()}{imprimeLista()}}
+{\footnotesize\ttfamily void imprime\+Lista (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{l }\end{DoxyParamCaption})}
+
+
+
+Imprime os valores da lista (utilizada para testes) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em l} & Lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_a37ba5fc3cfddb6bc94d4b54b00bc696e}\label{lista_8h_a37ba5fc3cfddb6bc94d4b54b00bc696e}} 
+\index{lista.\+h@{lista.\+h}!insere\+\_\+cabeca@{insere\+\_\+cabeca}}
+\index{insere\+\_\+cabeca@{insere\+\_\+cabeca}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{insere\+\_\+cabeca()}{insere\_cabeca()}}
+{\footnotesize\ttfamily \hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} insere\+\_\+cabeca (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{L,  }\item[{void $\ast$}]{valor }\end{DoxyParamCaption})}
+
+
+
+Insere um valor na cabeça da lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Lista \\
+\hline
+{\em valor} & Valor a inserir \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_a905b5f469f4557625111dacb70db5fb4}\label{lista_8h_a905b5f469f4557625111dacb70db5fb4}} 
+\index{lista.\+h@{lista.\+h}!lengthL@{lengthL}}
+\index{lengthL@{lengthL}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{length\+L()}{lengthL()}}
+{\footnotesize\ttfamily int lengthL (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{l }\end{DoxyParamCaption})}
+
+
+
+Retorna o comprimento da lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_aad72001ec7a0d5618aef581abeb99e8f}\label{lista_8h_aad72001ec7a0d5618aef581abeb99e8f}} 
+\index{lista.\+h@{lista.\+h}!limpaL@{limpaL}}
+\index{limpaL@{limpaL}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{limpa\+L()}{limpaL()}}
+{\footnotesize\ttfamily void limpaL (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{l }\end{DoxyParamCaption})}
+
+
+
+Limpa lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_a4c10928f7acaa4e3de3760cea0dfd9c0}\label{lista_8h_a4c10928f7acaa4e3de3760cea0dfd9c0}} 
+\index{lista.\+h@{lista.\+h}!lista\+\_\+esta\+\_\+vazia@{lista\+\_\+esta\+\_\+vazia}}
+\index{lista\+\_\+esta\+\_\+vazia@{lista\+\_\+esta\+\_\+vazia}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{lista\+\_\+esta\+\_\+vazia()}{lista\_esta\_vazia()}}
+{\footnotesize\ttfamily int lista\+\_\+esta\+\_\+vazia (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{L }\end{DoxyParamCaption})}
+
+
+
+Retorna verdareiro se a lista é vazia. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_af1a4c0904c2891739e5a9a38644189cb}\label{lista_8h_af1a4c0904c2891739e5a9a38644189cb}} 
+\index{lista.\+h@{lista.\+h}!lista\+\_\+insere\+\_\+vazias@{lista\+\_\+insere\+\_\+vazias}}
+\index{lista\+\_\+insere\+\_\+vazias@{lista\+\_\+insere\+\_\+vazias}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{lista\+\_\+insere\+\_\+vazias()}{lista\_insere\_vazias()}}
+{\footnotesize\ttfamily \hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} lista\+\_\+insere\+\_\+vazias (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{lista,  }\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Verifica a casas vazias em volta da ultima jogada e adiciona a uma lista essas casa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Lista \\
+\hline
+{\em e} & Estado \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_a523773b63eed19d5f04cac0813ac470b}\label{lista_8h_a523773b63eed19d5f04cac0813ac470b}} 
+\index{lista.\+h@{lista.\+h}!procura\+\_\+caminho\+\_\+curto@{procura\+\_\+caminho\+\_\+curto}}
+\index{procura\+\_\+caminho\+\_\+curto@{procura\+\_\+caminho\+\_\+curto}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{procura\+\_\+caminho\+\_\+curto()}{procura\_caminho\_curto()}}
+{\footnotesize\ttfamily \hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA} procura\+\_\+caminho\+\_\+curto (\begin{DoxyParamCaption}\item[{\hyperlink{struct_e_s_t_a_d_o}{E\+S\+T\+A\+DO} $\ast$}]{e,  }\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{l }\end{DoxyParamCaption})}
+
+
+
+Procura o caminho mais curto para a casa objetivo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & Estado \\
+\hline
+{\em L} & Lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_a8eab56a46ab9524313d9af48cab9896a}\label{lista_8h_a8eab56a46ab9524313d9af48cab9896a}} 
+\index{lista.\+h@{lista.\+h}!procuraL@{procuraL}}
+\index{procuraL@{procuraL}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{procura\+L()}{procuraL()}}
+{\footnotesize\ttfamily void$\ast$ procuraL (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{l,  }\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Procura na lista o elemento no indice fornecido. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Lista \\
+\hline
+{\em i} & Indice fornecido \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_ad9380152361127432c55c1c6067e05ae}\label{lista_8h_ad9380152361127432c55c1c6067e05ae}} 
+\index{lista.\+h@{lista.\+h}!proximo@{proximo}}
+\index{proximo@{proximo}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{proximo()}{proximo()}}
+{\footnotesize\ttfamily \hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} proximo (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{L }\end{DoxyParamCaption})}
+
+
+
+Retorna a cauda da lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_a9026a681a68322b5ec7f07137b864cbd}\label{lista_8h_a9026a681a68322b5ec7f07137b864cbd}} 
+\index{lista.\+h@{lista.\+h}!remove\+\_\+cabeca@{remove\+\_\+cabeca}}
+\index{remove\+\_\+cabeca@{remove\+\_\+cabeca}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{remove\+\_\+cabeca()}{remove\_cabeca()}}
+{\footnotesize\ttfamily \hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA} remove\+\_\+cabeca (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{L }\end{DoxyParamCaption})}
+
+
+
+Remove a cabeça da lista (libertando o espaço ocupado) e devolve a cauda. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Lista \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{lista_8h_a9943f8aae21d04608af92792a3e615b3}\label{lista_8h_a9943f8aae21d04608af92792a3e615b3}} 
+\index{lista.\+h@{lista.\+h}!verifica\+\_\+na\+\_\+lista@{verifica\+\_\+na\+\_\+lista}}
+\index{verifica\+\_\+na\+\_\+lista@{verifica\+\_\+na\+\_\+lista}!lista.\+h@{lista.\+h}}
+\subsubsection{\texorpdfstring{verifica\+\_\+na\+\_\+lista()}{verifica\_na\_lista()}}
+{\footnotesize\ttfamily \hyperlink{struct_c_o_o_r_d_e_n_a_d_a}{C\+O\+O\+R\+D\+E\+N\+A\+DA} verifica\+\_\+na\+\_\+lista (\begin{DoxyParamCaption}\item[{\hyperlink{lista_8h_a0854699467ad41e82099f108fbd64185}{L\+I\+S\+TA}}]{l,  }\item[{int}]{c\+\_\+objetivo }\end{DoxyParamCaption})}
+
+
+
+Verifica se um elemento pertence a lista. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em L} & Lista \\
+\hline
+{\em c\+\_\+objetivo} & Valor \\
+\hline
+\end{DoxyParams}
