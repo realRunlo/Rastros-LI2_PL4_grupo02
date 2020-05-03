@@ -1,3 +1,0 @@
-/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/Rastros.dir
-/home/runlo/LI2/Rastros/cmake-build-debug/CMakeFiles/edit_cache.dir
