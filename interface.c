@@ -43,7 +43,7 @@ void imprime_estado(ESTADO *e,COORDENADA c){ //prompt
 //Imprime a jogada efetuada numero i no ficheiro
 void flista_ronda(ESTADO *e,int i,FILE *filename){
     if(i==get_Nrondas(e) && get_Njogadas(e)%2!=0)
-        fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
+        fprintf(filename,"%c%d",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
     else{
         fprintf(filename,"%c%d ",converte_numero(e->jogadas[i].jogador1.coluna),e->jogadas[i].jogador1.linha + 1);
         fprintf(filename,"%c%d",converte_numero(e->jogadas[i].jogador2.coluna),e->jogadas[i].jogador2.linha + 1);

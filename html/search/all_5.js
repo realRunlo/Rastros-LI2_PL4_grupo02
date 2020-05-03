@@ -7,7 +7,6 @@ var searchData=
   ['get_5fncomandos',['get_Ncomandos',['../camada__dados_8h.html#ada1f0d6f02bc07e870bd8058a95e38f1',1,'camada_dados.c']]],
   ['get_5fnjogadas',['get_Njogadas',['../camada__dados_8h.html#a069d4cbe77c58251cb2c67594d58d66c',1,'camada_dados.c']]],
   ['get_5fnrondas',['get_Nrondas',['../camada__dados_8h.html#a5f14e9ed655f1c21b12e3dd858062367',1,'camada_dados.c']]],
-  ['get_5fnum_5fcasas_5fenvolta',['get_num_casas_envolta',['../camada__dados_8h.html#a9032896a18831b2ba0da158f75f29ef9',1,'camada_dados.c']]],
   ['get_5fultima_5fjogada',['get_ultima_jogada',['../camada__dados_8h.html#ae89c72e4fa31dcc1eb9ba0fb8ea707e1',1,'camada_dados.c']]],
   ['grava_5ftabuleiro',['grava_tabuleiro',['../interface_8h.html#aba63ec0328956b851d7a09ee8d3c5a90',1,'interface.c']]],
   ['gravar',['gravar',['../interface_8h.html#ab8dea779c8d414e1393939c6e6e0ef28',1,'interface.c']]]
