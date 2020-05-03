@@ -9,13 +9,26 @@
     <includes refid="logica_8h" local="yes">logica.h</includes>
     <includes refid="lista_8h" local="yes">lista.h</includes>
     <incdepgraph>
-      <node id="15">
-        <label>stdlib.h</label>
-      </node>
       <node id="17">
         <label>logica.h</label>
         <link refid="logica_8h"/>
         <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>stdlib.h</label>
+      </node>
+      <node id="16">
+        <label>camada_dados.h</label>
+        <link refid="camada__dados_8h"/>
+      </node>
+      <node id="14">
+        <label>string.h</label>
+      </node>
+      <node id="18">
+        <label>lista.h</label>
+        <link refid="lista_8h"/>
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="12">
@@ -33,19 +46,6 @@
         </childnode>
         <childnode refid="18" relation="include">
         </childnode>
-      </node>
-      <node id="14">
-        <label>string.h</label>
-      </node>
-      <node id="18">
-        <label>lista.h</label>
-        <link refid="lista_8h_source"/>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="16">
-        <label>camada_dados.h</label>
-        <link refid="camada__dados_8h"/>
       </node>
       <node id="13">
         <label>stdio.h</label>
@@ -656,7 +656,7 @@
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUF_SIZE<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="camada__dados_8h" kindref="compound">camada_dados.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="logica_8h" kindref="compound">logica.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lista.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="lista_8h" kindref="compound">lista.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
@@ -837,13 +837,13 @@
 <codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>n_rondas<sp/>+<sp/>1;<sp/>i<sp/>&gt;<sp/>indice;<sp/>i--)<sp/>{</highlight></codeline>
 <codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(impar<sp/>==<sp/>1)<sp/>{<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>apaga<sp/>a<sp/>jogada<sp/>caso<sp/>o<sp/>ultimo<sp/>a<sp/>jogar<sp/>tenha<sp/>sido<sp/>o<sp/>jogador<sp/>1</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cord1<sp/>=<sp/><ref refid="camada__dados_8h_1ae89c72e4fa31dcc1eb9ba0fb8ea707e1" kindref="member">get_ultima_jogada</ref>(e);</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="camada__dados_8h_1a5ea2cecab047d0edbd270f18cbb932b1" kindref="member">set_vazio</ref>(e,<sp/>cord1.linha,<sp/>cord1.coluna);</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="camada__dados_8h_1a5ea2cecab047d0edbd270f18cbb932b1" kindref="member">set_vazio</ref>(e,<sp/>cord1.<ref refid="struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" kindref="member">linha</ref>,<sp/>cord1.<ref refid="struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" kindref="member">coluna</ref>);</highlight></codeline>
 <codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>impar<sp/>=<sp/>0;</highlight></codeline>
 <codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>apaga<sp/>a<sp/>jogadas<sp/>normalmente</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cord1<sp/>=<sp/><ref refid="camada__dados_8h_1a86d3e91c5f1bd6ca0882dea0ddeed88e" kindref="member">get_jogada_efetuada</ref>(e,<sp/>1,<sp/>i<sp/>-<sp/>1);</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="camada__dados_8h_1a5ea2cecab047d0edbd270f18cbb932b1" kindref="member">set_vazio</ref>(e,<sp/>cord1.linha,<sp/>cord1.coluna);</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="camada__dados_8h_1a5ea2cecab047d0edbd270f18cbb932b1" kindref="member">set_vazio</ref>(e,<sp/>cord1.<ref refid="struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" kindref="member">linha</ref>,<sp/>cord1.<ref refid="struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" kindref="member">coluna</ref>);</highlight></codeline>
 <codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cord2<sp/>=<sp/><ref refid="camada__dados_8h_1a86d3e91c5f1bd6ca0882dea0ddeed88e" kindref="member">get_jogada_efetuada</ref>(e,<sp/>2,<sp/>i<sp/>-<sp/>1);</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="camada__dados_8h_1a5ea2cecab047d0edbd270f18cbb932b1" kindref="member">set_vazio</ref>(e,<sp/>cord2.linha,<sp/>cord2.coluna);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="camada__dados_8h_1a5ea2cecab047d0edbd270f18cbb932b1" kindref="member">set_vazio</ref>(e,<sp/>cord2.<ref refid="struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" kindref="member">linha</ref>,<sp/>cord2.<ref refid="struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" kindref="member">coluna</ref>);</highlight></codeline>
 <codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="200"><highlight class="normal">}</highlight></codeline>
@@ -866,8 +866,8 @@
 <codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/>cord2<sp/><sp/>=<sp/><ref refid="camada__dados_8h_1a86d3e91c5f1bd6ca0882dea0ddeed88e" kindref="member">get_jogada_efetuada</ref>(e,2,indice-1);<sp/></highlight><highlight class="comment">//<sp/>torna<sp/>a<sp/>ultima<sp/>casa<sp/>da<sp/>ronda<sp/>n<sp/>como<sp/>branca</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="camada__dados_8h_1a8468737edb52df7102d8fccd67918b45" kindref="member">set_branca</ref>(e,<sp/>cord2.linha,<sp/>cord2.coluna);</highlight></codeline>
-<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="camada__dados_8h_1a8b5e870cf9cda5ff0e76c47ab9910868" kindref="member">set_ultima_jogada</ref>(e,cord2.linha,cord2.coluna);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="camada__dados_8h_1a8468737edb52df7102d8fccd67918b45" kindref="member">set_branca</ref>(e,<sp/>cord2.<ref refid="struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" kindref="member">linha</ref>,<sp/>cord2.<ref refid="struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" kindref="member">coluna</ref>);</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="camada__dados_8h_1a8b5e870cf9cda5ff0e76c47ab9910868" kindref="member">set_ultima_jogada</ref>(e,cord2.<ref refid="struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" kindref="member">linha</ref>,cord2.<ref refid="struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" kindref="member">coluna</ref>);</highlight></codeline>
 <codeline lineno="222"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="223"><highlight class="normal"></highlight></codeline>
 <codeline lineno="224"><highlight class="normal"></highlight></codeline>
@@ -942,13 +942,13 @@
 <codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="interface_8h_1a0034f48efad2f088f2d2ef7eee83c479" kindref="member">imprime_estadoI</ref>(e);</highlight></codeline>
 <codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sscanf(linha,</highlight><highlight class="stringliteral">&quot;%c%c%c%c&quot;</highlight><highlight class="normal">,&amp;c1,&amp;c2,&amp;c3,&amp;c4)<sp/>==<sp/>4<sp/>&amp;&amp;<sp/>c1==</highlight><highlight class="charliteral">&apos;j&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>c2==</highlight><highlight class="charliteral">&apos;o&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>c3==</highlight><highlight class="charliteral">&apos;g&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>c4==<sp/></highlight><highlight class="charliteral">&apos;2&apos;</highlight><highlight class="normal">){</highlight></codeline>
-<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lista<sp/>=<sp/>criar_lista();</highlight></codeline>
-<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lista<sp/>=<sp/>lista_insere_vazias(lista,<sp/>e);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lista<sp/>=<sp/><ref refid="lista_8h_1ae3b99323b6f8f35d80bb69ff1a27985e" kindref="member">criar_lista</ref>();</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lista<sp/>=<sp/><ref refid="lista_8h_1af1a4c0904c2891739e5a9a38644189cb" kindref="member">lista_insere_vazias</ref>(lista,<sp/>e);</highlight></codeline>
 <codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="logica_8h_1a945b03d92d89f5e95b17a9325330d364" kindref="member">joga_euclidiana</ref>(e,lista);</highlight></codeline>
 <codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(sscanf(linha,</highlight><highlight class="stringliteral">&quot;%c%c%c&quot;</highlight><highlight class="normal">,&amp;c1,&amp;c2,&amp;c3)<sp/>==<sp/>3<sp/>&amp;&amp;<sp/>c1==</highlight><highlight class="charliteral">&apos;j&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>c2==</highlight><highlight class="charliteral">&apos;o&apos;</highlight><highlight class="normal"><sp/>&amp;&amp;<sp/>c3==</highlight><highlight class="charliteral">&apos;g&apos;</highlight><highlight class="normal">){</highlight></codeline>
-<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lista<sp/>=<sp/>criar_lista();</highlight></codeline>
-<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lista<sp/>=<sp/>lista_insere_vazias(lista,<sp/>e);</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lista<sp/>=<sp/><ref refid="lista_8h_1ae3b99323b6f8f35d80bb69ff1a27985e" kindref="member">criar_lista</ref>();</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lista<sp/>=<sp/><ref refid="lista_8h_1af1a4c0904c2891739e5a9a38644189cb" kindref="member">lista_insere_vazias</ref>(lista,<sp/>e);</highlight></codeline>
 <codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="logica_8h_1a0d21396d8c7a30be8ca2f081b693cf1b" kindref="member">joga_aleatorio</ref>(e,lista);</highlight></codeline>
 <codeline lineno="304"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="305"><highlight class="normal"></highlight></codeline>

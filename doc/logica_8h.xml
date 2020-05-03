@@ -12,15 +12,15 @@
         <childnode refid="44" relation="include">
         </childnode>
       </node>
-      <node id="44">
-        <label>lista.h</label>
-        <link refid="lista_8h_source"/>
-        <childnode refid="45" relation="include">
-        </childnode>
-      </node>
       <node id="45">
         <label>camada_dados.h</label>
         <link refid="camada__dados_8h"/>
+      </node>
+      <node id="44">
+        <label>lista.h</label>
+        <link refid="lista_8h"/>
+        <childnode refid="45" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
       <sectiondef kind="func">
@@ -71,7 +71,7 @@
           <declname>e</declname>
         </param>
         <param>
-          <type><ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref></type>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
           <declname>lista</declname>
         </param>
         <briefdescription>
@@ -107,7 +107,7 @@
           <declname>e</declname>
         </param>
         <param>
-          <type><ref refid="struct_n_o_d_o" kindref="compound">LISTA</ref></type>
+          <type><ref refid="lista_8h_1a0854699467ad41e82099f108fbd64185" kindref="member">LISTA</ref></type>
           <declname>lista</declname>
         </param>
         <briefdescription>
@@ -262,7 +262,7 @@
 <codeline lineno="6"><highlight class="preprocessor">#ifndef<sp/>___LOGICA_H___</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>___LOGICA_H___</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;lista.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="lista_8h" kindref="compound">lista.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight></codeline>
 <codeline lineno="17"><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="logica_8h_1ac313d7e553b1e2b5f266acb9bfff8141" kindref="member">jogar</ref>(<ref refid="struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref><sp/>c);<sp/></highlight><highlight class="comment">//<sp/>funcao<sp/>que<sp/>modifica<sp/>o<sp/>estado<sp/>do<sp/>jogo<sp/>dependendo<sp/>da<sp/>jogada<sp/>efetuada</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="18"><highlight class="normal"></highlight></codeline>
