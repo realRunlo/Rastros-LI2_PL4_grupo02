@@ -7,8 +7,13 @@
 
 #include "dados.h"
 
+/**
+\brief Estrutura da lista
+*/
 typedef struct NODO {
+    /** Valor*/
     void *valor;
+    /** Próximo valor*/
     struct NODO * prox;
 
 }*LISTA;

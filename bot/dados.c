@@ -181,24 +181,6 @@ void set_jogada_efetuada(ESTADO *e, int j, int jogada, char coluna, int linha){
 }
 
 
-
-
-
-//funcao que retorna as coordenadas de uma jogada ja efetuada
-COORDENADA get_jogada_efetuada(ESTADO *e, int j, int jogada){
-    COORDENADA c;
-    if (j == 1) {
-        c.linha  = e->jogadas[jogada].jogador1.linha;
-        c.coluna = e->jogadas[jogada].jogador1.coluna;
-    }
-    else {
-        c.linha  = e->jogadas[jogada].jogador2.linha;
-        c.coluna = e->jogadas[jogada].jogador2.coluna;
-    }
-    return c;
-}
-
-
 //funcao que retorna a ultima jogada feita
 COORDENADA get_ultima_jogada(ESTADO *e){
     COORDENADA c;

@@ -1,4 +1,4 @@
-# Install script for directory: /home/runlo/LI2/Bot
+# Install script for directory: /home/runlo/Desktop/li2PL4G02/bot
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/runlo/LI2/Bot/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/runlo/Desktop/li2PL4G02/bot/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

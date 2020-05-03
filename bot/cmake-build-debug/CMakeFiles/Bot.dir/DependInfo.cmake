@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/runlo/LI2/Bot/dados.c" "/home/runlo/LI2/Bot/cmake-build-debug/CMakeFiles/Bot.dir/dados.c.o"
-  "/home/runlo/LI2/Bot/funcoes.c" "/home/runlo/LI2/Bot/cmake-build-debug/CMakeFiles/Bot.dir/funcoes.c.o"
-  "/home/runlo/LI2/Bot/lista_bot.c" "/home/runlo/LI2/Bot/cmake-build-debug/CMakeFiles/Bot.dir/lista_bot.c.o"
-  "/home/runlo/LI2/Bot/logica_bot.c" "/home/runlo/LI2/Bot/cmake-build-debug/CMakeFiles/Bot.dir/logica_bot.c.o"
-  "/home/runlo/LI2/Bot/main.c" "/home/runlo/LI2/Bot/cmake-build-debug/CMakeFiles/Bot.dir/main.c.o"
+  "/home/runlo/Desktop/li2PL4G02/bot/dados.c" "/home/runlo/Desktop/li2PL4G02/bot/cmake-build-debug/CMakeFiles/Bot.dir/dados.c.o"
+  "/home/runlo/Desktop/li2PL4G02/bot/funcoes.c" "/home/runlo/Desktop/li2PL4G02/bot/cmake-build-debug/CMakeFiles/Bot.dir/funcoes.c.o"
+  "/home/runlo/Desktop/li2PL4G02/bot/lista_bot.c" "/home/runlo/Desktop/li2PL4G02/bot/cmake-build-debug/CMakeFiles/Bot.dir/lista_bot.c.o"
+  "/home/runlo/Desktop/li2PL4G02/bot/logica_bot.c" "/home/runlo/Desktop/li2PL4G02/bot/cmake-build-debug/CMakeFiles/Bot.dir/logica_bot.c.o"
+  "/home/runlo/Desktop/li2PL4G02/bot/main.c" "/home/runlo/Desktop/li2PL4G02/bot/cmake-build-debug/CMakeFiles/Bot.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
